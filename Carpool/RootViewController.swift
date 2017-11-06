@@ -19,9 +19,7 @@ class RootViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //API.fetchTripsOnce { (<#[Trip]#>) in
-        //    <#code#>
-        //}
+        //API.fetchTripsOnce(completion: <#T##([Trip]) -> Void#>)
         
         
     }
@@ -37,17 +35,17 @@ class RootViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
         cell.textLabel?.text = testArray[indexPath.row]
-        sendToEventDetailVC = testArray[indexPath.row]
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //<#code#>
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        sendToEventDetailVC = testArray[indexPath.row]
+        return indexPath
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let eventDetailVC = segue.destination as! EventDetailViewController
-        eventDetailVC.labelID.text = sendToEventDetailVC
+        eventDetailVC.test = sendToEventDetailVC
     }
 
 
