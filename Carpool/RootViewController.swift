@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreLocation
+import Pods_Carpool
 
 
 class RootViewController: UIViewController {
@@ -14,6 +16,10 @@ class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+       //API.fetchTripsOnce()
+        
+        
     }
 
 
