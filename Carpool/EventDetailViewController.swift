@@ -18,11 +18,15 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     
     var trip: Trip!
+    var user: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        idLabel.text = trip.event.description
+        idLabel.text = user.name
+        eventDescriptionLabel.text = trip.event.description
+        timeLabel.text = trip.event.time
+        locationLabel.text = trip.event.location
         
         
 //        //idLabel.text = self.event.
