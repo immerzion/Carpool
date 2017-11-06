@@ -13,6 +13,7 @@
 		040374D51FB0E76300ECF674 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040374D41FB0E76300ECF674 /* Assets.xcassets */; };
 		040374D81FB0E76300ECF674 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040374D61FB0E76300ECF674 /* LaunchScreen.storyboard */; };
 		2394C52747B15DDF4D4974E1 /* Pods_Carpool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A74DFAF5A0894F0AFD06245 /* Pods_Carpool.framework */; };
+		D730EF501FB0F015000DC3CB /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D730EF4F1FB0F015000DC3CB /* EventDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		25821B9585DDD8F3F066B2F3 /* Pods-Carpool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carpool/Pods-Carpool.debug.xcconfig"; sourceTree = "<group>"; };
 		7A74DFAF5A0894F0AFD06245 /* Pods_Carpool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carpool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F71753FE2C398040F8E139 /* Pods-Carpool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpool.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carpool/Pods-Carpool.release.xcconfig"; sourceTree = "<group>"; };
+		D730EF4F1FB0F015000DC3CB /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			children = (
 				040374CD1FB0E76300ECF674 /* AppDelegate.swift */,
 				040374CF1FB0E76300ECF674 /* RootViewController.swift */,
+				D730EF4F1FB0F015000DC3CB /* EventDetailViewController.swift */,
 				040374D11FB0E76300ECF674 /* Main.storyboard */,
 				040374D41FB0E76300ECF674 /* Assets.xcassets */,
 				040374D61FB0E76300ECF674 /* LaunchScreen.storyboard */,
@@ -217,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D730EF501FB0F015000DC3CB /* EventDetailViewController.swift in Sources */,
 				040374D01FB0E76300ECF674 /* RootViewController.swift in Sources */,
 				040374CE1FB0E76300ECF674 /* AppDelegate.swift in Sources */,
 			);
