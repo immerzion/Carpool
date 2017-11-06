@@ -20,6 +20,8 @@ class EventDetailViewController: UIViewController {
     var trip: Trip!
     var user: User!
     
+    //test
+    
     let locationManager = CLLocationManager()
     let savannah = CLLocation(latitude: 32.076176, longitude: -81.088371)
     var userLocation = CLLocation()
