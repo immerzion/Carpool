@@ -15,24 +15,22 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var eventDescriptionLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var timeOfDayLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
     var trip: Trip!
-    var user: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        idLabel.text = user.name
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, h:mm a"
+        let tripDate = formatter.string(from: trip.event.time)
+        
+        //timeOfDayLabel.text =
         eventDescriptionLabel.text = trip.event.description
-        timeLabel.text = trip.event.time
-        locationLabel.text = trip.event.location
-        
-        
-//        //idLabel.text = self.event.
-//        eventDescriptionLabel.text = self.event.description
-//        timeLabel.text = test
-//        locationLabel.text = test
+        timeLabel.text = tripDate
+        //locationLabel.text = trip.event.location
     }
     
 }
