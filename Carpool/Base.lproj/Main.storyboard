@@ -101,7 +101,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="labelID" destination="aaM-bz-9Mw" id="udO-1D-YeI"/>
+                        <outlet property="eventDescriptionLabel" destination="CN7-G5-hq0" id="RNj-1o-URd"/>
+                        <outlet property="idLabel" destination="aaM-bz-9Mw" id="udO-1D-YeI"/>
+                        <outlet property="locationLabel" destination="P5Q-0x-eyM" id="QdO-mF-GDK"/>
+                        <outlet property="timeLabel" destination="6n2-kt-OCE" id="eyG-LF-AIH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKu-oe-SCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
