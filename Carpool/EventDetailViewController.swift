@@ -10,10 +10,14 @@ import UIKit
 
 class EventDetailViewController: UIViewController {
     
+    @IBOutlet weak var labelID: UILabel!
+    
+    var test = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        labelID.text = test
     }
     
 }
