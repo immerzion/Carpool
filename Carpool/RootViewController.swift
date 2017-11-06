@@ -10,7 +10,7 @@ import CoreLocation
 import CarpoolKit
 import UIKit
 
-class RootViewController: UIViewController {
+class RootViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
