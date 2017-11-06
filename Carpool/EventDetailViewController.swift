@@ -7,17 +7,27 @@
 //
 
 import UIKit
+import CarpoolKit
+import CoreLocation
 
 class EventDetailViewController: UIViewController {
     
-    @IBOutlet weak var labelID: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var eventDescriptionLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
     
+    var event: [Event] = []
     var test = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        labelID.text = test
+        
+//        //idLabel.text = self.event.
+//        eventDescriptionLabel.text = self.event.description
+//        timeLabel.text = test
+//        locationLabel.text = test
     }
     
 }

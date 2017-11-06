@@ -47,7 +47,7 @@ class RootViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let eventDetailVC = segue.destination as! EventDetailViewController
-        eventDetailVC.labelID.text = sendToEventDetailVC
+        eventDetailVC.idLabel.text = sendToEventDetailVC
     }
 
 
