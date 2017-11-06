@@ -12,42 +12,30 @@ import UIKit
 
 class RootViewController: UITableViewController {
     
-    let testArray = ["zero", "one", "two", "three", "four", "five"]
-    var sendToEventDetailVC = ""
+    var trips: [Trip] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        //API.fetchTripsOnce(completion: <#T##([Trip]) -> Void#>)
-        
-        
-    }
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        API.fetchTripsOnce { trips in
+            self.trips = trips
+            self.tableView.reloadData()
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return trips.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
-        cell.textLabel?.text = testArray[indexPath.row]
+        cell.textLabel?.text = trips[indexPath.row].event.description
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        sendToEventDetailVC = testArray[indexPath.row]
-        return indexPath
-    }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let eventDetailVC = segue.destination as! EventDetailViewController
-        eventDetailVC.test = sendToEventDetailVC
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        eventDetailVC.trip = trips[indexPath.row]
     }
-
-
 }
-
