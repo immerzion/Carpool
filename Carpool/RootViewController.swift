@@ -11,7 +11,7 @@ import CoreLocation
 import Pods_Carpool
 
 
-class RootViewController: UITableViewController {
+class RootViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
