@@ -17,7 +17,9 @@ class TripDetailViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timeOfDayLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var dropOffPickUpButton: UIButton!
+   
+    @IBOutlet weak var pickUpButton: UIButton!
+    @IBOutlet weak var dropOffButton: UIButton!
     
     
     var trip: Trip!
@@ -27,18 +29,13 @@ class TripDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //idLabel.text = user.name
-        eventDescriptionLabel.text = trip.event.description
-        
+ 
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d"
         let tripDate = formatter.string(from: trip.event.time)
-        // change so it shows set date for particular event
         
         formatter.dateFormat = "h:mm a"
         let tripTime = formatter.string(from: trip.event.time)
-        // change so it shows set time for particular event
         
         idLabel.text = "Frank"
         timeOfDayLabel.text = tripTime
@@ -46,12 +43,24 @@ class TripDetailViewController: UIViewController {
         timeLabel.text = tripDate
         locationLabel.text = "location"
         
+        if trip.pickUp.isClaimed {
+            pickUpButton.isHidden = true
+        } else {
+            pickUpButton.isHidden = false
+        }
+        
+        if trip.dropOff.isClaimed {
+            dropOffButton.isHidden = true
+        } else {
+            dropOffButton.isHidden = false
+        }
+        
     }
     
     @IBAction func onPickUpPressed(_ sender: UIButton) {
         alertClaimTrip()
     }
-    @IBAction func onDropOffPressed(_ sender: Any) {
+    @IBAction func onDropOffPressed(_ sender: UIButton) {
         alertClaimTrip()
     }
     

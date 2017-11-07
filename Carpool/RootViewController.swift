@@ -42,9 +42,16 @@ class RootViewController: UITableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let eventDetailVC = segue.destination as! TripDetailViewController
+        if segue.identifier == "TripDetail" {
+        let tripDetailVC = segue.destination as! TripDetailViewController
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        eventDetailVC.trip = trips[indexPath.row]
+        tripDetailVC.trip = trips[indexPath.row]
+        }
+        if segue.identifier == "CreateTrip" {
+            let createTripVC = segue.destination as! CreateTripViewController
+            //guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            //createTripVC.trip = trips[indexPath.row]
+        }
     }
 }
 
