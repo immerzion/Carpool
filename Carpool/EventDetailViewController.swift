@@ -23,7 +23,7 @@ class EventDetailViewController: UIViewController {
     var trip: Trip!
     var user: User!
     
-
+    //trying to commit
     // update to tableview instead of uiview
 
     override func viewDidLoad() {
