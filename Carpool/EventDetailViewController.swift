@@ -22,7 +22,7 @@ class EventDetailViewController: UIViewController {
     
     var trip: Trip!
 
-    // update to tableview
+    // update to tableview instead of uiview
 
     override func viewDidLoad() {
         super.viewDidLoad()
