@@ -50,10 +50,28 @@
             </objects>
             <point key="canvasLocation" x="928.79999999999995" y="110.19490254872565"/>
         </scene>
-        <!--Event Detail View Controller-->
+        <!--Create Trip View Controller-->
+        <scene sceneID="EPd-rs-Gom">
+            <objects>
+                <viewController id="RYI-9f-d97" customClass="CreateTripViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fn5-l7-aMj"/>
+                        <viewControllerLayoutGuide type="bottom" id="2nk-V5-r9u"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LMA-xn-Lwc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ehE-L8-6z8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="937" y="803"/>
+        </scene>
+        <!--Trip Detail View Controller-->
         <scene sceneID="PWD-q4-dCk">
             <objects>
-                <viewController id="yec-ZK-3I9" customClass="EventDetailViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yec-ZK-3I9" customClass="TripDetailViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7FD-lg-KKP"/>
                         <viewControllerLayoutGuide type="bottom" id="Bkj-e6-0cC"/>
@@ -66,47 +84,42 @@
                                 <rect key="frame" x="16" y="64" width="343" height="603"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaM-bz-9Mw">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="86"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="100.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="event description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CN7-G5-hq0">
-                                        <rect key="frame" x="0.0" y="86" width="343" height="86.5"/>
+                                        <rect key="frame" x="0.0" y="100.5" width="343" height="100.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1i-PT-PgH">
-                                        <rect key="frame" x="0.0" y="172.5" width="343" height="86"/>
+                                        <rect key="frame" x="0.0" y="201" width="343" height="100.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6n2-kt-OCE">
-                                        <rect key="frame" x="0.0" y="258.5" width="343" height="86"/>
+                                        <rect key="frame" x="0.0" y="301.5" width="343" height="100.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5Q-0x-eyM">
-                                        <rect key="frame" x="0.0" y="344.5" width="343" height="86"/>
+                                        <rect key="frame" x="0.0" y="402" width="343" height="100.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="drop off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6r-Xo-Atr">
-                                        <rect key="frame" x="0.0" y="430.5" width="343" height="86.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pick up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xr-lt-330">
-                                        <rect key="frame" x="0.0" y="517" width="343" height="86"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4c-ak-Mc8">
+                                        <rect key="frame" x="0.0" y="502.5" width="343" height="100.5"/>
+                                        <state key="normal" title="Carpool It!"/>
+                                        <connections>
+                                            <action selector="dropOffButton:" destination="yec-ZK-3I9" eventType="touchUpInside" id="wAz-bN-JNH"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -119,11 +132,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dropOffLabel" destination="C6r-Xo-Atr" id="MZS-en-kGN"/>
+                        <outlet property="dropOffButton" destination="f4c-ak-Mc8" id="qLO-P5-oaW"/>
                         <outlet property="eventDescriptionLabel" destination="CN7-G5-hq0" id="RNj-1o-URd"/>
                         <outlet property="idLabel" destination="aaM-bz-9Mw" id="udO-1D-YeI"/>
                         <outlet property="locationLabel" destination="P5Q-0x-eyM" id="QdO-mF-GDK"/>
-                        <outlet property="pickUpLabel" destination="2xr-lt-330" id="yMc-Zq-nwD"/>
                         <outlet property="timeLabel" destination="6n2-kt-OCE" id="eyG-LF-AIH"/>
                         <outlet property="timeOfDayLabel" destination="g1i-PT-PgH" id="Tl1-nk-bJo"/>
                     </connections>

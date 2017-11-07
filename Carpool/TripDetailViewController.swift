@@ -10,18 +10,22 @@ import UIKit
 import CarpoolKit
 
 
-class EventDetailViewController: UIViewController {
+class TripDetailViewController: UIViewController {
     
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var eventDescriptionLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timeOfDayLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var dropOffLabel: UILabel!
-    @IBOutlet weak var pickUpLabel: UILabel!
+    @IBOutlet weak var dropOffPickUpButton: UIButton!
+
     
     var trip: Trip!
     var user: User!
+    
+    @IBAction func dropOffPickUpButton(_ sender: Any) {
+    }
+
     
     //trying to commit
     // update to tableview instead of uiview
@@ -46,7 +50,7 @@ class EventDetailViewController: UIViewController {
         eventDescriptionLabel.text = trip.event.description
         timeLabel.text = tripDate
         locationLabel.text = "location"
-        //dropOffLabel.text = trip.dropOff
+        //dropOffLabel.text =
         
         
     }
