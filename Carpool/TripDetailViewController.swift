@@ -32,13 +32,9 @@ class TripDetailViewController: UIViewController {
         super.viewDidLoad()
         
         resetButtons()
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM d"
-        let tripDate = formatter.string(from: trip.event.time)
-        
-        formatter.dateFormat = "h:mm a"
-        let tripTime = formatter.string(from: trip.event.time)
+
+        let tripDate = trip.event.time.prettyDate
+        let tripTime = trip.event.time.prettyTime
         
         idLabel.text = "Frank"
         timeOfDayLabel.text = tripTime
@@ -46,6 +42,7 @@ class TripDetailViewController: UIViewController {
         timeLabel.text = tripDate
         locationLabel.text = "location"
         
+        //no longer exists!
         if trip.pickUp.isClaimed {
             disablePickup()
         } else {

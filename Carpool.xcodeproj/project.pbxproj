@@ -14,6 +14,7 @@
 		040374D81FB0E76300ECF674 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040374D61FB0E76300ECF674 /* LaunchScreen.storyboard */; };
 		040374E01FB1FAA900ECF674 /* CoreLocationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040374DF1FB1FAA900ECF674 /* CoreLocationCode.swift */; };
 		040374E31FB2034400ECF674 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 040374E21FB2034400ECF674 /* GoogleService-Info.plist */; };
+		047BC4D61FB2558F008D64BA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BC4D51FB2558F008D64BA /* Extensions.swift */; };
 		2394C52747B15DDF4D4974E1 /* Pods_Carpool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A74DFAF5A0894F0AFD06245 /* Pods_Carpool.framework */; };
 		D730EF501FB0F015000DC3CB /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D730EF4F1FB0F015000DC3CB /* TripDetailViewController.swift */; };
 		D7C7B7B11FB208110083DDD2 /* CreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C7B7B01FB208110083DDD2 /* CreateTripViewController.swift */; };
@@ -29,6 +30,7 @@
 		040374D91FB0E76300ECF674 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		040374DF1FB1FAA900ECF674 /* CoreLocationCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationCode.swift; sourceTree = "<group>"; };
 		040374E21FB2034400ECF674 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		047BC4D51FB2558F008D64BA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		25821B9585DDD8F3F066B2F3 /* Pods-Carpool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carpool/Pods-Carpool.debug.xcconfig"; sourceTree = "<group>"; };
 		7A74DFAF5A0894F0AFD06245 /* Pods_Carpool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carpool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F71753FE2C398040F8E139 /* Pods-Carpool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpool.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carpool/Pods-Carpool.release.xcconfig"; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				040374DF1FB1FAA900ECF674 /* CoreLocationCode.swift */,
 				040374D11FB0E76300ECF674 /* Main.storyboard */,
 				D7C7B7B01FB208110083DDD2 /* CreateTripViewController.swift */,
+				047BC4D51FB2558F008D64BA /* Extensions.swift */,
 				040374D41FB0E76300ECF674 /* Assets.xcassets */,
 				040374D61FB0E76300ECF674 /* LaunchScreen.storyboard */,
 				040374D91FB0E76300ECF674 /* Info.plist */,
@@ -180,10 +183,20 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Carpool/Pods-Carpool-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CarpoolKit/CarpoolKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCommunity/FirebaseCommunity.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CarpoolKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCommunity.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -231,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D730EF501FB0F015000DC3CB /* TripDetailViewController.swift in Sources */,
+				047BC4D61FB2558F008D64BA /* Extensions.swift in Sources */,
 				040374D01FB0E76300ECF674 /* RootViewController.swift in Sources */,
 				040374E01FB1FAA900ECF674 /* CoreLocationCode.swift in Sources */,
 				040374CE1FB0E76300ECF674 /* AppDelegate.swift in Sources */,

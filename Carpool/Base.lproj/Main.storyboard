@@ -142,7 +142,7 @@
                         <outlet property="dropOffTimeDisplay" destination="bCQ-sz-iya" id="W1V-eO-gBk"/>
                         <outlet property="eventDescriptionTextField" destination="aRP-gU-04H" id="JiN-mr-Gqk"/>
                         <outlet property="locationTextField" destination="YJB-ca-VIk" id="LL9-Sr-bJW"/>
-                        <outlet property="onPickUpDropOffSegBut" destination="C8y-dr-90Z" id="OTZ-MD-lmO"/>
+                        <outlet property="onPodSegPressed" destination="6XT-jw-Zjv" id="naz-7E-vFi"/>
                         <outlet property="pickUpTimeDisplay" destination="s5i-Ug-UZx" id="jyH-w6-MFM"/>
                     </connections>
                 </viewController>
