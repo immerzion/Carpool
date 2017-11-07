@@ -15,12 +15,20 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var eventDescriptionLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    //@IBOutlet weak var timeOfDayLabel: UILabel!
+    @IBOutlet weak var timeOfDayLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var dropOffLabel: UILabel!
     @IBOutlet weak var pickUpLabel: UILabel!
     
     var trip: Trip!
+    var user: User!
+    
+    //test
+    
+    let locationManager = CLLocationManager()
+    let savannah = CLLocation(latitude: 32.076176, longitude: -81.088371)
+    var userLocation = CLLocation()
+    
 
     // update to tableview instead of uiview
 
@@ -28,15 +36,22 @@ class EventDetailViewController: UIViewController {
         super.viewDidLoad()
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMM d, h:mm a"
+        formatter.dateFormat = "MMM d"
         let tripDate = formatter.string(from: trip.event.time)
+        // change so it shows set date for particular event
+        
+        formatter.dateFormat = "h:mm a"
+        let tripTime = formatter.string(from: trip.event.time)
+        // change so it shows set time for particular event
         
         idLabel.text = "Frank"
-        //timeOfDayLabel.text =
+        timeOfDayLabel.text = tripTime
         eventDescriptionLabel.text = trip.event.description
         timeLabel.text = tripDate
         locationLabel.text = "location"
         //dropOffLabel.text = trip.dropOff
+        
+        
     }
     
     
