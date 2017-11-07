@@ -30,6 +30,14 @@ class RootViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
         cell.textLabel?.text = trips[indexPath.row].event.description
+        
+        if !trips[indexPath.row].pickUp.isClaimed {
+            cell.backgroundColor = UIColor.red
+        }
+        
+        if !trips[indexPath.row].dropOff.isClaimed {
+            cell.backgroundColor = UIColor.red
+        }
         return cell
     }
 
@@ -39,3 +47,4 @@ class RootViewController: UITableViewController {
         eventDetailVC.trip = trips[indexPath.row]
     }
 }
+

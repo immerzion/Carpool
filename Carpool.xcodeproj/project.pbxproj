@@ -13,6 +13,7 @@
 		040374D51FB0E76300ECF674 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040374D41FB0E76300ECF674 /* Assets.xcassets */; };
 		040374D81FB0E76300ECF674 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040374D61FB0E76300ECF674 /* LaunchScreen.storyboard */; };
 		040374E01FB1FAA900ECF674 /* CoreLocationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040374DF1FB1FAA900ECF674 /* CoreLocationCode.swift */; };
+		040374E31FB2034400ECF674 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 040374E21FB2034400ECF674 /* GoogleService-Info.plist */; };
 		2394C52747B15DDF4D4974E1 /* Pods_Carpool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A74DFAF5A0894F0AFD06245 /* Pods_Carpool.framework */; };
 		D730EF501FB0F015000DC3CB /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D730EF4F1FB0F015000DC3CB /* EventDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,7 @@
 		040374D71FB0E76300ECF674 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		040374D91FB0E76300ECF674 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		040374DF1FB1FAA900ECF674 /* CoreLocationCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationCode.swift; sourceTree = "<group>"; };
+		040374E21FB2034400ECF674 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		25821B9585DDD8F3F066B2F3 /* Pods-Carpool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carpool/Pods-Carpool.debug.xcconfig"; sourceTree = "<group>"; };
 		7A74DFAF5A0894F0AFD06245 /* Pods_Carpool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carpool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F71753FE2C398040F8E139 /* Pods-Carpool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpool.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carpool/Pods-Carpool.release.xcconfig"; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				040374D41FB0E76300ECF674 /* Assets.xcassets */,
 				040374D61FB0E76300ECF674 /* LaunchScreen.storyboard */,
 				040374D91FB0E76300ECF674 /* Info.plist */,
+				040374E21FB2034400ECF674 /* GoogleService-Info.plist */,
 			);
 			path = Carpool;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				040374D81FB0E76300ECF674 /* LaunchScreen.storyboard in Resources */,
+				040374E31FB2034400ECF674 /* GoogleService-Info.plist in Resources */,
 				040374D51FB0E76300ECF674 /* Assets.xcassets in Resources */,
 				040374D31FB0E76300ECF674 /* Main.storyboard in Resources */,
 			);
