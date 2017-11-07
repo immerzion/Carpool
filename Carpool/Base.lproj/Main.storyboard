@@ -123,7 +123,7 @@
                                         <rect key="frame" x="0.0" y="502.5" width="343" height="100.5"/>
                                         <state key="normal" title="Carpool It!"/>
                                         <connections>
-                                            <action selector="dropOffButton:" destination="yec-ZK-3I9" eventType="touchUpInside" id="wAz-bN-JNH"/>
+                                            <action selector="onDropOffPickUpPressed:" destination="yec-ZK-3I9" eventType="touchUpInside" id="Dsg-3W-bbx"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -138,7 +138,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dropOffButton" destination="f4c-ak-Mc8" id="qLO-P5-oaW"/>
+                        <outlet property="dropOffPickUpButton" destination="f4c-ak-Mc8" id="lXa-Fu-gKp"/>
                         <outlet property="eventDescriptionLabel" destination="CN7-G5-hq0" id="RNj-1o-URd"/>
                         <outlet property="idLabel" destination="aaM-bz-9Mw" id="udO-1D-YeI"/>
                         <outlet property="locationLabel" destination="P5Q-0x-eyM" id="QdO-mF-GDK"/>
@@ -148,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKu-oe-SCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1680.8" y="109.29535232383809"/>
+            <point key="canvasLocation" x="1775" y="109"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="odO-ib-wbP">
@@ -166,7 +166,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUF-HS-JzY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="70" y="83"/>
+            <point key="canvasLocation" x="94" y="109"/>
         </scene>
     </scenes>
 </document>

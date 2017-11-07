@@ -18,18 +18,13 @@ class TripDetailViewController: UIViewController {
     @IBOutlet weak var timeOfDayLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var dropOffPickUpButton: UIButton!
-
+    
     
     var trip: Trip!
     var user: User!
     
-    @IBAction func dropOffPickUpButton(_ sender: Any) {
-    }
-
-    
-    //trying to commit
     // update to tableview instead of uiview
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,12 +45,27 @@ class TripDetailViewController: UIViewController {
         eventDescriptionLabel.text = trip.event.description
         timeLabel.text = tripDate
         locationLabel.text = "location"
-        //dropOffLabel.text =
         
+    }
+    
+    @IBAction func onDropOffPickUpPressed(_ sender: UIButton) {
+        alertClaimTrip()
+    }
+    
+    func alertClaimTrip() {
+        
+        let message = "Do you want claim this trip?"
+        // create the alert
+        let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
         
     }
     
 }
-
-
 
