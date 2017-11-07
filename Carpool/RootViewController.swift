@@ -22,9 +22,15 @@ class RootViewController: UITableViewController {
 //            self.tableView.reloadData()
 //        }
         
-        API.observeTrips(completion: { trips in
-            self.trips = trips
-            self.tableView.reloadData()
+        API.observeTrips(completion: { result in
+            switch result {
+            case .success(let trips):
+                self.trips = trips
+                self.tableView.reloadData()
+            case .failure(let error):
+                //TODO
+                print(error)
+            }
         })
     }
     
@@ -36,11 +42,11 @@ class RootViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
         cell.textLabel?.text = trips[indexPath.row].event.description
         
-        if !trips[indexPath.row].pickUp.isClaimed {
+        if !(trips[indexPath.row].pickUp != nil) {
             cell.backgroundColor = UIColor.red
         }
         
-        if !trips[indexPath.row].dropOff.isClaimed {
+        if !(trips[indexPath.row].dropOff != nil)  {
             cell.backgroundColor = UIColor.red
         }
         return cell

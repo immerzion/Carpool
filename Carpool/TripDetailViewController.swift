@@ -43,13 +43,13 @@ class TripDetailViewController: UIViewController {
         locationLabel.text = "location"
         
         //no longer exists!
-        if trip.pickUp.isClaimed {
+        if trip.pickUp != nil {
             disablePickup()
         } else {
             resetPickup()
         }
         
-        if trip.dropOff.isClaimed {
+        if trip.dropOff != nil {
             disableDropoff()
         } else {
             resetDropoff()
@@ -57,15 +57,28 @@ class TripDetailViewController: UIViewController {
     }
     
     func claimCurrentLeg(_ pod: Leg) -> Void {
-        API.claimLeg(leg: pod, trip: trip, completion: { (error) in
-            //TODO
-            if pod == trip.pickUp {
-                disablePickup()
-            }
-            if pod == trip.dropOff {
-                disableDropoff()
-            }
-        })
+        print(pod)
+        
+//        switch pod {
+//        case trip.pickUp:
+//            API.claimPickUp(trip: trip) { (error) in
+//                self.disablePickup()
+//        }
+//        case trip.dropOff:
+//            API.claimDropOff(trip: trip) { (error) in
+//                self.disableDropoff()
+//            }
+//        }
+        
+//        API.claimLeg(leg: pod, trip: trip, completion: { (error) in
+//            //TODO
+//            if pod == trip.pickUp {
+//                disablePickup()
+//            }
+//            if pod == trip.dropOff {
+//                disableDropoff()
+//            }
+//        })
     }
     
     func resetButtons() {
