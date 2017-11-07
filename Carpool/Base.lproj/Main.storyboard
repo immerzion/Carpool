@@ -169,6 +169,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4c-ak-Mc8">
                                         <rect key="frame" x="0.0" y="430.5" width="343" height="86.5"/>
                                         <state key="normal" title="Pick Up!"/>
+                                        <connections>
+                                            <action selector="onPickUpPressed:" destination="yec-ZK-3I9" eventType="touchUpInside" id="ZhJ-4h-8Q7"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCN-pk-Vab">
                                         <rect key="frame" x="0.0" y="517" width="343" height="86"/>

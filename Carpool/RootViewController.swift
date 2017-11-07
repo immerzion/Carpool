@@ -17,10 +17,15 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        API.fetchTripsOnce { trips in
+//        API.fetchTripsOnce { trips in
+//            self.trips = trips
+//            self.tableView.reloadData()
+//        }
+        
+        API.observeTrips(completion: { trips in
             self.trips = trips
             self.tableView.reloadData()
-        }
+        })
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
