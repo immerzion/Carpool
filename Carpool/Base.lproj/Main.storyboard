@@ -44,7 +44,13 @@
                             <outlet property="delegate" destination="BYZ-38-t0r" id="BSs-E1-Ng1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Sol-F9-H0U"/>
+                    <navigationItem key="navigationItem" id="Sol-F9-H0U">
+                        <barButtonItem key="rightBarButtonItem" title="Add a Carpool" id="iUS-iu-LYi">
+                            <connections>
+                                <segue destination="RYI-9f-d97" kind="show" id="QN9-xi-s8r"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dB-Lk-w81" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -66,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehE-L8-6z8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="937" y="803"/>
+            <point key="canvasLocation" x="929" y="875"/>
         </scene>
         <!--Trip Detail View Controller-->
         <scene sceneID="PWD-q4-dCk">
