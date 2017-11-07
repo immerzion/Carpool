@@ -48,7 +48,10 @@ class TripDetailViewController: UIViewController {
         
     }
     
-    @IBAction func onDropOffPickUpPressed(_ sender: UIButton) {
+    @IBAction func onPickUpPressed(_ sender: UIButton) {
+        alertClaimTrip()
+    }
+    @IBAction func onDropOffPressed(_ sender: Any) {
         alertClaimTrip()
     }
     
