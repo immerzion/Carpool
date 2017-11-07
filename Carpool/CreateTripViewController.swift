@@ -10,5 +10,8 @@ import UIKit
 
 class CreateTripViewController: UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     
 }
