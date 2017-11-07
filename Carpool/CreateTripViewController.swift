@@ -7,11 +7,103 @@
 //
 
 import UIKit
+import CarpoolKit
+import CoreLocation
+
 
 class CreateTripViewController: UIViewController {
     
+    @IBOutlet weak var onPickUpDropOffSegBut: UIStackView!
+    
+    
+    @IBOutlet weak var eventDescriptionTextField: UITextField!
+    @IBOutlet weak var locationTextField: UITextField!
+    
+    
+    @IBOutlet weak var dateSelected: UIDatePicker!
+    
+    @IBOutlet weak var pickUpTimeDisplay: UILabel!
+    @IBOutlet weak var dropOffTimeDisplay: UILabel!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
     }
+    
+    var selectedDate = Date()
+    let savannah = CLLocation(latitude: 32.076176, longitude: -81.088371)
+    
+    func validateText() {
+        var event = ""
+        var location =  ""
+        var pickUpTime = ""
+        var dropOffTime = ""
+ 
+        if eventDescriptionTextField.text == "" {
+            eventDescriptionTextField.textColor = UIColor.red
+        } else {
+            event = eventDescriptionTextField.text!
+        }
+        
+        if locationTextField.text == "" {
+            locationTextField.textColor = UIColor.red
+        } else {
+            location = locationTextField.text!
+        }
+        
+        if pickUpTimeDisplay.text == "" {
+            pickUpTimeDisplay.textColor = UIColor.red
+        } else {
+            pickUpTime = pickUpTimeDisplay.text!
+        }
+        
+        if dropOffTimeDisplay.text == "" {
+            dropOffTimeDisplay.textColor = UIColor.red
+        } else {
+            dropOffTime = dropOffTimeDisplay.text!
+        }
+        if event == "", location == "", pickUpTime == "", dropOffTime == "" {
+            print("you need to enter more data")
+        } else {
+            API.createTrip(eventDescription: event, eventTime: selectedDate, eventLocation: savannah, completion: { (Trip) in
+                //
+            })
+            }
+        }
+    
+        
+    override func viewDidAppear(_ animated: Bool) {
+        dateSelected.minimumDate = Date()
+        dateSelected.setDate(selectedDate, animated: true)
+    }
+    
+    
+    
+    
+    @IBAction func onPickUpDropOffSeg(_ sender: UISegmentedControl) {
+//        switch sender.selectedSegmentIndex == 0 {
+//        case true:
+//        case false:
+//        }
+    }
+    
+    @IBAction func timeSelected(_ sender: UIDatePicker) {
+//        switch onPickUpDropOffSegBut.selec {
+//        case <#pattern#>:
+//            <#code#>
+//        default:
+//            <#code#>
+//        }
+    }
+    
+    @IBAction func submitCarpoolButton(_ sender: UIButton) {
+        validateText()
+    }
+    
+    
     
 }
