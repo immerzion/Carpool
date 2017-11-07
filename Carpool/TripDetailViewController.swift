@@ -48,6 +48,10 @@ class TripDetailViewController: UIViewController {
         
     }
     
+    func confirmClaimLeg() {
+        API.claimLeg(leg: <#T##Leg#>, trip: <#T##Trip#>, completion: <#T##(API.Error?) -> Void#>)
+    }
+    
     @IBAction func onDropOffPickUpPressed(_ sender: UIButton) {
         alertClaimTrip()
     }
