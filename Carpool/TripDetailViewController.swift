@@ -12,10 +12,10 @@ import CarpoolKit
 
 class TripDetailViewController: UIViewController {
     
-    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var eventDescriptionLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var timeOfDayLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
     @IBOutlet weak var pickUpButton: UIButton!
@@ -25,8 +25,13 @@ class TripDetailViewController: UIViewController {
     var trip: Trip!
     var user: User!
     var podLeg: Leg!
+    var childName = "Tommy Boy"
     
-    // update to tableview instead of uiview
+    // update to tableview instead of uiview?
+    //Add ability to cancel a confirmation, popup window for reason why cancellation is needed.
+    //Send notification to affected parents and update the database.
+    
+    //child mode - lets kids know who is picking them up - stretch goal security feature.
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +41,12 @@ class TripDetailViewController: UIViewController {
         let tripDate = trip.event.time.prettyDate
         let tripTime = trip.event.time.prettyTime
         
-        idLabel.text = "Frank"
-        timeOfDayLabel.text = tripTime
+        nameLabel.text = childName
+        timeLabel.text = tripTime
         eventDescriptionLabel.text = trip.event.description
-        timeLabel.text = tripDate
+        dateLabel.text = tripDate
         locationLabel.text = "location"
         
-        //no longer exists!
         if trip.pickUp != nil {
             disablePickup()
         } else {
@@ -54,31 +58,6 @@ class TripDetailViewController: UIViewController {
         } else {
             resetDropoff()
         }
-    }
-    
-    func claimCurrentLeg(_ pod: Leg) -> Void {
-        print(pod)
-        
-//        switch pod {
-//        case trip.pickUp:
-//            API.claimPickUp(trip: trip) { (error) in
-//                self.disablePickup()
-//        }
-//        case trip.dropOff:
-//            API.claimDropOff(trip: trip) { (error) in
-//                self.disableDropoff()
-//            }
-//        }
-        
-//        API.claimLeg(leg: pod, trip: trip, completion: { (error) in
-//            //TODO
-//            if pod == trip.pickUp {
-//                disablePickup()
-//            }
-//            if pod == trip.dropOff {
-//                disableDropoff()
-//            }
-//        })
     }
     
     func resetButtons() {
@@ -110,23 +89,42 @@ class TripDetailViewController: UIViewController {
     
     
     @IBAction func onPickUpPressed(_ sender: UIButton) {
-        podLeg = trip.pickUp
-        alertClaimTrip()
+        confirmPickUp()
     }
     @IBAction func onDropOffPressed(_ sender: UIButton) {
-        podLeg = trip.dropOff
-        alertClaimTrip()
+        confirmDropOff()
     }
     
-    func alertClaimTrip() {
+    func confirmPickUp() {
         
-        let message = "Do you want claim this trip?"
+        let message = "Do you want to pickup \(childName)?"
         // create the alert
         let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
         
         // add action buttons
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert) in
-            self.claimCurrentLeg(self.podLeg)
+            API.claimPickUp(trip: self.trip, completion: { (error) in
+                self.disablePickup()
+            })
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func confirmDropOff() {
+        
+        let message = "Do you want to drop off \(childName)?"
+        // create the alert
+        let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add action buttons
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert) in
+            API.claimDropOff(trip: self.trip, completion: { (error) in
+                self.disableDropoff()
+            })
         }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
         

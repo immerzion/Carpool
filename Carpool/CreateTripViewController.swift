@@ -14,11 +14,15 @@ import CoreLocation
 class CreateTripViewController: UIViewController {
     
     @IBOutlet weak var onPodSegPressed: UISegmentedControl!
+    
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var eventDescriptionTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var dateSelected: UIDatePicker!
     @IBOutlet weak var pickUpTimeDisplay: UILabel!
     @IBOutlet weak var dropOffTimeDisplay: UILabel!
+    
+    @IBOutlet weak var generatedEventLabel: UILabel!
     
     var pickUpTime = Date()
     var dropOffTime = Date()
@@ -59,6 +63,14 @@ class CreateTripViewController: UIViewController {
         validateText()
     }
     
+    func generateEventDescription() -> String {
+        let name = nameTextField.text
+        let location = locationTextField.text
+        var desc = "On \(pickUpTime.prettyDay), \(name) needs to be PICKED UP from \(location) at \(pickUpTime.prettyTime)"
+        return desc
+    }
+    
+////////Current code works for pickup only.  Need to add code for dropoff.
     
     func validateText() {
         var event = ""
@@ -93,6 +105,7 @@ class CreateTripViewController: UIViewController {
         if event == "" || location == "" || pickUpTimeDisplay.text == "" {
             print("you need to enter more data")
         } else {
+            generatedEventLabel.text = generateEventDescription()
             API.createTrip(eventDescription: event, eventTime: pickUpTime, eventLocation: savannah, completion: { (trip) in
                 print(trip)
             })

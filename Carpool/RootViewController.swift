@@ -10,7 +10,6 @@ import CoreLocation
 import CarpoolKit
 import UIKit
 
-//test again
 
 class RootViewController: UITableViewController {
     
@@ -18,11 +17,6 @@ class RootViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        API.fetchTripsOnce { trips in
-//            self.trips = trips
-//            self.tableView.reloadData()
-//        }
         
         API.observeTrips(completion: { result in
             switch result {
@@ -34,6 +28,14 @@ class RootViewController: UITableViewController {
                 print(error)
             }
         })
+    }
+    
+//VC needs title.
+//Realtime clock would be nice
+//Hide and possibly show fully scheduled trips
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
