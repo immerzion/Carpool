@@ -172,10 +172,6 @@
                                                     <action selector="submitCarpoolButton:" destination="RYI-9f-d97" eventType="touchUpInside" id="Efk-Jq-Sdx"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFK-JC-ZQz">
-                                                <rect key="frame" x="0.0" y="463" width="343" height="124"/>
-                                                <state key="normal" title="test"/>
-                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
