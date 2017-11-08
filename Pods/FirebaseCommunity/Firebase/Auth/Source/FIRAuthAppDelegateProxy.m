@@ -40,22 +40,6 @@ static id noop(id object, SEL cmd, ...) {
 }
 #endif
 
-/** @fn isIOS9orLater
-    @brief Checks whether the iOS version is 9 or later.
-    @returns Whether the iOS version is 9 or later.
- */
-static BOOL isIOS9orLater() {
-#if defined(__IPHONE_11_0) && (__IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0)
-  if (@available(iOS 9.0, *)) {
-    return YES;
-  }
-  return NO;
-#else
-  // UIApplicationOpenURLOptionsAnnotationKey is only available on iOS 9+.
-  return &UIApplicationOpenURLOptionsAnnotationKey != NULL;
-#endif
-}
-
 @implementation FIRAuthAppDelegateProxy {
   /** @var _appDelegate
       @brief The application delegate whose method is being swizzled.
@@ -135,7 +119,7 @@ static BOOL isIOS9orLater() {
     SEL openURLOptionsSelector = @selector(application:openURL:options:);
     SEL openURLAnnotationSelector = @selector(application:openURL:sourceApplication:annotation:);
     SEL handleOpenURLSelector = @selector(application:handleOpenURL:);
-    if (isIOS9orLater() &&
+    if (&UIApplicationOpenURLOptionsAnnotationKey &&  // the constant is only available on iOS 9+
         ([_appDelegate respondsToSelector:openURLOptionsSelector] ||
          (![_appDelegate respondsToSelector:openURLAnnotationSelector] &&
           ![_appDelegate respondsToSelector:handleOpenURLSelector]))) {
