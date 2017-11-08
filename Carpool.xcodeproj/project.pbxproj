@@ -17,6 +17,7 @@
 		047BC4D61FB2558F008D64BA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BC4D51FB2558F008D64BA /* Extensions.swift */; };
 		04D45F9A1FB3754700D07EA2 /* KidsPopOverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D45F991FB3754700D07EA2 /* KidsPopOverTableViewController.swift */; };
 		5B8FE9F77F5F15B2FCD51374 /* Pods_Carpool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 620637C18571BDFDF03D9BFF /* Pods_Carpool.framework */; };
+		D70BB1CF1FB3A8BC00797B6A /* CreateCommentOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70BB1CE1FB3A8BC00797B6A /* CreateCommentOut.swift */; };
 		D730EF501FB0F015000DC3CB /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D730EF4F1FB0F015000DC3CB /* TripDetailViewController.swift */; };
 		D7C7B7B11FB208110083DDD2 /* CreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C7B7B01FB208110083DDD2 /* CreateTripViewController.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		110A6FA9740F4A8E78E50063 /* Pods-Carpool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carpool/Pods-Carpool.debug.xcconfig"; sourceTree = "<group>"; };
 		14EABBC68E7A149CC5E745D2 /* Pods-Carpool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpool.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carpool/Pods-Carpool.release.xcconfig"; sourceTree = "<group>"; };
 		620637C18571BDFDF03D9BFF /* Pods_Carpool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carpool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D70BB1CE1FB3A8BC00797B6A /* CreateCommentOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCommentOut.swift; sourceTree = "<group>"; };
 		D730EF4F1FB0F015000DC3CB /* TripDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailViewController.swift; sourceTree = "<group>"; };
 		D7C7B7B01FB208110083DDD2 /* CreateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +82,7 @@
 				040374D11FB0E76300ECF674 /* Main.storyboard */,
 				04D45F991FB3754700D07EA2 /* KidsPopOverTableViewController.swift */,
 				D7C7B7B01FB208110083DDD2 /* CreateTripViewController.swift */,
+				D70BB1CE1FB3A8BC00797B6A /* CreateCommentOut.swift */,
 				047BC4D51FB2558F008D64BA /* Extensions.swift */,
 				040374D41FB0E76300ECF674 /* Assets.xcassets */,
 				040374D61FB0E76300ECF674 /* LaunchScreen.storyboard */,
@@ -246,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D70BB1CF1FB3A8BC00797B6A /* CreateCommentOut.swift in Sources */,
 				D730EF501FB0F015000DC3CB /* TripDetailViewController.swift in Sources */,
 				047BC4D61FB2558F008D64BA /* Extensions.swift in Sources */,
 				040374D01FB0E76300ECF674 /* RootViewController.swift in Sources */,
