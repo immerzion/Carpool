@@ -39,6 +39,11 @@ class CreateTripViewController: UIViewController {
         dateSelected.setDate(currentTime, animated: true)
     }
     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let kidPopOverVC = segue.destination.popoverPresentationController as KidsPopOverViewController
+//        
+//    }
+    
     @IBAction func onPickUpDropOffSeg(_ sender: UISegmentedControl) {
         //        switch sender.selectedSegmentIndex == 0 {
         //        case true:
