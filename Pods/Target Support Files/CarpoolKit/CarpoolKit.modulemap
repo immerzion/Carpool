@@ -1,6 +1,0 @@
-framework module CarpoolKit {
-  umbrella header "CarpoolKit-umbrella.h"
-
-  export *
-  module * { export * }
-}
