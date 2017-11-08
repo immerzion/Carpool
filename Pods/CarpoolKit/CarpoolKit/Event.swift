@@ -5,16 +5,15 @@ public struct Event: Codable, Keyed {
     public let description: String
     public let owner: User
     public let time: Date
-    let location: String
+    let location: String?
 
     public var clLocation: CLLocation? {
-        return Geohash(value: location)?.location
+        return location.flatMap(Geohash.init(value:))?.location
     }
 }
 
 extension Event {
     init(json: [String: Any], key: String) throws {
-        print(#function, json)
         guard let (key, json) = (json["event"] as? [String: Any])?.first else {
             throw API.Error.decode
         }
