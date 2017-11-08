@@ -7,10 +7,9 @@ HEADER_SEARCH_PATHS = "${PODS_ROOT}/leveldb-library/" "${PODS_ROOT}/leveldb-libr
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
 OTHER_CFLAGS = -DFIRAuth_VERSION=0.1.4 -DFIRAuth_MINOR_VERSION=0.1 -DFIRDatabase_VERSION=0.1.4 $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/CarpoolKit/CarpoolKit.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/FirebaseCommunity/FirebaseCommunity.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/GTMSessionFetcher/GTMSessionFetcher.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/GoogleToolboxForMac/GoogleToolboxForMac.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/PromiseKit/PromiseKit.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/leveldb-library/leveldb.framework/Headers"
 OTHER_LDFLAGS = $(inherited) -l"c++" -framework "CarpoolKit" -framework "FirebaseCommunity" -framework "GTMSessionFetcher" -framework "GoogleToolboxForMac" -framework "PromiseKit" -framework "leveldb"
->>>>>>> b1c68c21d64e925bdc230b0e97e965611bc74824
 OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods
-WARNING_CFLAGS = -Wno-shorten-64-to-32 -Wno-comma -Wno-unreachable-code -Wno-conditional-uninitialized
+WARNING_CFLAGS = -Wno-shorten-64-to-32
