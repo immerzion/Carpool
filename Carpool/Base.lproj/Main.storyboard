@@ -152,7 +152,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEd-bI-n9P">
                                                 <rect key="frame" x="0.0" y="357" width="343" height="100"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="4T5-9c-xia"/>
+                                                    <constraint firstAttribute="height" constant="75" id="4T5-9c-xia"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -172,6 +172,10 @@
                                                     <action selector="submitCarpoolButton:" destination="RYI-9f-d97" eventType="touchUpInside" id="Efk-Jq-Sdx"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFK-JC-ZQz">
+                                                <rect key="frame" x="0.0" y="463" width="343" height="124"/>
+                                                <state key="normal" title="test"/>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -188,11 +192,10 @@
                     <connections>
                         <outlet property="dateSelected" destination="Xx3-i1-duV" id="hrA-73-1D4"/>
                         <outlet property="dropOffTimeDisplay" destination="bCQ-sz-iya" id="W1V-eO-gBk"/>
-                        <outlet property="eventDescriptionTextField" destination="aRP-gU-04H" id="JiN-mr-Gqk"/>
-                        <outlet property="generatedEventLabel" destination="DEd-bI-n9P" id="JqR-sk-szs"/>
                         <outlet property="locationTextField" destination="YJB-ca-VIk" id="LL9-Sr-bJW"/>
                         <outlet property="nameTextField" destination="BCb-ZB-M2k" id="fOR-Dh-QYs"/>
                         <outlet property="onPodSegPressed" destination="6XT-jw-Zjv" id="naz-7E-vFi"/>
+                        <outlet property="pickUpEventDescriptLabel" destination="DEd-bI-n9P" id="JqR-sk-szs"/>
                         <outlet property="pickUpTimeDisplay" destination="s5i-Ug-UZx" id="jyH-w6-MFM"/>
                     </connections>
                 </viewController>

@@ -14,15 +14,12 @@ import CoreLocation
 class CreateTripViewController: UIViewController {
     
     @IBOutlet weak var onPodSegPressed: UISegmentedControl!
-    
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var eventDescriptionTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var dateSelected: UIDatePicker!
     @IBOutlet weak var pickUpTimeDisplay: UILabel!
     @IBOutlet weak var dropOffTimeDisplay: UILabel!
-    
-    @IBOutlet weak var generatedEventLabel: UILabel!
+    @IBOutlet weak var pickUpEventDescriptLabel: UILabel!
     
     var pickUpTime = Date()
     var dropOffTime = Date()
@@ -69,48 +66,45 @@ class CreateTripViewController: UIViewController {
     }
     
     func generateEventDescription() -> String {
-        let name = nameTextField.text
-        let location = locationTextField.text
-        var desc = "On \(pickUpTime.prettyDay), \(name) needs to be PICKED UP from \(location) at \(pickUpTime.prettyTime)"
-        return desc
-    }
+        switch onPodSegPressed.selectedSegmentIndex {
+        case 0:
+            let name = nameTextField.text!
+            let location = locationTextField.text!
+            let desc = "On \(pickUpTime.prettyDay), \(name) needs to be PICKED UP from \(location) at \(pickUpTime.prettyTime)"
+            return desc
+        case 1:
+            let name = nameTextField.text!
+            let location = locationTextField.text!
+            let desc = "On \(pickUpTime.prettyDay), \(name) needs to be DROPPED OFF at \(location) at \(pickUpTime.prettyTime)"
+            return desc
+
+            
+        default:
+            print("something is working")
+            return ""
+        }
+    } // add if let error handling if fields are nil
     
-////////Current code works for pickup only.  Need to add code for dropoff.
     
     func validateText() {
-        var event = ""
+        let event = ""
         var location =  ""
         //var pickUpTime = ""
         //var dropOffTime = ""
         
-        if eventDescriptionTextField.text == "" {
-            eventDescriptionTextField.textColor = UIColor.red
-        } else {
-            event = eventDescriptionTextField.text!
-        }
         
         if locationTextField.text == "" {
             locationTextField.textColor = UIColor.red
         } else {
             location = locationTextField.text!
         }
+
         
-//        if pickUpTimeDisplay.text == "" {
-//            pickUpTimeDisplay.textColor = UIColor.red
-//        } else {
-//            pickUpTime = pickUpTimeDisplay.text!
-//        }
-//
-//        if dropOffTimeDisplay.text == "" {
-//            dropOffTimeDisplay.textColor = UIColor.red
-//        } else {
-//            dropOffTime = dropOffTimeDisplay.text!
-//        }
-        
-        if event == "" || location == "" || pickUpTimeDisplay.text == "" {
+        if location == "" || pickUpTimeDisplay.text == "" {
             print("you need to enter more data")
+            
         } else {
-            generatedEventLabel.text = generateEventDescription()
+            pickUpEventDescriptLabel.text = generateEventDescription()
             API.createTrip(eventDescription: event, eventTime: pickUpTime, eventLocation: savannah, completion: { (trip) in
                 print(trip)
             })
