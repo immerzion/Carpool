@@ -258,7 +258,7 @@ typedef void (^PMKBooleanAdapter)(BOOL, NSError * __nullable) NS_REFINED_FOR_SWI
 @end
 
 
-#ifdef __cplusplus
+#if __cplusplus
 extern "C" {
 #endif
 
@@ -276,7 +276,7 @@ extern "C" {
 #define __PMKManifold(_1, _2, _3, N, ...) __PMKArrayWithCount(N, _1, _2, _3)
 extern id __nonnull __PMKArrayWithCount(NSUInteger, ...);
 
-#ifdef __cplusplus
+#if __cplusplus
 }   // Extern C
 #endif
 
