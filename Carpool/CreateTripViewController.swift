@@ -19,7 +19,7 @@ class CreateTripViewController: UIViewController {
     @IBOutlet weak var dateSelected: UIDatePicker!
     @IBOutlet weak var pickUpTimeDisplay: UILabel!
     @IBOutlet weak var dropOffTimeDisplay: UILabel!
-    @IBOutlet weak var pickUpEventDescriptLabel: UILabel!
+    @IBOutlet weak var eventDescriptLabel: UILabel!
     
     var pickUpTime = Date()
     var dropOffTime = Date()
@@ -62,7 +62,14 @@ class CreateTripViewController: UIViewController {
     }
     
     @IBAction func submitCarpoolButton(_ sender: UIButton) {
-        validateText()
+        switch onPodSegPressed.selectedSegmentIndex {
+        case 0: validateText()
+        case 1: validateTextDropOff()
+        default:
+            print(validateText(), validateTextDropOff())
+        }
+        
+        
     }
     
     func generateEventDescription() -> String {
@@ -104,11 +111,36 @@ class CreateTripViewController: UIViewController {
             print("you need to enter more data")
             
         } else {
-            pickUpEventDescriptLabel.text = generateEventDescription()
+            eventDescriptLabel.text = generateEventDescription()
             API.createTrip(eventDescription: event, eventTime: pickUpTime, eventLocation: savannah, completion: { (trip) in
-                print(trip)
+                print(trip, "this is showing the pickup")
             })
         }
     }
     
+    func validateTextDropOff() {
+        let event = ""
+        var location = ""
+        
+        if locationTextField.text == "" {
+            locationTextField.textColor = UIColor.red
+        } else {
+            location = locationTextField.text!
+        }
+        if location == "" || dropOffTimeDisplay.text == "" {
+            print("you need to enter more data")
+        } else {
+            eventDescriptLabel.text = generateEventDescription()
+            API.createTrip(eventDescription: event, eventTime: dropOffTime, eventLocation: savannah, completion: { (trip) in
+                print(trip, "this is showing the dropoff")
+            })
+        }
+        
+    }
+    
 }
+
+
+
+
+
