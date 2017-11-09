@@ -8,6 +8,7 @@
 
 import UIKit
 import CarpoolKit
+import MapKit
 
 
 class TripDetailViewController: UIViewController {
@@ -25,10 +26,12 @@ class TripDetailViewController: UIViewController {
     var trip: Trip!
     var user: User!
     var podLeg: Leg!
-    var childName = ""
-    var location = ""
+    var childNames = ""
+    //var location = ""
     //var description = ""
     //var time = ""
+    
+    let savannah = CLLocation(latitude: 32.076176, longitude: -81.088371)
     
     
     // update to tableview instead of uiview?
@@ -41,15 +44,20 @@ class TripDetailViewController: UIViewController {
         super.viewDidLoad()
         
         resetButtons()
-
+        
         let tripDate = trip.event.time.prettyDate
         let tripTime = trip.event.time.prettyTime
         
-        nameLabel.text = trip.children[]
-        timeLabel.text = tripTime
+        for child in trip.children {
+            childNames += ", " + child.name
+        }
+        
+        nameLabel.text = childNames
         eventDescriptionLabel.text = trip.event.description
         dateLabel.text = tripDate
+        timeLabel.text = tripTime
         locationLabel.text = "need to geocode" //trip.event.clLocation
+        
         
         if trip.pickUp != nil {
             disablePickup()
@@ -82,8 +90,8 @@ class TripDetailViewController: UIViewController {
     }
     
     func disablePickup() {
-    pickUpButton.setTitle("Pickup has been scheduled", for: .normal)
-    pickUpButton.isEnabled = false
+        pickUpButton.setTitle("Pickup has been scheduled", for: .normal)
+        pickUpButton.isEnabled = false
     }
     
     func disableDropoff() {
@@ -101,7 +109,7 @@ class TripDetailViewController: UIViewController {
     
     func confirmPickUp() {
         
-        let message = "Do you want to pickup \(childName)?" //from location
+        let message = "Do you want to pickup \(childNames)?" //from location
         // create the alert
         let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
         
@@ -120,7 +128,7 @@ class TripDetailViewController: UIViewController {
     
     func confirmDropOff() {
         
-        let message = "Do you want to drop off \(childName)?" //at location
+        let message = "Do you want to drop off \(childNames)?" //at location
         // create the alert
         let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
         
@@ -129,7 +137,7 @@ class TripDetailViewController: UIViewController {
             API.claimDropOff(trip: self.trip, completion: { (error) in
                 self.disableDropoff()
             })
-
+            
         }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
         
