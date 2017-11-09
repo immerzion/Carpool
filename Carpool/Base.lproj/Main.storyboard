@@ -89,7 +89,7 @@
             </objects>
             <point key="canvasLocation" x="1268" y="110.19490254872565"/>
         </scene>
-        <!--Item-->
+        <!--Settings-->
         <scene sceneID="wGT-12-GIx">
             <objects>
                 <viewController id="98o-QR-Tra" customClass="SettingsViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
@@ -102,11 +102,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="S2j-0I-mC5"/>
+                    <tabBarItem key="tabBarItem" title="Settings" selectedImage="settings" id="S2j-0I-mC5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qmX-du-hE1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="434" y="859"/>
+            <point key="canvasLocation" x="-986" y="871"/>
         </scene>
         <!--Create Trip View Controller-->
         <scene sceneID="EPd-rs-Gom">
@@ -511,4 +511,7 @@
             <point key="canvasLocation" x="-356" y="108"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="settings" width="30" height="30"/>
+    </resources>
 </document>
