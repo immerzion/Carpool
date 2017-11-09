@@ -31,6 +31,8 @@ class TripDetailViewController: UIViewController {
     //var description = ""
     //var time = ""
     
+    //jess
+    
     let savannah = CLLocation(latitude: 32.076176, longitude: -81.088371)
     
     
