@@ -64,7 +64,8 @@ class CreateTripViewController: UIViewController {
     @IBAction func submitCarpoolButton(_ sender: UIButton) {
         switch onPodSegPressed.selectedSegmentIndex {
         case 0: validateText()
-        case 1: validateTextDropOff()
+        case 1: validateText()
+        //validateTextDropOff()
         default:
             print(validateText(), validateTextDropOff())
         }
@@ -113,8 +114,15 @@ class CreateTripViewController: UIViewController {
             
         } else {
             eventDescriptLabel.text = generateEventDescription()
-            API.createTrip(eventDescription: event, eventTime: pickUpTime, eventLocation: savannah, completion: { (trip) in
-                print(trip, "this is showing the pickup")
+            
+            API.createTrip(eventDescription: generateEventDescription(), eventTime: pickUpTime, eventLocation: savannah, completion: { (result) in
+                switch result {
+                case .success(let trip):
+                    print(trip)
+                    print(trip.event.description)
+                case .failure(_):
+                    print("You dun fucked up")
+                }
             })
         }
     }
