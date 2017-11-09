@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <tableViewController id="BYZ-38-t0r" customClass="RootViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,16 +21,21 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lbj-X4-AdB">
-                                    <rect key="frame" x="8" y="8" width="359" height="28"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lbj-X4-AdB">
+                                    <rect key="frame" x="8" y="8" width="359" height="29"/>
                                     <segments>
-                                        <segment title="First"/>
-                                        <segment title="Second"/>
+                                        <segment title="My Events"/>
+                                        <segment title="All Events"/>
                                     </segments>
                                 </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="lbj-X4-AdB" firstAttribute="leading" secondItem="Wnu-2X-3RF" secondAttribute="leading" constant="8" id="HXk-54-1Hj"/>
+                                <constraint firstAttribute="bottom" secondItem="lbj-X4-AdB" secondAttribute="bottom" constant="8" id="RbM-7k-ARr"/>
+                                <constraint firstAttribute="trailing" secondItem="lbj-X4-AdB" secondAttribute="trailing" constant="8" id="aV5-oj-nKc"/>
+                                <constraint firstItem="lbj-X4-AdB" firstAttribute="top" secondItem="Wnu-2X-3RF" secondAttribute="top" constant="8" id="fEZ-yf-Y7d"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" textLabel="rkO-FD-He9" style="IBUITableViewCellStyleDefault" id="fFs-5D-a60">
@@ -59,6 +64,7 @@
                             <outlet property="delegate" destination="BYZ-38-t0r" id="BSs-E1-Ng1"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="QBv-NK-DNi"/>
                     <navigationItem key="navigationItem" id="Sol-F9-H0U">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="iUS-iu-LYi">
                             <connections>
@@ -79,7 +85,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dB-Lk-w81" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.79999999999995" y="110.19490254872565"/>
+            <point key="canvasLocation" x="1268" y="110.19490254872565"/>
         </scene>
         <!--Create Trip View Controller-->
         <scene sceneID="EPd-rs-Gom">
@@ -136,13 +142,13 @@
                                                 </constraints>
                                             </stackView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Child's Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="BCb-ZB-M2k">
-                                                <rect key="frame" x="0.0" y="48.5" width="343" height="30.5"/>
+                                                <rect key="frame" x="0.0" y="48.5" width="343" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Destination" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YJB-ca-VIk">
-                                                <rect key="frame" x="0.0" y="79" width="343" height="30"/>
+                                                <rect key="frame" x="0.0" y="78.5" width="343" height="30.5"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -419,7 +425,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKu-oe-SCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1775" y="109"/>
+            <point key="canvasLocation" x="2112.8000000000002" y="108.39580209895054"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="odO-ib-wbP">
@@ -432,12 +438,30 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="oXC-wm-cpd"/>
+                        <segue destination="wno-uP-Yok" kind="relationship" relationship="rootViewController" id="oXC-wm-cpd"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUF-HS-JzY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="94" y="109"/>
+            <point key="canvasLocation" x="-522" y="107"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="fy9-W5-Y8v">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wno-uP-Yok" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="s0P-UH-Cu0"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zkK-5g-bzO">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="mNz-WI-Dm0"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eZN-DM-LIK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="342" y="108"/>
         </scene>
     </scenes>
 </document>

@@ -39,8 +39,13 @@ class RootViewController: UITableViewController {
 //Hide and possibly show fully scheduled trips
     
     @IBAction func onRefreshPulled(_ sender: UIRefreshControl) {
+        
+        // add feature so that update pickup etc is shown when returning to rootVC
+        
         tableView.reloadData()
         tableRefresh.endRefreshing()
+        
+        // make seg control friends/user list isHidden when refreshing
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,8 +56,10 @@ class RootViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
         cell.textLabel?.text = trips[indexPath.row].event.description
         
-        if !(trips[indexPath.row].pickUp != nil) {
+        if trips[indexPath.row].pickUp == nil {
             cell.backgroundColor = UIColor.red
+        } else {
+            cell.backgroundColor = UIColor.clear
         }
         
         if !(trips[indexPath.row].dropOff != nil)  {
