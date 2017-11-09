@@ -17,6 +17,8 @@ class LocationSearchTable: UITableViewController {
     
     var handleMapSearchDelegate:HandleMapSearch? = nil
     
+    var selectedPlacemark: MKPlacemark?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -77,6 +79,7 @@ class LocationSearchTable: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = matchingItems[indexPath.row].placemark
         handleMapSearchDelegate?.dropPinZoomIn(placemark: selectedItem)
+        selectedPlacemark = selectedItem
         dismiss(animated: true, completion: nil)
     }
     

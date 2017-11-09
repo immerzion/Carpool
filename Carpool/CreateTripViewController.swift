@@ -8,7 +8,7 @@
 
 import UIKit
 import CarpoolKit
-import CoreLocation
+import MapKit
 
 
 class CreateTripViewController: UIViewController {
@@ -25,7 +25,8 @@ class CreateTripViewController: UIViewController {
     var dropOffTime = Date()
     var currentTime = Date()
     
-    var clLocation = ""
+    var clLocation:MKPlacemark? = nil
+    
     let savannah = CLLocation(latitude: 32.076176, longitude: -81.088371)
     
     override func viewDidLoad() {
@@ -46,9 +47,9 @@ class CreateTripViewController: UIViewController {
     
     @IBAction func unwindFromDestinationVC(seque: UIStoryboardSegue) {
         let destinationVC = seque.source as! DestinationViewController
-        clLocation = destinationVC.searchResult
-        print(clLocation)
-        locationTextField.text = clLocation
+        clLocation = destinationVC.selectedPin
+        //print(clLocation)
+        locationTextField.text = clLocation?.title
     }
     
     

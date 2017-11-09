@@ -22,6 +22,7 @@ class DestinationViewController: UIViewController {
     let locationManager = CLLocationManager()
     
     var selectedPin:MKPlacemark? = nil
+    
     var resultSearchController:UISearchController? = nil
     
     var searchText = ""
