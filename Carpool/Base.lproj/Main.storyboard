@@ -80,12 +80,32 @@
                         </connections>
                     </refreshControl>
                     <connections>
+                        <outlet property="eventListSegControl" destination="lbj-X4-AdB" id="kIX-Hk-3vi"/>
                         <outlet property="tableRefresh" destination="hB8-hn-B19" id="4NP-4a-Cwg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dB-Lk-w81" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1268" y="110.19490254872565"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="wGT-12-GIx">
+            <objects>
+                <viewController id="98o-QR-Tra" customClass="SettingsViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dV1-oO-KqF"/>
+                        <viewControllerLayoutGuide type="bottom" id="VKn-eN-S1V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LJ2-Ud-eqM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="S2j-0I-mC5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qmX-du-hE1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="434" y="859"/>
         </scene>
         <!--Create Trip View Controller-->
         <scene sceneID="EPd-rs-Gom">
@@ -106,7 +126,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="538"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6XT-jw-Zjv">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="26.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
                                                 <segments>
                                                     <segment title="Pick Up"/>
                                                     <segment title="Drop Off"/>
@@ -116,16 +136,16 @@
                                                 </connections>
                                             </segmentedControl>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3pg-Xm-ygG">
-                                                <rect key="frame" x="0.0" y="25.5" width="343" height="19"/>
+                                                <rect key="frame" x="0.0" y="28" width="343" height="20"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5i-Ug-UZx">
-                                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="19"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="20"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCQ-sz-iya">
-                                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="19"/>
+                                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="20"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -142,29 +162,29 @@
                                                 </constraints>
                                             </stackView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Child's Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="BCb-ZB-M2k">
-                                                <rect key="frame" x="0.0" y="44.5" width="343" height="27.5"/>
+                                                <rect key="frame" x="0.0" y="48" width="343" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Destination" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YJB-ca-VIk">
-                                                <rect key="frame" x="0.0" y="72" width="343" height="27.5"/>
+                                                <rect key="frame" x="0.0" y="78" width="343" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFK-JC-ZQz">
-                                                <rect key="frame" x="0.0" y="99.5" width="343" height="27.5"/>
+                                                <rect key="frame" x="0.0" y="108" width="343" height="29.5"/>
                                                 <state key="normal" title="Search for Location"/>
                                                 <connections>
                                                     <segue destination="ABB-D0-L7N" kind="show" id="aXp-Ve-kZV"/>
                                                 </connections>
                                             </button>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="E3w-iX-WRj">
-                                                <rect key="frame" x="0.0" y="127" width="343" height="117"/>
+                                                <rect key="frame" x="0.0" y="137.5" width="343" height="81.5"/>
                                             </mapView>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Xx3-i1-duV">
-                                                <rect key="frame" x="0.0" y="244" width="343" height="140"/>
+                                                <rect key="frame" x="0.0" y="219" width="343" height="140"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="140" id="nj4-rk-VAm"/>
                                                 </constraints>
@@ -182,7 +202,7 @@
                                                 </connections>
                                             </datePicker>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEd-bI-n9P">
-                                                <rect key="frame" x="0.0" y="384" width="343" height="75"/>
+                                                <rect key="frame" x="0.0" y="359" width="343" height="75"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="75" id="4T5-9c-xia"/>
                                                 </constraints>
@@ -191,7 +211,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjk-Nd-bSg">
-                                                <rect key="frame" x="0.0" y="459" width="343" height="79"/>
+                                                <rect key="frame" x="0.0" y="434" width="343" height="104"/>
                                                 <state key="normal" title="Submit Carpool!"/>
                                                 <connections>
                                                     <action selector="submitCarpoolButton:" destination="RYI-9f-d97" eventType="touchUpInside" id="Efk-Jq-Sdx"/>
@@ -222,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehE-L8-6z8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.79999999999995" y="874.81259370314854"/>
+            <point key="canvasLocation" x="2238" y="505"/>
         </scene>
         <!--Destination View Controller-->
         <scene sceneID="R8n-hX-TJb">
@@ -259,7 +279,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VIt-fA-zGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="eiG-JI-Cpd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1774" y="875"/>
+            <point key="canvasLocation" x="3082" y="503"/>
         </scene>
         <!--Location Search Table-->
         <scene sceneID="xNf-Yh-9bL">
@@ -303,7 +323,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OhM-UA-5NY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2612" y="875"/>
+            <point key="canvasLocation" x="3922" y="503"/>
         </scene>
         <!--Kids Pop Over View Controller-->
         <scene sceneID="RjA-n5-SKc">
@@ -343,7 +363,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HmO-6A-OgM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="342" y="1524"/>
+            <point key="canvasLocation" x="481" y="1498"/>
         </scene>
         <!--Trip Detail View Controller-->
         <scene sceneID="PWD-q4-dCk">
@@ -427,7 +447,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKu-oe-SCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2112.8000000000002" y="108.39580209895054"/>
+            <point key="canvasLocation" x="2239" y="-238"/>
         </scene>
         <!--Item-->
         <scene sceneID="odO-ib-wbP">
@@ -451,16 +471,18 @@
         <!--Tab Bar Controller-->
         <scene sceneID="fy9-W5-Y8v">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wno-uP-Yok" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wno-uP-Yok" customClass="TabBarController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="s0P-UH-Cu0"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zkK-5g-bzO">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.29686956019999999" green="0.72544288199999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="7mI-Ul-AzI" kind="relationship" relationship="viewControllers" id="UfY-bV-9Lh"/>
+                        <segue destination="98o-QR-Tra" kind="relationship" relationship="viewControllers" id="hj3-wv-B74"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZN-DM-LIK" userLabel="First Responder" sceneMemberID="firstResponder"/>

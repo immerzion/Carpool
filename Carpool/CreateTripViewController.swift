@@ -14,6 +14,7 @@ import MapKit
 class CreateTripViewController: UIViewController {
     
     @IBOutlet weak var onPodSegPressed: UISegmentedControl!
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var dateSelected: UIDatePicker!

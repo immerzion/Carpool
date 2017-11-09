@@ -15,6 +15,7 @@ class RootViewController: UITableViewController {
     
     @IBOutlet weak var tableRefresh: UIRefreshControl!
     
+    @IBOutlet weak var eventListSegControl: UISegmentedControl!
     
     var trips: [Trip] = []
 
