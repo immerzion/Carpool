@@ -46,6 +46,13 @@ class CreateTripViewController: UIViewController {
         }
     }
     
+//    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+//        let destinationVC = segue.source as! DestinationViewController
+//        clLocation = destinationVC.selectedPin
+//        //print(clLocation)
+//        locationTextField.text = clLocation?.title
+//    }
+    
     
     
     @IBAction func unwindFromDestinationVCWithSeque(seque: UIStoryboardSegue) {

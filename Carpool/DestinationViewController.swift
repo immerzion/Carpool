@@ -18,9 +18,10 @@ protocol HandleMapSearch {
 
 class DestinationViewController: UIViewController {
     
-    @IBOutlet weak var onConfirmPressed: UIButton!
+    @IBOutlet weak var confirmButton: UIButton!
     // hide until location is selected
     // confirm button segue to destination outlet text field
+    
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
     
@@ -65,6 +66,7 @@ class DestinationViewController: UIViewController {
     }
     
     @IBAction func onConfirmPressed(_ sender: UIButton) {
+        print(selectedPin?.title)
     }
     
     func getDirections(){
