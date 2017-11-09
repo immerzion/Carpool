@@ -24,6 +24,8 @@
 		D730EF501FB0F015000DC3CB /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D730EF4F1FB0F015000DC3CB /* TripDetailViewController.swift */; };
 		D740BA1B1FB4FAC70074DA4F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D740BA1A1FB4FAC70074DA4F /* SettingsViewController.swift */; };
 		D740BA1D1FB4FDB50074DA4F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D740BA1C1FB4FDB50074DA4F /* TabBarController.swift */; };
+		D740BA1F1FB5053D0074DA4F /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D740BA1E1FB5053D0074DA4F /* CalendarViewController.swift */; };
+		D740BA211FB5058B0074DA4F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D740BA201FB5058B0074DA4F /* LoginViewController.swift */; };
 		D7C7B7B11FB208110083DDD2 /* CreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C7B7B01FB208110083DDD2 /* CreateTripViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,8 @@
 		D730EF4F1FB0F015000DC3CB /* TripDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailViewController.swift; sourceTree = "<group>"; };
 		D740BA1A1FB4FAC70074DA4F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D740BA1C1FB4FDB50074DA4F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		D740BA1E1FB5053D0074DA4F /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		D740BA201FB5058B0074DA4F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D7C7B7B01FB208110083DDD2 /* CreateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,8 +91,10 @@
 			children = (
 				04D45F9F1FB3AFCD00D07EA2 /* Savannah.gpx */,
 				040374CD1FB0E76300ECF674 /* AppDelegate.swift */,
+				D740BA1E1FB5053D0074DA4F /* CalendarViewController.swift */,
 				040374CF1FB0E76300ECF674 /* RootViewController.swift */,
 				D740BA1A1FB4FAC70074DA4F /* SettingsViewController.swift */,
+				D740BA201FB5058B0074DA4F /* LoginViewController.swift */,
 				D730EF4F1FB0F015000DC3CB /* TripDetailViewController.swift */,
 				040374DF1FB1FAA900ECF674 /* CoreLocationCode.swift */,
 				040374D11FB0E76300ECF674 /* Main.storyboard */,
@@ -265,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D740BA211FB5058B0074DA4F /* LoginViewController.swift in Sources */,
 				D70BB1CF1FB3A8BC00797B6A /* CreateCommentOut.swift in Sources */,
 				D730EF501FB0F015000DC3CB /* TripDetailViewController.swift in Sources */,
 				D740BA1B1FB4FAC70074DA4F /* SettingsViewController.swift in Sources */,
@@ -274,6 +281,7 @@
 				04D45F9C1FB38D1300D07EA2 /* DestinationViewController.swift in Sources */,
 				040374E01FB1FAA900ECF674 /* CoreLocationCode.swift in Sources */,
 				040374CE1FB0E76300ECF674 /* AppDelegate.swift in Sources */,
+				D740BA1F1FB5053D0074DA4F /* CalendarViewController.swift in Sources */,
 				D740BA1D1FB4FDB50074DA4F /* TabBarController.swift in Sources */,
 				04D45F9A1FB3754700D07EA2 /* KidsPopOverTableViewController.swift in Sources */,
 				D7C7B7B11FB208110083DDD2 /* CreateTripViewController.swift in Sources */,
