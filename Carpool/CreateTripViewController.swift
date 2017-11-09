@@ -72,6 +72,7 @@ class CreateTripViewController: UIViewController {
         
     }
     
+    // extension of trip on view controller
     func generateEventDescription() -> String {
         switch onPodSegPressed.selectedSegmentIndex {
         case 0:
