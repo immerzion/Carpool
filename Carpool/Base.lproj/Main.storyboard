@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -262,24 +263,44 @@
                                     <outlet property="delegate" destination="ABB-D0-L7N" id="gEy-CQ-oEK"/>
                                 </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFa-Oc-d52">
+                                <rect key="frame" x="113" y="556" width="148" height="30"/>
+                                <color key="backgroundColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Confirm Location">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onConfirmPressed:" destination="ABB-D0-L7N" eventType="touchUpInside" id="9G9-UK-VVL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="LFa-Oc-d52" firstAttribute="leading" secondItem="DZf-xP-T03" secondAttribute="leadingMargin" constant="97" id="AjQ-2u-GF7"/>
                             <constraint firstItem="4DT-St-6BP" firstAttribute="top" secondItem="DZf-xP-T03" secondAttribute="top" id="D5Q-Nc-kKb"/>
                             <constraint firstItem="Z6y-Vc-6zQ" firstAttribute="top" secondItem="4DT-St-6BP" secondAttribute="bottom" id="Vg4-k1-8Ig"/>
                             <constraint firstItem="4DT-St-6BP" firstAttribute="leading" secondItem="DZf-xP-T03" secondAttribute="leading" id="WCb-5J-yIR"/>
+                            <constraint firstItem="LFa-Oc-d52" firstAttribute="top" secondItem="rzT-pN-K6y" secondAttribute="bottom" constant="492" id="bOS-m1-n9n"/>
                             <constraint firstAttribute="trailing" secondItem="4DT-St-6BP" secondAttribute="trailing" id="cvC-75-cAW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LFa-Oc-d52" secondAttribute="trailing" constant="98" id="eYU-Ba-cCh"/>
+                            <constraint firstItem="Z6y-Vc-6zQ" firstAttribute="top" secondItem="LFa-Oc-d52" secondAttribute="bottom" constant="32" id="mnW-5f-V7B"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="4DT-St-6BP" id="x0j-wc-ll6"/>
-                        <segue destination="eiG-JI-Cpd" kind="unwind" unwindAction="unwindFromDestinationVCWithSeque:" id="VNK-TD-b4F"/>
+                        <outlet property="onConfirmPressed" destination="LFa-Oc-d52" id="jF6-Kz-Ow4"/>
+                        <segue destination="eiG-JI-Cpd" kind="unwind" identifier="Destination" unwindAction="unwindFromDestinationVCWithSeque:" id="VNK-TD-b4F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VIt-fA-zGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="eiG-JI-Cpd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3082" y="503"/>
+            <point key="canvasLocation" x="3080.8000000000002" y="502.39880059970017"/>
         </scene>
         <!--Location Search Table-->
         <scene sceneID="xNf-Yh-9bL">
