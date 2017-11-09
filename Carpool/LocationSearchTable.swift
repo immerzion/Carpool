@@ -96,7 +96,7 @@ extension LocationSearchTable : UISearchResultsUpdating {
         search.start { response, _ in
             guard let response = response else { return }
             self.matchingItems = response.mapItems
-            print(response.mapItems)
+            //print(response.mapItems)
             self.tableView.reloadData()
     }
 

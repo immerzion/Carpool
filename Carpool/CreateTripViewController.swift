@@ -25,6 +25,7 @@ class CreateTripViewController: UIViewController {
     var dropOffTime = Date()
     var currentTime = Date()
     
+    var clLocation = ""
     let savannah = CLLocation(latitude: 32.076176, longitude: -81.088371)
     
     override func viewDidLoad() {
@@ -36,10 +37,22 @@ class CreateTripViewController: UIViewController {
         dateSelected.setDate(currentTime, animated: true)
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let kidPopOverVC = segue.destination.popoverPresentationController as KidsPopOverViewController
-//        
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! DestinationViewController
+        if let locationText = locationTextField.text {
+            destinationVC.searchText = locationText
+        }
+    }
+    
+    @IBAction func unwindFromDestinationVC(seque: UIStoryboardSegue) {
+        let destinationVC = seque.source as! DestinationViewController
+        clLocation = destinationVC.searchResult
+        print(clLocation)
+        locationTextField.text = clLocation
+    }
+    
+    
+    
     
     @IBAction func onPickUpDropOffSeg(_ sender: UISegmentedControl) {
         //        switch sender.selectedSegmentIndex == 0 {

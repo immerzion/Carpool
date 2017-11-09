@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 
+
 protocol HandleMapSearch {
     func dropPinZoomIn(placemark:MKPlacemark)
 }
@@ -22,6 +23,9 @@ class DestinationViewController: UIViewController {
     
     var selectedPin:MKPlacemark? = nil
     var resultSearchController:UISearchController? = nil
+    
+    var searchText = ""
+    var searchResult = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -137,7 +141,7 @@ extension DestinationViewController: HandleMapSearch {
             annotation.subtitle = "(city) (state)"
         }
         mapView.addAnnotation(annotation)
-        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let span = MKCoordinateSpanMake(0.02, 0.02)
         let region = MKCoordinateRegionMake(placemark.coordinate, span)
         mapView.setRegion(region, animated: true)
     }
@@ -145,14 +149,12 @@ extension DestinationViewController: HandleMapSearch {
 
 extension DestinationViewController: MKMapViewDelegate {
     
-//    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-//                //guard let userCoordinate = userLocation.location?.coordinate else { return }
-//                //zoom level
-//                let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
-//                mapView.setRegion(coordinateRegion, animated: true)
-//
-//                search(for: "pizza")
-//            }
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+                //guard let userCoordinate = userLocation.location?.coordinate else { return }
+                //zoom level
+                let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
+                mapView.setRegion(coordinateRegion, animated: true)
+            }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
         if annotation is MKUserLocation {
@@ -164,7 +166,7 @@ extension DestinationViewController: MKMapViewDelegate {
         pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
         pinView?.pinTintColor = UIColor.orange
         pinView?.canShowCallout = true
-        let smallSquare = CGSize(width: 30, height: 30)
+//        let smallSquare = CGSize(width: 30, height: 30)
 //        let button = UIButton(frame: CGRect(origin: CGPointZero, size: smallSquare))
 //        button.setBackgroundImage(UIImage(named: "car"), for: .Normal)
 //        button.addTarget(self, action: "getDirections", for: .touchUpInside)
