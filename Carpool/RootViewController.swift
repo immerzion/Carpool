@@ -21,7 +21,7 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        API.observeTrips(completion: { result in
+        API.observeTrips { (result) in
             switch result {
             case .success(let trips):
                 self.trips = trips
@@ -30,7 +30,8 @@ class RootViewController: UITableViewController {
                 //TODO
                 print(#function, error)
             }
-        })
+        }
+        
     }
     
 //VC needs title.
@@ -68,6 +69,7 @@ class RootViewController: UITableViewController {
         }
         if segue.identifier == "CreateTrip" {
             let createTripVC = segue.destination as! CreateTripViewController
+            print(createTripVC)
             //guard let indexPath = tableView.indexPathForSelectedRow else { return }
             //createTripVC.trip = trips[indexPath.row]
         }
