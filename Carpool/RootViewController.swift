@@ -13,6 +13,9 @@ import UIKit
 
 class RootViewController: UITableViewController {
     
+    @IBOutlet weak var tableRefresh: UIRefreshControl!
+    
+    
     var trips: [Trip] = []
 
     override func viewDidLoad() {
@@ -25,7 +28,7 @@ class RootViewController: UITableViewController {
                 self.tableView.reloadData()
             case .failure(let error):
                 //TODO
-                print(error)
+                print(#function, error)
             }
         })
     }
@@ -34,9 +37,9 @@ class RootViewController: UITableViewController {
 //Realtime clock would be nice
 //Hide and possibly show fully scheduled trips
     
-    override func viewDidAppear(_ animated: Bool) {
+    @IBAction func onRefreshPulled(_ sender: UIRefreshControl) {
         tableView.reloadData()
-        
+        tableRefresh.endRefreshing()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
