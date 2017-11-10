@@ -21,6 +21,8 @@ class TripDetailViewController: UIViewController {
     
     @IBOutlet weak var pickUpButton: UIButton!
     @IBOutlet weak var dropOffButton: UIButton!
+    @IBOutlet weak var cancelPickUpButton: UIButton!
+    @IBOutlet weak var cancelDropOffButton: UIButton!
     
     
     var trip: Trip!
@@ -51,6 +53,9 @@ class TripDetailViewController: UIViewController {
         super.viewDidLoad()
         
         resetButtons()
+        
+//        if trip.pickUp.driver == me
+//        show cancelButtons
         
         if trip.pickUp != nil {
             disablePickup()
@@ -103,23 +108,28 @@ class TripDetailViewController: UIViewController {
     func resetPickup() {
         pickUpButton.setTitle("Pick Up", for: .normal)
         pickUpButton.isEnabled = true
-        //pickUpButton.isHidden = false
+        cancelPickUpButton.isHidden = true
     }
     
     func resetDropoff() {
         dropOffButton.setTitle("Drop Off", for: .normal)
         dropOffButton.isEnabled = true
-        //dropOffButton.isHidden = true
+        cancelDropOffButton.isHidden = true
     }
     
     func disablePickup() {
-        pickUpButton.setTitle("Pickup has been scheduled", for: .normal)
+        //if trip.pickUp.driver == me
+        //change pickup driver to "you"
+        
+        pickUpButton.setTitle("\(trip.pickUp!.driver) will pickup \(childNames)", for: .normal)
         pickUpButton.isEnabled = false
+        cancelPickUpButton.isHidden = false
     }
     
     func disableDropoff() {
-        dropOffButton.setTitle("Drop off has been scheduled", for: .normal)
+        dropOffButton.setTitle("\(trip.dropOff!.driver) will drop off \(childNames)", for: .normal)
         dropOffButton.isEnabled = false
+        cancelDropOffButton.isHidden = false
     }
     
     
@@ -129,6 +139,12 @@ class TripDetailViewController: UIViewController {
     @IBAction func onDropOffPressed(_ sender: UIButton) {
         confirmDropOff()
     }
+    @IBAction func onCancelPickUpPressed(_ sender: UIButton) {
+    }
+    @IBAction func onCancelDropOffPressed(_ sender: UIButton) {
+    }
+    
+    
     
     func confirmPickUp() {
         
@@ -159,6 +175,56 @@ class TripDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert) in
             API.claimDropOff(trip: self.trip, completion: { (error) in
                 self.disableDropoff()
+            })
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func cancelPickUp() {
+        
+        let message = "Do you want to cancel picking up \(childNames)?" //from location
+        // create the alert
+        let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add action buttons
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert) in
+            API.unclaimPickUp(trip: self.trip, completion: { (error) in
+                
+                //send notification to the parent trip.owner
+                self.resetPickup()
+            })
+            
+            API.claimPickUp(trip: self.trip, completion: { (error) in
+                self.disablePickup()
+            })
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func cancelDropOff() {
+        
+        let message = "Do you want to cancel dropping off \(childNames)?" //from location
+        // create the alert
+        let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add action buttons
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert) in
+            API.unclaimPickUp(trip: self.trip, completion: { (error) in
+                
+                //send notification to the parent trip.owner
+                self.resetDropoff()
+            })
+            
+            API.claimPickUp(trip: self.trip, completion: { (error) in
+                self.disablePickup()
             })
         }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
