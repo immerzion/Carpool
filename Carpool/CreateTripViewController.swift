@@ -46,17 +46,12 @@ class CreateTripViewController: UIViewController {
         }
     }
     
-    
-    
     @IBAction func unwindFromDestinationVCWithSeque(seque: UIStoryboardSegue) {
         let destinationVC = seque.source as! DestinationViewController
         clLocation = destinationVC.selectedPin
         //print(clLocation)
-        locationTextField.text = clLocation?.title
+        locationTextField.text = clLocation?.name
     }
-    
-    
-    
     
     @IBAction func onPickUpDropOffSeg(_ sender: UISegmentedControl) {
         //        switch sender.selectedSegmentIndex == 0 {
