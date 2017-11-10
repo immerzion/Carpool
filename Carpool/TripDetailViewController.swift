@@ -27,12 +27,7 @@ class TripDetailViewController: UIViewController {
     var user: User!
     var podLeg: Leg!
     var childNames = ""
-    //var location = ""
-    //var description = ""
-    //var time = ""
-    
-    //jess
-    
+
     let savannah = CLLocation(latitude: 32.076176, longitude: -81.088371)
     
     
@@ -58,7 +53,7 @@ class TripDetailViewController: UIViewController {
         eventDescriptionLabel.text = trip.event.description
         dateLabel.text = tripDate
         timeLabel.text = tripTime
-        locationLabel.text = "need to geocode" //trip.event.clLocation
+        locationLabel.text = "savannah" //trip.event.clLocation
         
         
         if trip.pickUp != nil {
@@ -72,6 +67,17 @@ class TripDetailViewController: UIViewController {
         } else {
             resetDropoff()
         }
+        
+        trip.pickUp?.driver
+        trip.dropOff?.driver
+        
+        trip.event.owner.name
+        trip.event.owner.isMe
+        trip.event.description
+        trip.event.time
+        trip.event.endTime
+        trip.event.clLocation
+        
     }
     
     func resetButtons() {
@@ -139,7 +145,6 @@ class TripDetailViewController: UIViewController {
             API.claimDropOff(trip: self.trip, completion: { (error) in
                 self.disableDropoff()
             })
-            
         }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
         

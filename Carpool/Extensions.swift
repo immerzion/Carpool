@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 extension Date {
     var prettyDate: String {
@@ -32,5 +33,37 @@ extension Date {
         let formattedDate = formatter.string(from: day)
         return formattedDate
     }
+}
+
+
+//extension MKMapItem: MKAnnotation {
+//    public var coordinate: CLLocationCoordinate2D {
+//        return placemark.coordinate
+//    }
+//
+//    public var title: String? {
+//        return name
+//    }
+//
+//    public var subtitle: String? {
+//        return phoneNumber
+//    }
+//}
+
+extension CLLocation: MKAnnotation {
+    public var title: String? {
+        return title
+    }
+    
+    public var subtitle: String? {
+        return subtitle
+    }
+}
+
+extension MKPlacemark: MKAnnotation {
+    var subtitle: String? {
+        return name
+    }
+    
 }
 
