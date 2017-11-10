@@ -22,6 +22,8 @@ class CreateTripViewController: UIViewController {
     @IBOutlet weak var dropOffTimeDisplay: UILabel!
     @IBOutlet weak var eventDescriptLabel: UILabel!
     
+    var clock: Timer?
+    
     var pickUpTime = Date()
     var dropOffTime = Date()
     var currentTime = Date()
@@ -32,7 +34,15 @@ class CreateTripViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        clock = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: onTimerFired)
     }
+    
+    //fires on clock tick
+    func onTimerFired(timer:Timer) {
+        nameTextField.text = Date().prettyTime
+    }
+
     
     override func viewDidAppear(_ animated: Bool) {
         dateSelected.minimumDate = Date()
@@ -160,6 +170,7 @@ class CreateTripViewController: UIViewController {
     }
     
 }
+
 
 
 

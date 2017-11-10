@@ -121,13 +121,13 @@ class TripDetailViewController: UIViewController {
         //if trip.pickUp.driver == me
         //change pickup driver to "you"
         
-        pickUpButton.setTitle("\(trip.pickUp!.driver) will pickup \(childNames)", for: .normal)
+        pickUpButton.setTitle("\(trip.pickUp!.driver.name) will pickup \(childNames)", for: .normal)
         pickUpButton.isEnabled = false
         cancelPickUpButton.isHidden = false
     }
     
     func disableDropoff() {
-        dropOffButton.setTitle("\(trip.dropOff!.driver) will drop off \(childNames)", for: .normal)
+        dropOffButton.setTitle("\(trip.dropOff!.driver.name) will drop off \(childNames)", for: .normal)
         dropOffButton.isEnabled = false
         cancelDropOffButton.isHidden = false
     }

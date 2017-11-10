@@ -22,6 +22,7 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         API.observeTrips { (result) in
             switch result {
             case .success(let trips):
@@ -58,23 +59,25 @@ class RootViewController: UITableViewController {
         cell.textLabel?.text = trips[indexPath.row].event.description
         
         if trips[indexPath.row].pickUp == nil {
-            cell.backgroundColor = UIColor.red
+            cell.backgroundColor = red
         } else {
             cell.backgroundColor = UIColor.clear
         }
         
         if !(trips[indexPath.row].dropOff != nil)  {
-            cell.backgroundColor = UIColor.red
+            cell.backgroundColor = red
         }
         return cell
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "TripDetail" {
         let tripDetailVC = segue.destination as! TripDetailViewController
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         tripDetailVC.trip = trips[indexPath.row]
         }
+        
         if segue.identifier == "CreateTrip" {
             let createTripVC = segue.destination as! CreateTripViewController
             print(createTripVC)
