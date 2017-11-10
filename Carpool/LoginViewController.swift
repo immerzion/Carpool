@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseCommunity
+import CarpoolKit
 
 let loginDidComplete = Notification.Name("LoginDidComplete")
 
@@ -23,33 +24,86 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        if emailTextField.text != nil, passwordTextField.text != nil {
         
-            if logSignSegment.selectedSegmentIndex == 0 {
-                Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
-                    if let error = error {
-                        print(#function, error)
-                    } else {
-                        UIApplication.shared.isNetworkActivityIndicatorVisible = false //check placement
-                    }
-                })
-            } else {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = true
-                Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
-                    if let error = error {
-                        //TODO show alert
-                        print(#function, error)
-                    } else {
-                        UIApplication.shared.isNetworkActivityIndicatorVisible = false //check placement
-                    }
-                })
-            }
-        }
     }
+    
+    
+    
+    
+//    func signIn() {
+//        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+//        //API.signIn(email: emailTextField, password: passwordTextField) { (result) in
+//            func validateTextFields() {
+//                //activityIndicator.isHidden = false
+//
+//                var validEmail = false
+//                var validPassword1 = false
+//                var validPassword2 = false
+//
+//                if emailTextField.text == "" {
+//                    validEmail = false
+//                    displayErrorMessage("Username cannot be blank.")
+//                }
+//                else {
+//                    validEmail = true
+//                }
+//
+//                if passwordTextField.text == "" {
+//                    validPassword1 = false
+//                    displayErrorMessage("Password cannot be blank.")
+//                }
+//                else {
+//                    validPassword1 = true
+//                }
+//
+//                if confirmPassTextField.text == "" {
+//                    validPassword2 = false
+//                }
+//                else {
+//                    validPassword2 = true
+//                }
+//
+//                if logSignSegment.selectedSegmentIndex == 0, validEmail, validPassword1 {
+//                    signIn()
+//                }
+//
+//                if logSignSegment.selectedSegmentIndex == 1, validEmail, validPassword1, validPassword2 {
+//                    if passwordTextField.text == confirmPassTextField.text {
+//                        createUser()
+//                    }
+//                    else {
+//                        displayErrorMessage("Passwords do not match.")
+//                    }
+//                }
+//
+//
+//            print("jess needs to get better at coding")
+//        }
+//    }
+//
+    func createUser() {
+        
+    }
+        
+    func displayErrorMessage(_ message: String) {
+        let errorMessage = message
+        // create the alert
+        let alert = UIAlertController(title: "Carpool", message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        //activityIndicator.isHidden = true
+    }
+    
+
+
     
     @IBAction func onSignLogTapped(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex == 0 {
@@ -62,4 +116,6 @@ class LoginViewController: UIViewController {
         }
     }
     
+    
 }
+

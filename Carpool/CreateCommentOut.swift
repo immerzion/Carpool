@@ -51,3 +51,30 @@
 //
 //}
 
+
+
+//        if emailTextField.text != nil, passwordTextField.text != nil {
+//
+//            if logSignSegment.selectedSegmentIndex == 0 {
+//                Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
+//                    if let error = error {
+//                        print(#function, error)
+//                    } else {
+//                        UIApplication.shared.isNetworkActivityIndicatorVisible = false //check placement
+//                    }
+//                })
+//            } else {
+//                UIApplication.shared.isNetworkActivityIndicatorVisible = true
+//
+//                    if let error = error {
+//                        //TODO show alert
+//                        print(#function, error)
+//                    } else {
+//                        UIApplication.shared.isNetworkActivityIndicatorVisible = false //check placement
+//                    }
+//                })
+//            }
+//        }
+//    }
+//
+
