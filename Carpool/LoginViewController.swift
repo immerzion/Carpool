@@ -15,4 +15,14 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
     
+//    @IBAction func onLoginPressed() {
+//        UIApplication.shared.open(oauth!)
+//        
+//    }
+//    
+//    @IBAction func onSkipPressed() {
+//        //TODO: Go to RootVC
+//        dismiss(animated: true, completion: nil)
+//    }
+    
 }
