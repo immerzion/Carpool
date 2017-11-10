@@ -122,19 +122,19 @@ extension DestinationViewController: CLLocationManagerDelegate {
     }
 }
 
-extension MKMapItem: MKAnnotation {
-    public var coordinate: CLLocationCoordinate2D {
-        return placemark.coordinate
-    }
-    
-    public var title: String? {
-        return name
-    }
-    
-    public var subtitle: String? {
-        return phoneNumber
-    }
-}
+//extension MKMapItem: MKAnnotation {
+//    public var coordinate: CLLocationCoordinate2D {
+//        return placemark.coordinate
+//    }
+//    
+//    public var title: String? {
+//        return name
+//    }
+//    
+//    public var subtitle: String? {
+//        return phoneNumber
+//    }
+//}
 
 extension DestinationViewController: HandleMapSearch {
     func dropPinZoomIn(placemark:MKPlacemark){

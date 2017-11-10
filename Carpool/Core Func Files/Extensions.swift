@@ -6,7 +6,7 @@
 //  Copyright © 2017 Immerzion Interactive. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import MapKit
 
 extension Date {
@@ -36,34 +36,34 @@ extension Date {
 }
 
 
-//extension MKMapItem: MKAnnotation {
-//    public var coordinate: CLLocationCoordinate2D {
-//        return placemark.coordinate
-//    }
-//
-//    public var title: String? {
-//        return name
-//    }
-//
-//    public var subtitle: String? {
-//        return phoneNumber
-//    }
-//}
+extension MKMapItem: MKAnnotation {
+    public var coordinate: CLLocationCoordinate2D {
+        return placemark.coordinate
+    }
 
-extension CLLocation: MKAnnotation {
     public var title: String? {
-        return title
-    }
-    
-    public var subtitle: String? {
-        return subtitle
-    }
-}
-
-extension MKPlacemark: MKAnnotation {
-    var subtitle: String? {
         return name
     }
-    
+
+    public var subtitle: String? {
+        return phoneNumber
+    }
 }
+
+//extension CLLocation: MKAnnotation {
+//    public var title: String? {
+//        return self.title
+//    }
+//    
+//    public var subtitle: String? {
+//        return self.subtitle
+//    }
+//}
+//
+//extension MKPlacemark: MKAnnotation {
+//    var subtitle: String? {
+//        return name
+//    }
+//    
+//}
 

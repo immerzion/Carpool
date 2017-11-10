@@ -53,7 +53,13 @@ class TripDetailViewController: UIViewController {
         eventDescriptionLabel.text = trip.event.description
         dateLabel.text = tripDate
         timeLabel.text = tripTime
-        locationLabel.text = "savannah" //trip.event.clLocation
+        //locationLabel.text = "savannah" //trip.event.clLocation
+        
+//        if let tripLocation = trip.event.clLocation. {
+//            locationLabel.text = tripLocation
+//        } else {
+//            locationLabel.text = ""
+//        }
         
         
         if trip.pickUp != nil {
@@ -68,15 +74,15 @@ class TripDetailViewController: UIViewController {
             resetDropoff()
         }
         
-        trip.pickUp?.driver
-        trip.dropOff?.driver
-        
-        trip.event.owner.name
-        trip.event.owner.isMe
-        trip.event.description
-        trip.event.time
-        trip.event.endTime
-        trip.event.clLocation
+//        trip.pickUp?.driver
+//        trip.dropOff?.driver
+//
+//        trip.event.owner.name
+//        trip.event.owner.isMe
+//        trip.event.description
+//        trip.event.time
+//        trip.event.endTime
+//        trip.event.clLocation
         
     }
     
