@@ -27,7 +27,7 @@ class TripDetailViewController: UIViewController {
     var user: User!
     var podLeg: Leg!
     var childNames = ""
-
+    
     let savannah = CLLocation(latitude: 32.076176, longitude: -81.088371)
     
     
@@ -37,30 +37,20 @@ class TripDetailViewController: UIViewController {
     
     //child mode - lets kids know who is picking them up - stretch goal security feature.
     
+    //        trip.pickUp?.driver
+    //        trip.dropOff?.driver
+    //
+    //        trip.event.owner.name
+    //        trip.event.owner.isMe
+    //        trip.event.description
+    //        trip.event.time
+    //        trip.event.endTime
+    //        trip.event.clLocation
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         resetButtons()
-        
-        let tripDate = trip.event.time.prettyDate
-        let tripTime = trip.event.time.prettyTime
-        
-        for child in trip.children {
-            childNames += ", " + child.name
-        }
-        
-        nameLabel.text = childNames
-        eventDescriptionLabel.text = trip.event.description
-        dateLabel.text = tripDate
-        timeLabel.text = tripTime
-        //locationLabel.text = "savannah" //trip.event.clLocation
-        
-//        if let tripLocation = trip.event.clLocation. {
-//            locationLabel.text = tripLocation
-//        } else {
-//            locationLabel.text = ""
-//        }
-        
         
         if trip.pickUp != nil {
             disablePickup()
@@ -74,17 +64,36 @@ class TripDetailViewController: UIViewController {
             resetDropoff()
         }
         
-//        trip.pickUp?.driver
-//        trip.dropOff?.driver
-//
-//        trip.event.owner.name
-//        trip.event.owner.isMe
-//        trip.event.description
-//        trip.event.time
-//        trip.event.endTime
-//        trip.event.clLocation
+        let tripDate = trip.event.time.prettyDate
+        let tripTime = trip.event.time.prettyTime
         
+        for child in trip.children {
+            childNames += ", " + child.name
+        }
+        
+        nameLabel.text = childNames
+        eventDescriptionLabel.text = trip.event.description
+        dateLabel.text = tripDate
+        timeLabel.text = tripTime
+        //locationLabel.text = trip.event.clLocation?.mkName
+        
+        let geocoder = CLGeocoder()
+
+        if let tripLocation = trip.event.clLocation {
+            geocoder.reverseGeocodeLocation(tripLocation, completionHandler: onReverseGeocodeCompleted)
+        } else {
+            locationLabel.text = ""
+        }
+
     }
+
+    func onReverseGeocodeCompleted(placemarks: [CLPlacemark]?, error: Error?) {
+        if let locationName = placemarks?.first?.name {
+            locationLabel.text = locationName
+        } else {
+            locationLabel.text = ""
+        }
+   }
     
     func resetButtons() {
         resetPickup()

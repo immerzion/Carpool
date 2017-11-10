@@ -50,20 +50,45 @@ extension MKMapItem: MKAnnotation {
     }
 }
 
-//extension CLLocation: MKAnnotation {
-//    public var title: String? {
-//        return self.title
+//extension CLPlacemark: MKAnnotation {
+//    public var coordinate: CLLocationCoordinate2D {
+//        return placemark.coordinate
 //    }
-//    
-//    public var subtitle: String? {
-//        return self.subtitle
-//    }
-//}
 //
-//extension MKPlacemark: MKAnnotation {
-//    var subtitle: String? {
-//        return name
-//    }
-//    
+//
 //}
+
+//extension CLPlacemark {
+//    var cityState: String? {
+//        if let city = self.locality, let state = self.administrativeArea {
+//            return "\(city), \(state)"
+//        } else {
+//            return nil
+//        }
+//    }
+//}
+
+extension CLLocation {
+    public var mkName: String? {
+        return MKPlacemark(coordinate: self.coordinate).name
+    }
+}
+
+
+extension CLLocation: MKAnnotation {
+    public var title: String? {
+        return self.title
+    }
+    
+    public var subtitle: String? {
+        return self.subtitle
+    }
+}
+
+extension MKPlacemark: MKAnnotation {
+    var subtitle: String? {
+        return name
+    }
+    
+}
 
