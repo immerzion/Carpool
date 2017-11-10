@@ -118,16 +118,16 @@
                                                 </connections>
                                             </segmentedControl>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3pg-Xm-ygG">
-                                                <rect key="frame" x="0.0" y="27.5" width="343" height="20"/>
+                                                <rect key="frame" x="0.0" y="27.5" width="343" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5i-Ug-UZx">
-                                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCQ-sz-iya">
-                                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="20"/>
+                                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -144,29 +144,29 @@
                                                 </constraints>
                                             </stackView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Child's Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="BCb-ZB-M2k">
-                                                <rect key="frame" x="0.0" y="47.5" width="343" height="29.5"/>
+                                                <rect key="frame" x="0.0" y="48" width="343" height="29.5"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Destination" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YJB-ca-VIk">
-                                                <rect key="frame" x="0.0" y="77" width="343" height="29"/>
+                                                <rect key="frame" x="0.0" y="77.5" width="343" height="29.5"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFK-JC-ZQz">
-                                                <rect key="frame" x="0.0" y="106" width="343" height="29.5"/>
+                                                <rect key="frame" x="0.0" y="107" width="343" height="30"/>
                                                 <state key="normal" title="Search for Location"/>
                                                 <connections>
                                                     <segue destination="ABB-D0-L7N" kind="show" id="aXp-Ve-kZV"/>
                                                 </connections>
                                             </button>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="E3w-iX-WRj">
-                                                <rect key="frame" x="0.0" y="135.5" width="343" height="88"/>
+                                                <rect key="frame" x="0.0" y="137" width="343" height="84"/>
                                             </mapView>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Xx3-i1-duV">
-                                                <rect key="frame" x="0.0" y="223.5" width="343" height="140"/>
+                                                <rect key="frame" x="0.0" y="221" width="343" height="140"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="140" id="nj4-rk-VAm"/>
                                                 </constraints>
@@ -184,7 +184,7 @@
                                                 </connections>
                                             </datePicker>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEd-bI-n9P">
-                                                <rect key="frame" x="0.0" y="363.5" width="343" height="75"/>
+                                                <rect key="frame" x="0.0" y="361" width="343" height="75"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="75" id="4T5-9c-xia"/>
                                                 </constraints>
@@ -193,7 +193,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjk-Nd-bSg">
-                                                <rect key="frame" x="0.0" y="438.5" width="343" height="99.5"/>
+                                                <rect key="frame" x="0.0" y="436" width="343" height="102"/>
                                                 <state key="normal" title="Submit Carpool!"/>
                                                 <connections>
                                                     <action selector="submitCarpoolButton:" destination="RYI-9f-d97" eventType="touchUpInside" id="Efk-Jq-Sdx"/>
@@ -561,7 +561,7 @@
                         <outlet property="confirmPassTextField" destination="SfB-T6-JsL" id="f4K-zV-2Gs"/>
                         <outlet property="emailTextField" destination="HKi-5E-gq9" id="PVv-9i-wkO"/>
                         <outlet property="fullNameTextField" destination="I1J-7a-lQC" id="YT1-tS-Ojk"/>
-                        <outlet property="onLogSignTapped" destination="pZJ-my-zzB" id="Zk0-zL-Hvo"/>
+                        <outlet property="logSignSegment" destination="pZJ-my-zzB" id="0l7-bL-S1Q"/>
                         <outlet property="passwordTextField" destination="wu0-Fb-tgm" id="Zt3-8K-qtW"/>
                     </connections>
                 </viewController>
