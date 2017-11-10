@@ -89,24 +89,17 @@
 		040374CC1FB0E76300ECF674 /* Carpool */ = {
 			isa = PBXGroup;
 			children = (
-				04D45F9F1FB3AFCD00D07EA2 /* Savannah.gpx */,
-				040374D11FB0E76300ECF674 /* Main.storyboard */,
-				040374CD1FB0E76300ECF674 /* AppDelegate.swift */,
-				D740BA1E1FB5053D0074DA4F /* CalendarViewController.swift */,
-				040374CF1FB0E76300ECF674 /* RootViewController.swift */,
-				D740BA1A1FB4FAC70074DA4F /* SettingsViewController.swift */,
-				D740BA201FB5058B0074DA4F /* LoginViewController.swift */,
-				D730EF4F1FB0F015000DC3CB /* TripDetailViewController.swift */,
-				D740BA1C1FB4FDB50074DA4F /* TabBarController.swift */,
-				04D45F9D1FB39C9200D07EA2 /* LocationSearchTable.swift */,
-				04D45F9B1FB38D1300D07EA2 /* DestinationViewController.swift */,
-				04D45F991FB3754700D07EA2 /* KidsPopOverTableViewController.swift */,
-				D7C7B7B01FB208110083DDD2 /* CreateTripViewController.swift */,
-				040374DF1FB1FAA900ECF674 /* CoreLocationCode.swift */,
-				D70BB1CE1FB3A8BC00797B6A /* CreateCommentOut.swift */,
-				047BC4D51FB2558F008D64BA /* Extensions.swift */,
-				040374D41FB0E76300ECF674 /* Assets.xcassets */,
 				040374D61FB0E76300ECF674 /* LaunchScreen.storyboard */,
+				040374D11FB0E76300ECF674 /* Main.storyboard */,
+				040374CF1FB0E76300ECF674 /* RootViewController.swift */,
+				D730EF4F1FB0F015000DC3CB /* TripDetailViewController.swift */,
+				D7D819811FB6021300B7A43E /* Core Func Files */,
+				D7D819801FB601CE00B7A43E /* Nav and Tab */,
+				D7D8197D1FB6011C00B7A43E /* Create Trip VC */,
+				D7D8197F1FB601B300B7A43E /* Login and Settings */,
+				D7D8197E1FB6019700B7A43E /* Calendar */,
+				D7D819821FB6025900B7A43E /* Commentary */,
+				040374D41FB0E76300ECF674 /* Assets.xcassets */,
 				040374D91FB0E76300ECF674 /* Info.plist */,
 				040374E21FB2034400ECF674 /* GoogleService-Info.plist */,
 			);
@@ -128,6 +121,61 @@
 				620637C18571BDFDF03D9BFF /* Pods_Carpool.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7D8197D1FB6011C00B7A43E /* Create Trip VC */ = {
+			isa = PBXGroup;
+			children = (
+				D7C7B7B01FB208110083DDD2 /* CreateTripViewController.swift */,
+				04D45F9B1FB38D1300D07EA2 /* DestinationViewController.swift */,
+				04D45F9D1FB39C9200D07EA2 /* LocationSearchTable.swift */,
+				04D45F991FB3754700D07EA2 /* KidsPopOverTableViewController.swift */,
+			);
+			name = "Create Trip VC";
+			sourceTree = "<group>";
+		};
+		D7D8197E1FB6019700B7A43E /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				D740BA1E1FB5053D0074DA4F /* CalendarViewController.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		D7D8197F1FB601B300B7A43E /* Login and Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D740BA1A1FB4FAC70074DA4F /* SettingsViewController.swift */,
+				D740BA201FB5058B0074DA4F /* LoginViewController.swift */,
+			);
+			name = "Login and Settings";
+			sourceTree = "<group>";
+		};
+		D7D819801FB601CE00B7A43E /* Nav and Tab */ = {
+			isa = PBXGroup;
+			children = (
+				D740BA1C1FB4FDB50074DA4F /* TabBarController.swift */,
+			);
+			path = "Nav and Tab";
+			sourceTree = "<group>";
+		};
+		D7D819811FB6021300B7A43E /* Core Func Files */ = {
+			isa = PBXGroup;
+			children = (
+				047BC4D51FB2558F008D64BA /* Extensions.swift */,
+				040374CD1FB0E76300ECF674 /* AppDelegate.swift */,
+				04D45F9F1FB3AFCD00D07EA2 /* Savannah.gpx */,
+			);
+			path = "Core Func Files";
+			sourceTree = "<group>";
+		};
+		D7D819821FB6025900B7A43E /* Commentary */ = {
+			isa = PBXGroup;
+			children = (
+				040374DF1FB1FAA900ECF674 /* CoreLocationCode.swift */,
+				D70BB1CE1FB3A8BC00797B6A /* CreateCommentOut.swift */,
+			);
+			name = Commentary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,7 +471,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2UGUG4XHJY;
+				DEVELOPMENT_TEAM = CSCV5MXHRZ;
 				INFOPLIST_FILE = Carpool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.immerzion.Carpool;
@@ -439,7 +487,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2UGUG4XHJY;
+				DEVELOPMENT_TEAM = CSCV5MXHRZ;
 				INFOPLIST_FILE = Carpool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.immerzion.Carpool;
