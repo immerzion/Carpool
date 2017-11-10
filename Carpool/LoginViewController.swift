@@ -10,7 +10,6 @@ import UIKit
 import FirebaseCommunity
 import CarpoolKit
 
-let loginDidComplete = Notification.Name("LoginDidComplete")
 
 class LoginViewController: UIViewController {
     
@@ -21,74 +20,105 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var fullNameTextField: UITextField!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        
+        validateTextFields()
     }
     
-    
-    
-    
-//    func signIn() {
-//        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-//        //API.signIn(email: emailTextField, password: passwordTextField) { (result) in
-//            func validateTextFields() {
-//                //activityIndicator.isHidden = false
-//
-//                var validEmail = false
-//                var validPassword1 = false
-//                var validPassword2 = false
-//
-//                if emailTextField.text == "" {
-//                    validEmail = false
-//                    displayErrorMessage("Username cannot be blank.")
-//                }
-//                else {
-//                    validEmail = true
-//                }
-//
-//                if passwordTextField.text == "" {
-//                    validPassword1 = false
-//                    displayErrorMessage("Password cannot be blank.")
-//                }
-//                else {
-//                    validPassword1 = true
-//                }
-//
-//                if confirmPassTextField.text == "" {
-//                    validPassword2 = false
-//                }
-//                else {
-//                    validPassword2 = true
-//                }
-//
-//                if logSignSegment.selectedSegmentIndex == 0, validEmail, validPassword1 {
-//                    signIn()
-//                }
-//
-//                if logSignSegment.selectedSegmentIndex == 1, validEmail, validPassword1, validPassword2 {
-//                    if passwordTextField.text == confirmPassTextField.text {
-//                        createUser()
-//                    }
-//                    else {
-//                        displayErrorMessage("Passwords do not match.")
-//                    }
-//                }
-//
-//
-//            print("jess needs to get better at coding")
-//        }
-//    }
-//
-    func createUser() {
-        
+    @IBAction func onSignLogTapped(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            initializeLogin()
+        case 1:
+            initializeSignup()
+        default:
+            break
+        }
     }
+    
+    func initializeLogin() {
+        confirmPassTextField.isHidden = true
+        fullNameTextField.isHidden = true
+    }
+    
+    func initializeSignup() {
+        confirmPassTextField.isHidden = false
+        fullNameTextField.isHidden = false
+    }
+    
+    func signIn(email: String, password: String) {
+        API.signIn(email: email, password: password) { (user) in
+            switch user {
+            case .success(_):
+                print(user, "sign in successful")
+            case .failure(_):
+                print(user, "error")
+            }
+        }
+    }
+    
+    func signUp(email: String, password: String, fullName: String) {
+        API.signUp(email: email, password: password, fullName: fullName) { (user) in
+            switch user {
+            case .success(_):
+                print(user, "sign up successful")
+            case .failure(_):
+                print(user, "error")
+            }
+        }
+    }
+    
+    func validateTextFields() {
+        //activityIndicator.isHidden = false
         
+        var validEmail = false
+        var validPassword1 = false
+        var validPassword2 = false
+        
+        if emailTextField.text == "" {
+            validEmail = false
+            displayErrorMessage("Username cannot be blank.")
+        } else {
+            validEmail = true
+        }
+        
+        if passwordTextField.text == "" {
+            validPassword1 = false
+            displayErrorMessage("Password cannot be blank.")
+        } else {
+            validPassword1 = true
+        }
+        
+        if confirmPassTextField.text == "" {
+            validPassword2 = false
+        } else {
+            validPassword2 = true
+        }
+        
+        if fullNameTextField.text == "" {
+            validPassword1 = false
+            displayErrorMessage("Name cannot be blank.")
+        } else {
+            validPassword1 = true
+        }
+        
+        if logSignSegment.selectedSegmentIndex == 0, validEmail, validPassword1 {
+            signIn(email: emailTextField.text!, password: passwordTextField.text!)
+        }
+        
+        if logSignSegment.selectedSegmentIndex == 1, validEmail, validPassword1, validPassword2 {
+            if passwordTextField.text == confirmPassTextField.text {
+                signUp(email: emailTextField.text!, password: passwordTextField.text!, fullName: fullNameTextField.text!)
+            }
+            else {
+                displayErrorMessage("Passwords do not match.")
+            }
+        }
+    }
+    
     func displayErrorMessage(_ message: String) {
         let errorMessage = message
         // create the alert
@@ -102,20 +132,4 @@ class LoginViewController: UIViewController {
         //activityIndicator.isHidden = true
     }
     
-
-
-    
-    @IBAction func onSignLogTapped(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex == 0 {
-        case true:
-            confirmPassTextField.isHidden = true
-            fullNameTextField.isHidden = true
-        case false:
-            confirmPassTextField.isHidden = false
-            fullNameTextField.isHidden = false
-        }
-    }
-    
-    
 }
-
