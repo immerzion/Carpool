@@ -108,7 +108,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="538"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6XT-jw-Zjv">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="28"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="28.5"/>
                                                 <segments>
                                                     <segment title="Pick Up"/>
                                                     <segment title="Drop Off"/>
@@ -118,7 +118,7 @@
                                                 </connections>
                                             </segmentedControl>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3pg-Xm-ygG">
-                                                <rect key="frame" x="0.0" y="27" width="343" height="20"/>
+                                                <rect key="frame" x="0.0" y="27.5" width="343" height="20"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5i-Ug-UZx">
                                                         <rect key="frame" x="0.0" y="0.0" width="171.5" height="20"/>
@@ -144,29 +144,29 @@
                                                 </constraints>
                                             </stackView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Child's Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="BCb-ZB-M2k">
-                                                <rect key="frame" x="0.0" y="47" width="343" height="29"/>
+                                                <rect key="frame" x="0.0" y="47.5" width="343" height="29.5"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Destination" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YJB-ca-VIk">
-                                                <rect key="frame" x="0.0" y="76" width="343" height="28.5"/>
+                                                <rect key="frame" x="0.0" y="77" width="343" height="29"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFK-JC-ZQz">
-                                                <rect key="frame" x="0.0" y="104.5" width="343" height="29"/>
+                                                <rect key="frame" x="0.0" y="106" width="343" height="29.5"/>
                                                 <state key="normal" title="Search for Location"/>
                                                 <connections>
                                                     <segue destination="ABB-D0-L7N" kind="show" id="aXp-Ve-kZV"/>
                                                 </connections>
                                             </button>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="E3w-iX-WRj">
-                                                <rect key="frame" x="0.0" y="133.5" width="343" height="94.5"/>
+                                                <rect key="frame" x="0.0" y="135.5" width="343" height="88"/>
                                             </mapView>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Xx3-i1-duV">
-                                                <rect key="frame" x="0.0" y="228" width="343" height="140"/>
+                                                <rect key="frame" x="0.0" y="223.5" width="343" height="140"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="140" id="nj4-rk-VAm"/>
                                                 </constraints>
@@ -184,7 +184,7 @@
                                                 </connections>
                                             </datePicker>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEd-bI-n9P">
-                                                <rect key="frame" x="0.0" y="368" width="343" height="75"/>
+                                                <rect key="frame" x="0.0" y="363.5" width="343" height="75"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="75" id="4T5-9c-xia"/>
                                                 </constraints>
@@ -193,7 +193,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjk-Nd-bSg">
-                                                <rect key="frame" x="0.0" y="443" width="343" height="95"/>
+                                                <rect key="frame" x="0.0" y="438.5" width="343" height="99.5"/>
                                                 <state key="normal" title="Submit Carpool!"/>
                                                 <connections>
                                                     <action selector="submitCarpoolButton:" destination="RYI-9f-d97" eventType="touchUpInside" id="Efk-Jq-Sdx"/>
@@ -247,6 +247,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFa-Oc-d52">
                                 <rect key="frame" x="113" y="556" width="148" height="30"/>
                                 <color key="backgroundColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="38m-2M-E1U"/>
+                                </constraints>
                                 <state key="normal" title="Confirm Location">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -481,12 +484,90 @@
                     <view key="view" contentMode="scaleToFill" id="KQF-wU-yex">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pZJ-my-zzB">
+                                <rect key="frame" x="16" y="66" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Login"/>
+                                    <segment title="Signup"/>
+                                </segments>
+                                <color key="tintColor" red="0.29686956019999999" green="0.72544288199999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="onSignLogTapped:" destination="MnS-Ug-0DJ" eventType="valueChanged" id="UzB-ei-S7T"/>
+                                </connections>
+                            </segmentedControl>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HKi-5E-gq9">
+                                <rect key="frame" x="16" y="140" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="continue" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wu0-Fb-tgm">
+                                <rect key="frame" x="16" y="182" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="continue" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                            </textField>
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SfB-T6-JsL">
+                                <rect key="frame" x="16" y="224" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="continue" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                            </textField>
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First and Last Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="I1J-7a-lQC">
+                                <rect key="frame" x="16" y="266" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kec-Ly-cZO">
+                                <rect key="frame" x="149" y="367" width="77" height="30"/>
+                                <color key="backgroundColor" red="0.29686956019999999" green="0.72544288199999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="TRN-0K-PBa"/>
+                                </constraints>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="MnS-Ug-0DJ" eventType="touchUpInside" id="Fhc-NR-ZcQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SfB-T6-JsL" firstAttribute="trailing" secondItem="KQF-wU-yex" secondAttribute="trailingMargin" id="2UA-Om-CQY"/>
+                            <constraint firstItem="SfB-T6-JsL" firstAttribute="leading" secondItem="KQF-wU-yex" secondAttribute="leadingMargin" id="56r-gV-Qfk"/>
+                            <constraint firstItem="wu0-Fb-tgm" firstAttribute="trailing" secondItem="KQF-wU-yex" secondAttribute="trailingMargin" id="GCh-hK-E9k"/>
+                            <constraint firstItem="Kec-Ly-cZO" firstAttribute="leading" secondItem="KQF-wU-yex" secondAttribute="leadingMargin" constant="133" id="GWo-II-Kb6"/>
+                            <constraint firstItem="SfB-T6-JsL" firstAttribute="top" secondItem="wu0-Fb-tgm" secondAttribute="bottom" constant="12" id="Klq-3o-t8G"/>
+                            <constraint firstItem="wu0-Fb-tgm" firstAttribute="top" secondItem="HKi-5E-gq9" secondAttribute="bottom" constant="12" id="O2J-ll-gnR"/>
+                            <constraint firstItem="pZJ-my-zzB" firstAttribute="top" secondItem="OH8-hu-hNS" secondAttribute="bottom" constant="46" id="RRD-JY-vgn"/>
+                            <constraint firstItem="Kec-Ly-cZO" firstAttribute="top" secondItem="I1J-7a-lQC" secondAttribute="bottom" constant="71" id="T6s-6U-sV8"/>
+                            <constraint firstItem="HKi-5E-gq9" firstAttribute="trailing" secondItem="KQF-wU-yex" secondAttribute="trailingMargin" id="ckt-OU-IRu"/>
+                            <constraint firstItem="I1J-7a-lQC" firstAttribute="leading" secondItem="KQF-wU-yex" secondAttribute="leadingMargin" id="dYr-vg-Lxl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Kec-Ly-cZO" secondAttribute="trailing" constant="133" id="fnC-p3-YBc"/>
+                            <constraint firstItem="wu0-Fb-tgm" firstAttribute="leading" secondItem="KQF-wU-yex" secondAttribute="leadingMargin" id="iKZ-Ps-dqf"/>
+                            <constraint firstItem="HKi-5E-gq9" firstAttribute="top" secondItem="pZJ-my-zzB" secondAttribute="bottom" constant="46" id="kLf-9l-0Qn"/>
+                            <constraint firstItem="pZJ-my-zzB" firstAttribute="leading" secondItem="KQF-wU-yex" secondAttribute="leadingMargin" id="lqf-Pd-W2d"/>
+                            <constraint firstItem="yxG-Mt-fDM" firstAttribute="top" secondItem="Kec-Ly-cZO" secondAttribute="bottom" constant="270" id="luS-B1-6pY"/>
+                            <constraint firstItem="I1J-7a-lQC" firstAttribute="trailing" secondItem="KQF-wU-yex" secondAttribute="trailingMargin" id="qUZ-eh-Vwt"/>
+                            <constraint firstItem="pZJ-my-zzB" firstAttribute="trailing" secondItem="KQF-wU-yex" secondAttribute="trailingMargin" id="scU-JC-l5Z"/>
+                            <constraint firstItem="HKi-5E-gq9" firstAttribute="leading" secondItem="KQF-wU-yex" secondAttribute="leadingMargin" id="vX9-gH-OOE"/>
+                            <constraint firstItem="I1J-7a-lQC" firstAttribute="top" secondItem="SfB-T6-JsL" secondAttribute="bottom" constant="12" id="zAu-6b-0v1"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="confirmPassTextField" destination="SfB-T6-JsL" id="f4K-zV-2Gs"/>
+                        <outlet property="emailTextField" destination="HKi-5E-gq9" id="PVv-9i-wkO"/>
+                        <outlet property="fullNameTextField" destination="I1J-7a-lQC" id="YT1-tS-Ojk"/>
+                        <outlet property="onLogSignTapped" destination="pZJ-my-zzB" id="Zk0-zL-Hvo"/>
+                        <outlet property="passwordTextField" destination="wu0-Fb-tgm" id="Zt3-8K-qtW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZl-X9-Xbw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1298" y="910"/>
+            <point key="canvasLocation" x="-1303" y="110"/>
         </scene>
         <!--Settings-->
         <scene sceneID="avY-Yg-0Wg">
