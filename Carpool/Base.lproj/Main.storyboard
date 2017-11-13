@@ -28,6 +28,7 @@
                                         <segment title="Unscheduled Trips"/>
                                         <segment title="All Current Trips"/>
                                     </segments>
+                                    <color key="tintColor" red="0.0" green="0.67843137249999996" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="onFilterPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="hip-TT-1pJ"/>
                                     </connections>
