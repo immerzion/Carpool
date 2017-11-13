@@ -27,7 +27,7 @@
 		D740BA1F1FB5053D0074DA4F /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D740BA1E1FB5053D0074DA4F /* CalendarViewController.swift */; };
 		D740BA211FB5058B0074DA4F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D740BA201FB5058B0074DA4F /* LoginViewController.swift */; };
 		D7C7B7B11FB208110083DDD2 /* CreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C7B7B01FB208110083DDD2 /* CreateTripViewController.swift */; };
-		D7E13D9E1FBA009A00FC3A97 /* FriendsTripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E13D9D1FBA009A00FC3A97 /* FriendsTripsViewController.swift */; };
+		D7E13D9E1FBA009A00FC3A97 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E13D9D1FBA009A00FC3A97 /* FriendsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +55,7 @@
 		D740BA1E1FB5053D0074DA4F /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		D740BA201FB5058B0074DA4F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D7C7B7B01FB208110083DDD2 /* CreateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripViewController.swift; sourceTree = "<group>"; };
-		D7E13D9D1FBA009A00FC3A97 /* FriendsTripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTripsViewController.swift; sourceTree = "<group>"; };
+		D7E13D9D1FBA009A00FC3A97 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 			children = (
 				040374D61FB0E76300ECF674 /* LaunchScreen.storyboard */,
 				040374D11FB0E76300ECF674 /* Main.storyboard */,
-				D7E13D9D1FBA009A00FC3A97 /* FriendsTripsViewController.swift */,
+				D7E13D9D1FBA009A00FC3A97 /* FriendsViewController.swift */,
 				040374CF1FB0E76300ECF674 /* RootViewController.swift */,
 				D730EF4F1FB0F015000DC3CB /* TripDetailViewController.swift */,
 				D7D819811FB6021300B7A43E /* Core Func Files */,
@@ -324,7 +324,7 @@
 			files = (
 				D740BA211FB5058B0074DA4F /* LoginViewController.swift in Sources */,
 				D70BB1CF1FB3A8BC00797B6A /* CreateCommentOut.swift in Sources */,
-				D7E13D9E1FBA009A00FC3A97 /* FriendsTripsViewController.swift in Sources */,
+				D7E13D9E1FBA009A00FC3A97 /* FriendsViewController.swift in Sources */,
 				D730EF501FB0F015000DC3CB /* TripDetailViewController.swift in Sources */,
 				D740BA1B1FB4FAC70074DA4F /* SettingsViewController.swift in Sources */,
 				047BC4D61FB2558F008D64BA /* Extensions.swift in Sources */,
