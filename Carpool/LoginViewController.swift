@@ -39,6 +39,8 @@ class LoginViewController: UIViewController {
         }
     }
     
+    //need CANCEL button action added
+    
     func initializeLogin() {
         confirmPassTextField.isHidden = true
         fullNameTextField.isHidden = true
@@ -53,9 +55,9 @@ class LoginViewController: UIViewController {
         API.signIn(email: email, password: password) { (user) in
             switch user {
             case .success(_):
-                print(user, "sign in successful")
+                self.dismissLoginVC()
             case .failure(_):
-                print(user, "error")
+                self.displayErrorMessage(title: "Error Logging In", message: "Please check your internet connection and try again.")
             }
         }
     }
@@ -64,9 +66,9 @@ class LoginViewController: UIViewController {
         API.signUp(email: email, password: password, fullName: fullName) { (user) in
             switch user {
             case .success(_):
-                print(user, "sign up successful")
+                self.dismissLoginVC()
             case .failure(_):
-                print(user, "error")
+                self.displayErrorMessage(title: "Sign Up Error", message: "Please check your internet connection and try again.")
             }
         }
     }
@@ -80,27 +82,28 @@ class LoginViewController: UIViewController {
         
         if emailTextField.text == "" {
             validEmail = false
-            displayErrorMessage("Username cannot be blank.")
+            displayErrorMessage(title: "Carpooler", message: "Username cannot be blank.")
         } else {
             validEmail = true
         }
         
         if passwordTextField.text == "" {
             validPassword1 = false
-            displayErrorMessage("Password cannot be blank.")
+            displayErrorMessage(title: "Carpooler", message: "Passwords cannot be blank.")
         } else {
             validPassword1 = true
         }
         
         if confirmPassTextField.text == "" {
             validPassword2 = false
+            displayErrorMessage(title: "Carpooler", message: "Confirm password and try again.")
         } else {
             validPassword2 = true
         }
         
         if fullNameTextField.text == "" {
             validPassword1 = false
-            displayErrorMessage("Name cannot be blank.")
+            displayErrorMessage(title: "Carpooler", message: "Name cannot be blank.")
         } else {
             validPassword1 = true
         }
@@ -114,15 +117,15 @@ class LoginViewController: UIViewController {
                 signUp(email: emailTextField.text!, password: passwordTextField.text!, fullName: fullNameTextField.text!)
             }
             else {
-                displayErrorMessage("Passwords do not match.")
+                displayErrorMessage(title: "Carpooler", message: "Passwords do not match.")
             }
         }
     }
     
-    func displayErrorMessage(_ message: String) {
+    func displayErrorMessage(title: String, message: String) {
         let errorMessage = message
         // create the alert
-        let alert = UIAlertController(title: "Carpool", message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: title, message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
         
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -130,6 +133,12 @@ class LoginViewController: UIViewController {
         // show the alert
         self.present(alert, animated: true, completion: nil)
         //activityIndicator.isHidden = true
+    }
+    
+    func dismissLoginVC() {
+        if let loginVC = self.presentedViewController as? LoginViewController {
+            loginVC.dismiss(animated: true, completion: nil)
+        }
     }
     
 }

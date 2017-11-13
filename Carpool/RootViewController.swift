@@ -21,7 +21,7 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        allTrips()
+        filteredTrips()
         
     }
     

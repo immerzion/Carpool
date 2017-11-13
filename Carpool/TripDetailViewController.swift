@@ -210,7 +210,6 @@ class TripDetailViewController: UIViewController {
                 //send notification to the parent trip.owner
                 self.resetPickup()
             })
-        
         }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
         
@@ -232,7 +231,6 @@ class TripDetailViewController: UIViewController {
                 //send notification to the parent trip.owner
                 self.resetDropoff()
             })
-            
         }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
         
