@@ -23,7 +23,7 @@ class RootViewController: UITableViewController {
         super.viewDidLoad()
         
         
-        API.observeTrips { (result) in
+        API.observeTrips(sender: self, completion: { (result) in
             switch result {
             case .success(let trips):
                 self.trips = trips
@@ -32,7 +32,7 @@ class RootViewController: UITableViewController {
                 //TODO
                 print(#function, error)
             }
-        }
+        })
         
     }
     
