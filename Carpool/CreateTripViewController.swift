@@ -17,6 +17,7 @@ class CreateTripViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var tripDescriptionTextField: UITextField!
     @IBOutlet weak var dateSelected: UIDatePicker!
     @IBOutlet weak var pickUpTimeDisplay: UILabel!
     @IBOutlet weak var dropOffTimeDisplay: UILabel!
@@ -28,21 +29,20 @@ class CreateTripViewController: UIViewController {
     var dropOffTime = Date()
     var currentTime = Date()
     
-    var clLocation:MKPlacemark? = nil
+    var clLocation: MKPlacemark? = nil
     
     let savannah = CLLocation(latitude: 32.076176, longitude: -81.088371)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        clock = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: onTimerFired)
+        // clock = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: onTimerFired)
     }
     
     //fires on clock tick
-    func onTimerFired(timer:Timer) {
-        nameTextField.text = Date().prettyTime
-    }
-
+    //    func onTimerFired(timer:Timer) {
+    //        nameTextField.text = Date().prettyTime
+    //    }
     
     override func viewDidAppear(_ animated: Bool) {
         dateSelected.minimumDate = Date()
@@ -101,15 +101,14 @@ class CreateTripViewController: UIViewController {
         case 0:
             let name = nameTextField.text!
             let location = locationTextField.text!
-            let desc = "On \(pickUpTime.prettyDay), \(name) needs to be PICKED UP from \(location) at \(pickUpTime.prettyTime)"
+           
+            let desc = "On \(pickUpTime.prettyDay), \(name) needs to be PICKED UP for \(tripDescript(text: tripDescriptionTextField.text!)) from \(location) at \(pickUpTime.prettyTime)"
             return desc
         case 1:
             let name = nameTextField.text!
             let location = locationTextField.text!
             let desc = "On \(pickUpTime.prettyDay), \(name) needs to be DROPPED OFF at \(location) at \(pickUpTime.prettyTime)"
             return desc
-
-            
         default:
             print("something is working")
             return ""
@@ -117,19 +116,23 @@ class CreateTripViewController: UIViewController {
     } // add if let error handling if fields are nil
     
     
+    func tripDescript(text: String) -> String {
+        if text == "" {
+            return  "Annonymous Event"
+        }
+        return text
+    }
+    
     func validateText() {
-        let event = ""
         var location =  ""
         //var pickUpTime = ""
         //var dropOffTime = ""
-        
         
         if locationTextField.text == "" {
             locationTextField.textColor = UIColor.red
         } else {
             location = locationTextField.text!
         }
-
         
         if location == "" || pickUpTimeDisplay.text == "" {
             print("you need to enter more data")
