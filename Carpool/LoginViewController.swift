@@ -39,16 +39,20 @@ class LoginViewController: UIViewController {
         }
     }
     
-    //need CANCEL button action added
+    @IBAction func onCancelPressed(_ sender: UIButton) {
+        dismissLoginVC()
+    }
     
     func initializeLogin() {
         confirmPassTextField.isHidden = true
         fullNameTextField.isHidden = true
+        self.title = "Login to Carpool"
     }
     
     func initializeSignup() {
         confirmPassTextField.isHidden = false
         fullNameTextField.isHidden = false
+        self.title = "Create Carpool Account"
     }
     
     func signIn(email: String, password: String) {
