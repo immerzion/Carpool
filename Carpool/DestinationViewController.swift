@@ -147,7 +147,7 @@ extension DestinationViewController: HandleMapSearch {
         annotation.title = placemark.name
         if let city = placemark.locality,
             let state = placemark.administrativeArea {
-            annotation.subtitle = "(city) (state)"
+            annotation.subtitle = "\(city), \(state)"
         }
         mapView.addAnnotation(annotation)
         let span = MKCoordinateSpanMake(0.02, 0.02)

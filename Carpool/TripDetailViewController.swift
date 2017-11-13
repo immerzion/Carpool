@@ -121,13 +121,24 @@ class TripDetailViewController: UIViewController {
         //if trip.pickUp.driver == me
         //change pickup driver to "you"
         
-        pickUpButton.setTitle("\(trip.pickUp!.driver.name) will pickup \(childNames)", for: .normal)
+        if let name = trip.pickUp?.driver.name {
+            pickUpButton.setTitle(name + " will pickup " + childNames, for: .normal)
+        } else {
+            pickUpButton.setTitle("Pick up has been scheduled", for: .normal)
+        }
         pickUpButton.isEnabled = false
         cancelPickUpButton.isHidden = false
     }
     
     func disableDropoff() {
-        dropOffButton.setTitle("\(trip.dropOff!.driver.name) will drop off \(childNames)", for: .normal)
+        //if trip.pickUp.driver == me
+        //change pickup driver to "you"
+        
+        if let name = trip.pickUp?.driver.name {
+            dropOffButton.setTitle(name + " will drop off " + childNames, for: .normal)
+        } else {
+            dropOffButton.setTitle("Drop off has been scheduled", for: .normal)
+        }
         dropOffButton.isEnabled = false
         cancelDropOffButton.isHidden = false
     }
@@ -140,8 +151,10 @@ class TripDetailViewController: UIViewController {
         confirmDropOff()
     }
     @IBAction func onCancelPickUpPressed(_ sender: UIButton) {
+        cancelPickUp()
     }
     @IBAction func onCancelDropOffPressed(_ sender: UIButton) {
+        cancelDropOff()
     }
     
     
@@ -197,10 +210,7 @@ class TripDetailViewController: UIViewController {
                 //send notification to the parent trip.owner
                 self.resetPickup()
             })
-            
-            API.claimPickUp(trip: self.trip, completion: { (error) in
-                self.disablePickup()
-            })
+        
         }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
         
@@ -223,9 +233,6 @@ class TripDetailViewController: UIViewController {
                 self.resetDropoff()
             })
             
-            API.claimPickUp(trip: self.trip, completion: { (error) in
-                self.disablePickup()
-            })
         }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
         

@@ -92,10 +92,10 @@ extension CLLocation: MKAnnotation {
     }
 }
 
+
 extension MKPlacemark: MKAnnotation {
     var subtitle: String? {
         return name
     }
-    
 }
 
