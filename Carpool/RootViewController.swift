@@ -14,14 +14,25 @@ import UIKit
 class RootViewController: UITableViewController {
     
     @IBOutlet weak var tableRefresh: UIRefreshControl!
-    
     @IBOutlet weak var eventListSegControl: UISegmentedControl!
     
     var trips: [Trip] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        allTrips()
+        
+    }
+    
+    //VC needs title.
+    //Realtime clock would be nice
+    //Hide and possibly show fully scheduled trips
+    
+    
+    func allTrips() {
+        
+        trips.removeAll()
         
         API.observeTrips(sender: self, completion: { (result) in
             switch result {
@@ -33,12 +44,48 @@ class RootViewController: UITableViewController {
                 print(#function, error)
             }
         })
-        
     }
     
-//VC needs title.
-//Realtime clock would be nice
-//Hide and possibly show fully scheduled trips
+    func filteredTrips() {
+        
+        trips.removeAll()
+        //will need to add unobserve function when it is ready
+        
+        API.observeTrips(sender: self, completion: { (result) in
+            switch result {
+            case .success(let trips):
+                
+                for trip in trips {
+                    //if trip is fully scheduled...
+                    if trip.pickUp != nil, trip.dropOff != nil {
+                        print("trip fully scheduled")
+                    } else {
+                        self.trips.append(trip)
+                        self.tableView.reloadData()
+                    }
+                }
+                
+                self.tableView.reloadData()
+            case .failure(let error):
+                //TODO
+                print(#function, error)
+            }
+        })
+    }
+    
+    
+    
+    @IBAction func onFilterPressed(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            filteredTrips()
+        case 1:
+            allTrips()
+        default:
+            break
+        }
+        
+    }
     
     @IBAction func onRefreshPulled(_ sender: UIRefreshControl) {
         
@@ -48,6 +95,10 @@ class RootViewController: UITableViewController {
         tableRefresh.endRefreshing()
         
         // make seg control friends/user list isHidden when refreshing
+    }
+    
+    func filterTrips() {
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,18 +115,18 @@ class RootViewController: UITableViewController {
             cell.backgroundColor = UIColor.clear
         }
         
-        if !(trips[indexPath.row].dropOff != nil)  {
+        if trips[indexPath.row].dropOff == nil  {
             cell.backgroundColor = red
         }
         return cell
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "TripDetail" {
-        let tripDetailVC = segue.destination as! TripDetailViewController
-        guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        tripDetailVC.trip = trips[indexPath.row]
+            let tripDetailVC = segue.destination as! TripDetailViewController
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            tripDetailVC.trip = trips[indexPath.row]
         }
         
         if segue.identifier == "CreateTrip" {
