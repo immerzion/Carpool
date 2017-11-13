@@ -43,29 +43,34 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" textLabel="rkO-FD-He9" detailTextLabel="l2H-4e-qOy" style="IBUITableViewCellStyleValue1" id="fFs-5D-a60">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="EventCell" focusStyle="custom" textLabel="rkO-FD-He9" detailTextLabel="l2H-4e-qOy" imageView="PMa-sD-76q" rowHeight="70" style="IBUITableViewCellStyleSubtitle" id="fFs-5D-a60">
+                                <rect key="frame" x="0.0" y="72" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fFs-5D-a60" id="uvP-sP-R2V">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="327" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rkO-FD-He9">
-                                            <rect key="frame" x="16" y="12" width="33.5" height="20.5"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rkO-FD-He9">
+                                            <rect key="frame" x="61" y="15" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l2H-4e-qOy">
-                                            <rect key="frame" x="315" y="12" width="44" height="20.5"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l2H-4e-qOy">
+                                            <rect key="frame" x="61" y="38.5" width="33" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="clock" id="PMa-sD-76q">
+                                            <rect key="frame" x="16" y="19" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="tintColor" red="0.0" green="0.67843137249999996" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="yec-ZK-3I9" kind="show" identifier="TripDetail" id="Dfm-Hc-kKB"/>
                                 </connections>
@@ -674,6 +679,35 @@
             </objects>
             <point key="canvasLocation" x="-809" y="968"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="gTi-sI-sN6">
+            <objects>
+                <tableViewController id="46W-8j-oBg" customClass="FriendsViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cVy-Yy-cun">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="t47-ok-NV9">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t47-ok-NV9" id="5zK-1j-IHC">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="46W-8j-oBg" id="eYS-12-vrJ"/>
+                            <outlet property="delegate" destination="46W-8j-oBg" id="Tqh-AV-xr5"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="7WY-R6-cBv"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5HB-SE-Ixj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="298" y="967"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="fy9-W5-Y8v">
             <objects>
@@ -688,6 +722,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="7mI-Ul-AzI" kind="relationship" relationship="viewControllers" id="UfY-bV-9Lh"/>
+                        <segue destination="46W-8j-oBg" kind="relationship" relationship="viewControllers" id="8bT-iG-mzd"/>
                         <segue destination="4my-UB-YfA" kind="relationship" relationship="viewControllers" id="rce-gJ-kX3"/>
                     </connections>
                 </tabBarController>
@@ -698,6 +733,7 @@
     </scenes>
     <resources>
         <image name="car" width="30" height="30"/>
+        <image name="clock" width="30" height="30"/>
         <image name="settings" width="30" height="30"/>
     </resources>
 </document>

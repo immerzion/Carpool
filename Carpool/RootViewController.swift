@@ -108,6 +108,8 @@ class RootViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
         cell.textLabel?.text = trips[indexPath.row].event.description
+       cell.detailTextLabel?.text = trips[indexPath.row].event.endTime?.prettyTime
+        
         
         if trips[indexPath.row].pickUp == nil {
             cell.backgroundColor = red
