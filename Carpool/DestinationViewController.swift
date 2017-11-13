@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MapKit
+import CoreGraphics
 
 
 protocol HandleMapSearch {
@@ -66,10 +67,10 @@ class DestinationViewController: UIViewController {
     }
     
     @IBAction func onConfirmPressed(_ sender: UIButton) {
-        print(selectedPin?.title)
+        //print(selectedPin?.title)
     }
     
-    func getDirections(){
+    @objc func getDirections(){
         if let selectedPin = selectedPin {
             let mapItem = MKMapItem(placemark: selectedPin)
             let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
@@ -175,11 +176,13 @@ extension DestinationViewController: MKMapViewDelegate {
         pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
         pinView?.pinTintColor = UIColor.orange
         pinView?.canShowCallout = true
-//        let smallSquare = CGSize(width: 30, height: 30)
-//        let button = UIButton(frame: CGRect(origin: CGPointZero, size: smallSquare))
-//        button.setBackgroundImage(UIImage(named: "car"), for: .Normal)
-//        button.addTarget(self, action: "getDirections", for: .touchUpInside)
-//        pinView?.leftCalloutAccessoryView = button
+        let smallSquare = CGSize(width: 30, height: 30)
+        let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: smallSquare))
+        //button.setBackgroundImage(UIImage(named: ), for: .normal)
+        //button.addTarget(self, action: Selector("getDirections"), for: .touchUpInside)
+        button.setImage(#imageLiteral(resourceName: "car"), for: .normal)
+        button.addTarget(self, action: #selector(getDirections), for: .touchUpInside)
+        pinView?.leftCalloutAccessoryView = button
         return pinView
     }
 }
