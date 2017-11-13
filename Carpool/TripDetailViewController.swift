@@ -26,14 +26,13 @@ class TripDetailViewController: UIViewController {
     
     
     var trip: Trip!
-    var user: User!
+    var me: User!
     var podLeg: Leg!
     var childNames = ""
     
     let savannah = CLLocation(latitude: 32.076176, longitude: -81.088371)
     
-    
-    // update to tableview instead of uiview?
+
     //Add ability to cancel a confirmation, popup window for reason why cancellation is needed.
     //Send notification to affected parents and update the database.
     
@@ -52,10 +51,16 @@ class TripDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        resetButtons()
+//        API.fetchCurrentUser { (result) in
+//            switch result {
+//            case .success(let user):
+//                self.me = user
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
         
-//        if trip.pickUp.driver == me
-//        show cancelButtons
+        resetButtons()
         
         if trip.pickUp != nil {
             disablePickup()
@@ -118,29 +123,36 @@ class TripDetailViewController: UIViewController {
     }
     
     func disablePickup() {
-        //if trip.pickUp.driver == me
-        //change pickup driver to "you"
         
-        if let name = trip.pickUp?.driver.name {
+        if let pickUp = trip.pickUp, pickUp.driver.isMe {
+            pickUpButton.setTitle("You will pickup " + childNames, for: .normal)
+            cancelPickUpButton.isHidden = false
+        }
+        else if let name = trip.pickUp?.driver.name {
             pickUpButton.setTitle(name + " will pickup " + childNames, for: .normal)
+            cancelPickUpButton.isHidden = true
         } else {
             pickUpButton.setTitle("Pick up has been scheduled", for: .normal)
+            
         }
+        
         pickUpButton.isEnabled = false
-        cancelPickUpButton.isHidden = false
     }
     
     func disableDropoff() {
-        //if trip.pickUp.driver == me
-        //change pickup driver to "you"
         
-        if let name = trip.pickUp?.driver.name {
+        if let dropOff = trip.dropOff, dropOff.driver.isMe {
+           dropOffButton.setTitle("You will drop off " + childNames, for: .normal)
+            cancelDropOffButton.isHidden = false
+        }
+        else if let name = trip.dropOff?.driver.name {
             dropOffButton.setTitle(name + " will drop off " + childNames, for: .normal)
+            cancelDropOffButton.isHidden = true
         } else {
             dropOffButton.setTitle("Drop off has been scheduled", for: .normal)
         }
+        
         dropOffButton.isEnabled = false
-        cancelDropOffButton.isHidden = false
     }
     
     
@@ -157,8 +169,6 @@ class TripDetailViewController: UIViewController {
         cancelDropOff()
     }
     
-    
-    
     func confirmPickUp() {
         
         let message = "Do you want to pickup \(childNames)?" //from location
@@ -169,13 +179,14 @@ class TripDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert) in
             API.claimPickUp(trip: self.trip, completion: { (error) in
                 self.disablePickup()
+                self.cancelPickUpButton.isHidden = false
             })
         }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
         
         // show the alert
         self.present(alert, animated: true, completion: nil)
-        
+    
     }
     
     func confirmDropOff() {
@@ -188,6 +199,7 @@ class TripDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert) in
             API.claimDropOff(trip: self.trip, completion: { (error) in
                 self.disableDropoff()
+                self.cancelDropOffButton.isHidden = false
             })
         }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))

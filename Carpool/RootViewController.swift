@@ -73,8 +73,6 @@ class RootViewController: UITableViewController {
         })
     }
     
-    
-    
     @IBAction func onFilterPressed(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -84,21 +82,15 @@ class RootViewController: UITableViewController {
         default:
             break
         }
-        
     }
     
     @IBAction func onRefreshPulled(_ sender: UIRefreshControl) {
         
         // add feature so that update pickup etc is shown when returning to rootVC
+        // make seg control friends/user list isHidden when refreshing
         
         tableView.reloadData()
         tableRefresh.endRefreshing()
-        
-        // make seg control friends/user list isHidden when refreshing
-    }
-    
-    func filterTrips() {
-        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
