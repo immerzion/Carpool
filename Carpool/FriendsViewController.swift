@@ -10,12 +10,17 @@ import UIKit
 import CarpoolKit
 import FirebaseCommunity
 
+
+// use cancel button to hide search results once a friend is selected
+
+
 class FriendsViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var friendsSearchBar: UISearchBar!
     
     var friends: [CarpoolKit.User] = []
     var users: [CarpoolKit.User] = []
+    var searchTitle = ""
     
     override func viewDidLoad() {
         
@@ -45,6 +50,13 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
         }
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return searchTitle
+        } else {
+            return "My Friends"
+        }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
@@ -68,32 +80,42 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let user = users[indexPath.row]
-        confirmAddFriend(friend: user)
-        let cell = tableView.cellForRow(at: indexPath)
-        cell?.accessoryType = .checkmark
+        switch indexPath.section {
+        case 0:
+            let user = users[indexPath.row]
+            confirmAddFriend(friend: user)
+            let cell = tableView.cellForRow(at: indexPath)
+            cell?.accessoryType = .checkmark
+        case 1:
+            let user = friends[indexPath.row]
+            deleteFriend(friend: user)
+        default:
+            print("error")
+        }
+        
+
     }
     
     
 //    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//
-//        let user = users[indexPath.row]
-//        deleteFriend(friend: users)
+////
+////        let user = friends[indexPath.row]
+////        deleteFriend(friend: friends)
 //
 //        friends.remove(at: indexPath.row)
 //        tableView.deleteRows(at: [indexPath], with: .automatic)
 //
 //    }
-    
+//
     
     func deleteFriend(friend: CarpoolKit.User) {
         let popName = friend.name!
         let message = "Do you want to delete \(popName) from your friends list?"
         let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert) in
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (alert) in
             API.remove(friend: friend)
         }))
-        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -102,10 +124,10 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
         let popUpName = friend.name!
         let message = "Do you want to add \(popUpName) to your friends list?"
         let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert) in
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (alert) in
             API.add(friend: friend)
         }))
-        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -121,12 +143,13 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let searchBarText = searchBar.text {
             tableView.reloadData()
-            title = "Loading…"
             refreshControl?.beginRefreshing()
             API.search(forUsersWithName: searchBarText, completion: { (users) in
                 switch users {
                 case .success(let users):
                     self.users = users
+                    self.searchTitle = "Search Results"
+                    // when clear cancel button is active change search results to blank
                     self.tableView.reloadData()
                 case .failure(_):
                     self.displayErrorMessage(title: "No Friends are showing", message: "Please check your cellular connection")

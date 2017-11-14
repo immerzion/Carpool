@@ -190,6 +190,9 @@ class TripDetailViewController: UIViewController {
     
     }
     
+    
+    //remove alerts to confirm pick up and drop offs - user should not have to confirm twice per max and the user experience
+    
     func confirmDropOff() {
         
         let message = "Do you want to drop off \(childNames)?" //at location
