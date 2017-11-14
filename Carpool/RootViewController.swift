@@ -21,6 +21,9 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.rowHeight = 80
+        tableView.estimatedRowHeight = 80
+        
         filteredTrips()
         
     }
@@ -97,21 +100,43 @@ class RootViewController: UITableViewController {
         return trips.count
     }
     
+    //        trip.pickUp?.driver
+    //        trip.dropOff?.driver
+    //
+    //        trip.event.owner.name
+    //        trip.event.owner.isMe
+    //        trip.event.description
+    //        trip.event.time
+    //        trip.event.endTime
+    //        trip.event.clLocation
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
-        cell.textLabel?.text = trips[indexPath.row].event.description
-       cell.detailTextLabel?.text = trips[indexPath.row].event.endTime?.prettyTime
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventCell
         
+        let trip = trips[indexPath.row]
         
-        if trips[indexPath.row].pickUp == nil {
-            cell.backgroundColor = red
-        } else {
-            cell.backgroundColor = UIColor.clear
-        }
+        cell.dropOffTimeLabel.text = trip.event.time.prettyTime
+        cell.pickUpTimeLabel.text = trip.event.endTime?.prettyTime
         
         if trips[indexPath.row].dropOff == nil  {
-            cell.backgroundColor = red
+            cell.dropOffTimeLabel.textColor = red
         }
+        
+        if trips[indexPath.row].pickUp == nil {
+            cell.pickUpTimeLabel.textColor = red
+        }
+     
+        cell.eventTitleLabel.text = trip.event.description
+        
+        //we may not need this 3rd label.  Although, it could be used for location...
+        cell.descriptionLabel.text = ""
+        
+        var childNames = ""
+        for child in trip.children {
+            childNames += ", " + child.name
+        }
+        cell.kidsLabel.text = childNames
+        
         return cell
     }
     
@@ -131,4 +156,22 @@ class RootViewController: UITableViewController {
         }
     }
 }
+
+
+class EventCell: UITableViewCell {
+    
+    @IBOutlet weak var dropOffTimeLabel: UILabel!
+    @IBOutlet weak var pickUpTimeLabel: UILabel!
+    
+    @IBOutlet weak var eventTitleLabel: UILabel!
+    @IBOutlet weak var kidsLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+}
+
+
+    
+    
+    
+
 
