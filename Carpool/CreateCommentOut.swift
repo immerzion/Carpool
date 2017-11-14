@@ -78,3 +78,33 @@
 //    }
 //
 
+
+
+
+
+
+
+//override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//    switch indexPath.section {
+//    case 0:
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResults", for: indexPath)
+//        cell.textLabel?.text = users[indexPath.row].name
+//        //            if cell.textLabel?.text != nil {
+//        //            } else {
+//        //                self.displayErrorMessage(title: "No Friends are showing", message: "Please check your cellular connection")
+//        //            }
+//        return cell
+//    case 1:
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "ExistingFriends", for: indexPath)
+//        cell.textLabel?.text = friends[indexPath.row].name
+//        //            if cell.textLabel?.text != nil {
+//        //            } else {
+//        //                self.displayErrorMessage(title: "No Friends are showing", message: "Please check your cellular connection")
+//        //            }
+//        return cell
+//    default:
+//        print("jess figure out what should be here...")
+//        return users
+//    }
+//}
+
