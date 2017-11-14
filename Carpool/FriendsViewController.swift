@@ -70,17 +70,25 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
     
     var users: [CarpoolKit.User] = []
     
-//    func searchForFriends(forUsersWithName: String) {
-//        API.search(forUsersWithName: forUsersWithName) { result in
-//            switch result {
-//            case .success(let users):
-//                self.users = users
-//                self.tableView.reloadData()
-//
-//            case .failure(_):
-//                self.displayErrorMessage(title: "No Friends are showing", message: "Please check your cellular connection")
-//            }
-//        }
+    
+//    func confirmPickUp() {
+//        
+//        let message = "Do you want to pickup \(childNames)?" //from location
+//        // create the alert
+//        let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
+//        
+//        // add action buttons
+//        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert) in
+//            API.claimPickUp(trip: self.trip, completion: { (error) in
+//                self.disablePickup()
+//                self.cancelPickUpButton.isHidden = false
+//            })
+//        }))
+//        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+//        
+//        // show the alert
+//        self.present(alert, animated: true, completion: nil)
+//        
 //    }
     
     
@@ -97,6 +105,7 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
         //activityIndicator.isHidden = true
     }
     
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let searchBarText = searchBar.text {
             tableView.reloadData()
@@ -106,18 +115,18 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
             //searchForFriends(forUsersWithName: searchBarText)
             API.search(forUsersWithName: searchBarText, completion: { (users) in
                 switch users {
-                                case .success(let users):
-                                    self.users = users
-                                    self.tableView.reloadData()
-                    
-                                case .failure(_):
-                                    self.displayErrorMessage(title: "No Friends are showing", message: "Please check your cellular connection")
-                                }
+                case .success(let users):
+                    self.users = users
+                    self.tableView.reloadData()
+                case .failure(_):
+                    self.displayErrorMessage(title: "No Friends are showing", message: "Please check your cellular connection")
+                }
             })
             
         }
         searchBar.resignFirstResponder()
     }
+    
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
