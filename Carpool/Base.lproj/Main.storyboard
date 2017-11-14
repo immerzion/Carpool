@@ -22,11 +22,12 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lbj-X4-AdB">
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lbj-X4-AdB">
                                     <rect key="frame" x="8" y="8" width="359" height="29"/>
                                     <segments>
-                                        <segment title="Unscheduled Trips"/>
-                                        <segment title="All Current Trips"/>
+                                        <segment title="My Trips"/>
+                                        <segment title="Friends Trips"/>
+                                        <segment title="Unscheduled"/>
                                     </segments>
                                     <color key="tintColor" red="0.29803921570000003" green="0.72549019609999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
