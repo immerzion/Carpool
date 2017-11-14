@@ -15,6 +15,7 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var friendsSearchBar: UISearchBar!
     
     var friends: [CarpoolKit.User] = []
+    var users: [CarpoolKit.User] = []
     
     override func viewDidLoad() {
         
@@ -30,9 +31,11 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
         }
     }
     
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
@@ -42,15 +45,18 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
         }
     }
     
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultsCell", for: indexPath)
             cell.textLabel?.text = users[indexPath.row].name
+            // add icon for select/unselect icon here
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ExistingFriendsCell", for: indexPath)
             cell.textLabel?.text = friends[indexPath.row].name
+            // add icon for select/unselect icon here
             return cell
         default:
             self.displayErrorMessage(title: "No Friends are showing", message: "Please check your cellular connection")
@@ -63,46 +69,52 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = users[indexPath.row]
-        API.add(friend: user)
-        
-        // give app-user feedback that friend was added
+        confirmAddFriend(friend: user)
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.accessoryType = .checkmark
     }
     
-    var users: [CarpoolKit.User] = []
     
-    
-//    func confirmPickUp() {
-//        
-//        let message = "Do you want to pickup \(childNames)?" //from location
-//        // create the alert
-//        let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
-//        
-//        // add action buttons
-//        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert) in
-//            API.claimPickUp(trip: self.trip, completion: { (error) in
-//                self.disablePickup()
-//                self.cancelPickUpButton.isHidden = false
-//            })
-//        }))
-//        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
-//        
-//        // show the alert
-//        self.present(alert, animated: true, completion: nil)
-//        
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//
+//        let user = users[indexPath.row]
+//        deleteFriend(friend: users)
+//
+//        friends.remove(at: indexPath.row)
+//        tableView.deleteRows(at: [indexPath], with: .automatic)
+//
 //    }
+    
+    
+    func deleteFriend(friend: CarpoolKit.User) {
+        let popName = friend.name!
+        let message = "Do you want to delete \(popName) from your friends list?"
+        let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert) in
+            API.remove(friend: friend)
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    func confirmAddFriend(friend: CarpoolKit.User) {
+        let popUpName = friend.name!
+        let message = "Do you want to add \(popUpName) to your friends list?"
+        let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert) in
+            API.add(friend: friend)
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     
     func displayErrorMessage(title: String, message: String) {
         let errorMessage = message
-        // create the alert
         let alert = UIAlertController(title: title, message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
-        
-        // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        
-        // show the alert
         self.present(alert, animated: true, completion: nil)
-        //activityIndicator.isHidden = true
     }
     
     
@@ -111,8 +123,6 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
             tableView.reloadData()
             title = "Loading…"
             refreshControl?.beginRefreshing()
-            // need additional line of code
-            //searchForFriends(forUsersWithName: searchBarText)
             API.search(forUsersWithName: searchBarText, completion: { (users) in
                 switch users {
                 case .success(let users):
@@ -122,7 +132,6 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
                     self.displayErrorMessage(title: "No Friends are showing", message: "Please check your cellular connection")
                 }
             })
-            
         }
         searchBar.resignFirstResponder()
     }
