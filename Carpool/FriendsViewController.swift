@@ -98,7 +98,7 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let friendsSearchBar = searchBar.text {
+        if let searchBarText = searchBar.text {
             tableView.reloadData()
             title = "Loading…"
             refreshControl?.beginRefreshing()
