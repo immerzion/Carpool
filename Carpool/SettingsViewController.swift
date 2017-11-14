@@ -10,6 +10,8 @@ import UIKit
 import FirebaseCommunity
 import CarpoolKit
 
+// add 3rd section -> move to top and add profile cell with photo and username shown
+
 class SettingsViewController: UITableViewController {
     
     @IBOutlet weak var loginSignOut: UITableViewCell!
@@ -21,9 +23,14 @@ class SettingsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0, indexPath.row == 0 {
-            print("bacon is delicious")
+            // put profile information here... photo and username... possibly children too
         }
         if indexPath.section == 1, indexPath.row == 0 {
+            // put additional settings in newVC from here
+//            let vc = storyboard!.instantiateViewController(withIdentifier: "some random thing not created yet")
+//            present(vc, animated: true)
+        }
+        if indexPath.section == 2, indexPath.row == 0 {
             let vc = storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
             present(vc, animated: true)
         }
