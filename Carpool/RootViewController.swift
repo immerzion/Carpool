@@ -137,7 +137,7 @@ class RootViewController: UITableViewController {
         
         var childNames = ""
         for child in trip.children {
-            childNames += ", " + child.name
+            childNames += child.name + " "
         }
         cell.kidsLabel.text = childNames
         

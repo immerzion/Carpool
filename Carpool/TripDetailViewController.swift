@@ -79,7 +79,7 @@ class TripDetailViewController: UIViewController {
         let tripTime = trip.event.time.prettyTime
         
         for child in trip.children {
-            childNames += ", " + child.name
+            childNames += child.name + " "
         }
         
         nameLabel.text = childNames

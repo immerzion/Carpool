@@ -40,7 +40,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onCancelPressed(_ sender: UIButton) {
-        dismissLoginVC()
+        //dismissLoginVC()
     }
     
     func initializeLogin() {
