@@ -45,11 +45,11 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResults", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultsCell", for: indexPath)
             cell.textLabel?.text = users[indexPath.row].name
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ExistingFriends", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ExistingFriendsCell", for: indexPath)
             cell.textLabel?.text = friends[indexPath.row].name
             return cell
         default:
@@ -70,18 +70,18 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
     
     var users: [CarpoolKit.User] = []
     
-    func searchForFriends(forUsersWithName: String) {
-        API.search(forUsersWithName: forUsersWithName) { result in
-            switch result {
-            case .success(let users):
-                self.users = users
-                self.tableView.reloadData()
-                
-            case .failure(_):
-                self.displayErrorMessage(title: "No Friends are showing", message: "Please check your cellular connection")
-            }
-        }
-    }
+//    func searchForFriends(forUsersWithName: String) {
+//        API.search(forUsersWithName: forUsersWithName) { result in
+//            switch result {
+//            case .success(let users):
+//                self.users = users
+//                self.tableView.reloadData()
+//
+//            case .failure(_):
+//                self.displayErrorMessage(title: "No Friends are showing", message: "Please check your cellular connection")
+//            }
+//        }
+//    }
     
     
     func displayErrorMessage(title: String, message: String) {
@@ -103,6 +103,18 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
             title = "Loading…"
             refreshControl?.beginRefreshing()
             // need additional line of code
+            //searchForFriends(forUsersWithName: searchBarText)
+            API.search(forUsersWithName: searchBarText, completion: { (users) in
+                switch users {
+                                case .success(let users):
+                                    self.users = users
+                                    self.tableView.reloadData()
+                    
+                                case .failure(_):
+                                    self.displayErrorMessage(title: "No Friends are showing", message: "Please check your cellular connection")
+                                }
+            })
+            
         }
         searchBar.resignFirstResponder()
     }
