@@ -29,6 +29,7 @@ class TripDetailViewController: UIViewController {
     var me: User!
     var podLeg: Leg!
     var childNames = ""
+    var location = CLLocation()
     
     let savannah = CLLocation(latitude: 32.076176, longitude: -81.088371)
     
@@ -238,7 +239,7 @@ class TripDetailViewController: UIViewController {
         
         // add action buttons
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert) in
-            API.unclaimPickUp(trip: self.trip, completion: { (error) in
+            API.unclaimDropOff(trip: self.trip, completion: { (error) in
                 
                 //send notification to the parent trip.owner
                 self.resetDropoff()

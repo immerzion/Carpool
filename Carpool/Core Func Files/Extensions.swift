@@ -15,6 +15,7 @@ let green = UIColor(red: 76/255, green: 212/255, blue: 102/255, alpha: 1.0) /* #
 let yellow = UIColor(red: 255/255, green: 204/255, blue: 0/255, alpha: 1.0) /* #ffcc00 */
 let red = UIColor(red: 246/255, green: 23/255, blue: 81/255, alpha: 1.0) /* #f61751 */
 let purple = UIColor(red: 163/255, green: 81/255, blue: 235/255, alpha: 1.0) /* #a351eb */
+let black = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0) /* #000000 */
 
 extension Date {
     var prettyDate: String {
@@ -41,6 +42,11 @@ extension Date {
         return formattedDate
     }
 }
+
+
+//extension UILabel {
+//    var alignTop
+//}
 
 
 extension MKMapItem: MKAnnotation {

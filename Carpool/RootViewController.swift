@@ -68,7 +68,7 @@ class RootViewController: UITableViewController {
                     }
                 }
                 
-                self.tableView.reloadData()
+                //self.tableView.reloadData()
             case .failure(let error):
                 //TODO
                 print(#function, error)
@@ -120,14 +120,18 @@ class RootViewController: UITableViewController {
         
         if trips[indexPath.row].dropOff == nil  {
             cell.dropOffTimeLabel.textColor = red
+        } else {
+            cell.dropOffTimeLabel.textColor = black
         }
         
         if trips[indexPath.row].pickUp == nil {
             cell.pickUpTimeLabel.textColor = red
+        } else {
+            cell.pickUpTimeLabel.textColor = black
         }
      
         cell.eventTitleLabel.text = trip.event.description
-        
+               
         //we may not need this 3rd label.  Although, it could be used for location...
         cell.descriptionLabel.text = ""
         

@@ -17,17 +17,20 @@ class CreateTripViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
-    @IBOutlet weak var tripDescriptionTextField: UITextField!
+    @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var dateSelected: UIDatePicker!
     @IBOutlet weak var pickUpTimeDisplay: UILabel!
     @IBOutlet weak var dropOffTimeDisplay: UILabel!
     @IBOutlet weak var eventDescriptLabel: UILabel!
     
-    var clock: Timer?
+    //var clock: Timer?
     
     var pickUpTime = Date()
     var dropOffTime = Date()
     var currentTime = Date()
+    
+    var pickUpMsg = ""
+    var dropOffMsg = ""
     
     var clLocation: MKPlacemark? = nil
     
@@ -81,39 +84,36 @@ class CreateTripViewController: UIViewController {
         default:
             print(self.dateSelected.date)
         }
+        generateEventDescription()
     }
     
     @IBAction func submitCarpoolButton(_ sender: UIButton) {
-        switch onPodSegPressed.selectedSegmentIndex {
-        case 0: validateText()
-        case 1: validateText()
-        //validateTextDropOff()
-        default:
-            print(validateText(), validateTextDropOff())
-        }
-        
-        
+        validateText()
     }
     
     // extension of trip on view controller
-    func generateEventDescription() -> String {
+    // add if let error handling if fields are nil
+    func generateEventDescription() {
+        let name = nameTextField.text!
+        let location = locationTextField.text!
+        
         switch onPodSegPressed.selectedSegmentIndex {
         case 0:
-            let name = nameTextField.text!
-            let location = locationTextField.text!
-           
-            let desc = "On \(pickUpTime.prettyDay), \(name) needs to be PICKED UP for \(tripDescript(text: tripDescriptionTextField.text!)) from \(location) at \(pickUpTime.prettyTime)"
-            return desc
+            pickUpMsg = "On \(pickUpTime.prettyDay), \(name) needs to be picked up for \(tripDescript(text: descriptionTextField.text!)) from \(location) at \(pickUpTime.prettyTime)"
+            
         case 1:
-            let name = nameTextField.text!
-            let location = locationTextField.text!
-            let desc = "On \(pickUpTime.prettyDay), \(name) needs to be DROPPED OFF at \(location) at \(pickUpTime.prettyTime)"
-            return desc
+            dropOffMsg = "On \(pickUpTime.prettyDay), \(name) needs to be dropped off at \(location) at \(pickUpTime.prettyTime)"
+            
         default:
-            print("something is working")
-            return ""
+            print("msg")
         }
-    } // add if let error handling if fields are nil
+        
+        eventDescriptLabel.text = """
+        \(pickUpMsg)
+        
+        \(dropOffMsg)
+        """
+    }
     
     
     func tripDescript(text: String) -> String {
@@ -122,58 +122,70 @@ class CreateTripViewController: UIViewController {
         }
         return text
     }
+    func createTripWithKids(desc: String, time: Date, loc: CLLocation?) {
+        API.createTrip(eventDescription: desc, eventTime: time, eventLocation: loc) { result in
+            switch result {
+            case .success(let trip):
+                
+                print(trip)
+                
+                //                        if let child = self.child {
+                //                            do {
+                //                                try API.add(child: child, to: trip)
+                //                                self.performSegue(withIdentifier: "unwindCreateTrip", sender: self)
+                //                            } catch {
+                //                                print("Create Trip Failed.")
+                //                            }
+            //                        }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
     func validateText() {
-        var location =  ""
-        //var pickUpTime = ""
-        //var dropOffTime = ""
+        
+        //need to geocode location and add it here
+        //need to have a list of [Child] and add it here
+        var loc =  ""
+        var name = ""
+        var desc = ""
+        
+        if nameTextField.text == "" {
+            nameTextField.textColor = red
+        } else {
+            name = nameTextField.text!
+        }
+        
+        if descriptionTextField.text == "" {
+            descriptionTextField.textColor = red
+        } else {
+            desc = descriptionTextField.text!
+        }
         
         if locationTextField.text == "" {
-            locationTextField.textColor = UIColor.red
+            locationTextField.textColor = red
         } else {
-            location = locationTextField.text!
+            loc = locationTextField.text!
         }
         
-        if location == "" || pickUpTimeDisplay.text == "" {
-            print("you need to enter more data")
-            
-        } else {
-            eventDescriptLabel.text = generateEventDescription()
-            
-            API.createTrip(eventDescription: generateEventDescription(), eventTime: pickUpTime, eventLocation: savannah, completion: { (result) in
-                switch result {
-                case .success(let trip):
-                    print(trip)
-                    print(trip.event.description)
-                case .failure(_):
-                    print("You dun fucked up")
-                }
-            })
-        }
-    }
-    
-    func validateTextDropOff() {
-        let event = ""
-        var location = ""
-        
-        if locationTextField.text == "" {
-            locationTextField.textColor = UIColor.red
-        } else {
-            location = locationTextField.text!
-        }
-        if location == "" || dropOffTimeDisplay.text == "" {
+        if desc == "" {
             print("you need to enter more data")
         } else {
-            eventDescriptLabel.text = generateEventDescription()
-            API.createTrip(eventDescription: event, eventTime: dropOffTime, eventLocation: savannah, completion: { (trip) in
-                print(trip, "this is showing the dropoff")
-            })
+            
+            if pickUpTimeDisplay.text != "" {
+                createTripWithKids(desc: desc, time: pickUpTime, loc: savannah)
+            }
+            
+            if dropOffTimeDisplay.text != "" {
+                createTripWithKids(desc: desc, time: dropOffTime, loc: savannah)
+            }
+            
         }
         
+        
     }
-    
 }
-
 
 
 
