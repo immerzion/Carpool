@@ -26,28 +26,12 @@ class RootViewController: UITableViewController {
         tableView.estimatedRowHeight = 80
         
         //filteredTrips()
-
+        
         calTrips()
     }
     
-    @IBAction func onFilterPressed(_ sender: UISegmentedControl) {
-                switch sender.selectedSegmentIndex {
-                case 0:
-                    calTrips()
-                case 1:
-                    friendsTrips()
-                case 2:
-                    filteredTrips()
-                default:
-                    break
-                }
-            }
-    
     //VC needs title.
     //Realtime clock would be nice
-    //Hide and possibly show fully scheduled trips
-    //change to only show friends stuff
-    
     
     //        trip.pickUp?.driver
     //        trip.dropOff?.driver
@@ -59,15 +43,37 @@ class RootViewController: UITableViewController {
     //        trip.event.endTime
     //        trip.event.clLocation
     
+    // add feature so that update pickup etc is shown when returning to rootVC
+    // make seg control friends/user list isHidden when refreshing
+    @IBAction func onRefreshPulled(_ sender: UIRefreshControl) {
+        tableView.reloadData()
+        tableRefresh.endRefreshing()
+    }
+    
+    @IBAction func onFilterPressed(_ sender: UISegmentedControl) {
+        API.unobserveAllTrips()
+        switch sender.selectedSegmentIndex {
+        case 0:
+            calTrips()
+        case 1:
+            friendsTrips()
+        case 2:
+            filteredTrips()
+        default:
+            break
+        }
+    }
+    
+    //not working after pod update
     func calTrips() {
         trips.removeAll()
-        //will need to add unobserve function when it is ready
         
         API.observeMyTripCalendar(sender: self) { (result) in
             switch result {
-                
             case .success(let trips):
                 self.tripCalendar = trips
+                self.trips = trips.trips
+                //print(trips)
                 self.tableView.reloadData()
             case .failure(let error):
                 print(error)
@@ -77,13 +83,14 @@ class RootViewController: UITableViewController {
     
     func friendsTrips() {
         trips.removeAll()
-        //will need to add unobserve function when it is ready
         
         API.observeTheTripsOfMyFriends(sender: self) { (result) in
             switch result {
                 
             case .success(let trips):
                 self.trips = trips
+                //print(trips)
+                self.tableView.reloadData()
             case .failure(let error):
                 print(error)
             }
@@ -91,31 +98,26 @@ class RootViewController: UITableViewController {
     }
     
     func filteredTrips() {
+        trips.removeAll()
         
-                trips.removeAll()
-                //will need to add unobserve function when it is ready
-        
-                API.observeTrips(sender: self, completion: { (result) in
-                    switch result {
-                    case .success(let trips):
-        
-                        for trip in trips {
-                            //if trip is fully scheduled...
-                            if trip.pickUp != nil, trip.dropOff != nil {
-                                print("trip fully scheduled")
-                            } else {
-                                self.trips.append(trip)
-                                self.tableView.reloadData()
-                            }
-                        }
-        
-                        //self.tableView.reloadData()
-                    case .failure(let error):
-                        //TODO
-                        print(#function, error)
+        API.observeTrips(sender: self, completion: { (result) in
+            switch result {
+            case .success(let trips):
+                
+                for trip in trips {
+                    //if trip is fully scheduled...
+                    if trip.pickUp == nil || trip.dropOff == nil {
+                        self.trips.append(trip)
+                        self.tableView.reloadData()
                     }
-                })
+                }
+            case .failure(let error):
+                //TODO
+                print(#function, error)
             }
+        })
+    }
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         switch eventListSegControl.selectedSegmentIndex {
@@ -134,8 +136,12 @@ class RootViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch eventListSegControl.selectedSegmentIndex {
         case 0:
-            guard let rowsInSection = tripCalendar?.trips(forDaysFromToday: section).count else { return 0 }
+            guard let rowsInSection = tripCalendar?.dailySchedule(forWeekdayOffsetFromToday: section).trips.count else { return 0 }
+            //            if rowsInSection == 0 {
+            //                return 1
+            //            } else {
             return rowsInSection
+        //            }
         case 1:
             return trips.count
         case 2:
@@ -148,7 +154,7 @@ class RootViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch eventListSegControl.selectedSegmentIndex {
         case 0:
-            guard let title = tripCalendar?.prettyDayName(forDaysFromToday: section) else { return "" }
+            guard let title = tripCalendar?.dailySchedule(forWeekdayOffsetFromToday: section).prettyName else { return "" }
             return title
         case 1:
             return "My Friends Trips"
@@ -165,7 +171,7 @@ class RootViewController: UITableViewController {
         
         if trips.count > 0 {
             
-            let trip = trips[indexPath.row]
+                let trip = trips[indexPath.row]
             
             cell.dropOffTimeLabel.text = trip.event.time.prettyTime
             cell.pickUpTimeLabel.text = trip.event.endTime?.prettyTime
@@ -193,10 +199,19 @@ class RootViewController: UITableViewController {
             }
             cell.kidsLabel.text = childNames
         }
-//        else {
-//            cell.eventTitleLabel.text = "No trips scheduled!"
-//            cell.kidsLabel.text =  "Relax or have some fun!"
-//        }
+        else {
+            cell.dropOffTimeLabel.text = ""
+            //cell.dropOffTimeLabel.isHidden = true
+            cell.dropOffTimeLabel.textColor = black
+            
+            cell.pickUpTimeLabel.text = ""
+            //cell.pickUpTimeLabel.isHidden = true
+            cell.pickUpTimeLabel.textColor = black
+            
+            cell.eventTitleLabel.text = "No trips scheduled!"
+            cell.kidsLabel.text =  "Relax or have some fun!"
+            cell.descriptionLabel.text = ""
+        }
         
         return cell
     }
@@ -217,55 +232,7 @@ class RootViewController: UITableViewController {
     //            }
     //        })
     //    }
-    //
-    //    func filteredTrips() {
-    //
-    //        trips.removeAll()
-    //        //will need to add unobserve function when it is ready
-    //
-    //        API.observeTrips(sender: self, completion: { (result) in
-    //            switch result {
-    //            case .success(let trips):
-    //
-    //                for trip in trips {
-    //                    //if trip is fully scheduled...
-    //                    if trip.pickUp != nil, trip.dropOff != nil {
-    //                        print("trip fully scheduled")
-    //                    } else {
-    //                        self.trips.append(trip)
-    //                        self.tableView.reloadData()
-    //                    }
-    //                }
-    //
-    //                //self.tableView.reloadData()
-    //            case .failure(let error):
-    //                //TODO
-    //                print(#function, error)
-    //            }
-    //        })
-    //    }
-    //
-    //
-    //
-    //    @IBAction func onFilterPressed(_ sender: UISegmentedControl) {
-    //        switch sender.selectedSegmentIndex {
-    //        case 0:
-    //            filteredTrips()
-    //        case 1:
-    //            allTrips()
-    //        default:
-    //            break
-    //        }
-    //    }
     
-    @IBAction func onRefreshPulled(_ sender: UIRefreshControl) {
-        
-        // add feature so that update pickup etc is shown when returning to rootVC
-        // make seg control friends/user list isHidden when refreshing
-        
-        tableView.reloadData()
-        tableRefresh.endRefreshing()
-    }
     
     //    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     //        return trips.count
