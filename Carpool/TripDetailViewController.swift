@@ -182,13 +182,13 @@ class TripDetailViewController: UIViewController {
         let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
         
         // add action buttons
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert) in
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (alert) in
             API.claimPickUp(trip: self.trip, completion: { (error) in
                 self.disablePickup()
                 self.cancelPickUpButton.isHidden = false
             })
         }))
-        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: nil))
         
         // show the alert
         self.present(alert, animated: true, completion: nil)
@@ -205,13 +205,13 @@ class TripDetailViewController: UIViewController {
         let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
         
         // add action buttons
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert) in
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (alert) in
             API.claimDropOff(trip: self.trip, completion: { (error) in
                 self.disableDropoff()
                 self.cancelDropOffButton.isHidden = false
             })
         }))
-        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: nil))
         
         // show the alert
         self.present(alert, animated: true, completion: nil)
@@ -220,24 +220,25 @@ class TripDetailViewController: UIViewController {
     
     func cancelPickUp() {
         
-        let message = "Do you want to cancel picking up \(childNames)?" //from location
-        // create the alert
-        let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        // add action buttons
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert) in
+//        let message = "Do you want to cancel picking up \(childNames)?" //from location
+//        // create the alert
+//        let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
+//
+//        // add action buttons
+//        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (alert) in
             API.unclaimPickUp(trip: self.trip, completion: { (error) in
                 
                 //send notification to the parent trip.owner
                 self.resetPickup()
             })
-        }))
-        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
-        
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-        
-    }
+        }
+//    ))
+//        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+//        
+//        // show the alert
+//        self.present(alert, animated: true, completion: nil)
+//        
+//    }
     
     func cancelDropOff() {
         
