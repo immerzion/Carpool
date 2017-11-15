@@ -723,7 +723,6 @@
                                 </state>
                                 <connections>
                                     <action selector="onCancelPressed:" destination="MnS-Ug-0DJ" eventType="touchUpInside" id="ta3-5u-4He"/>
-                                    <segue destination="wno-uP-Yok" kind="show" id="p1g-9Y-cxV"/>
                                 </connections>
                             </button>
                         </subviews>
