@@ -33,6 +33,8 @@ class CreateTripViewController: UIViewController {
     var pickUpMsg = ""
     var dropOffMsg = ""
     
+    var kidsArray: [Child] = []
+    
     var clLocation: MKPlacemark? = nil
     
     let savannah = CLLocation(latitude: 32.076176, longitude: -81.088371)
@@ -123,12 +125,19 @@ class CreateTripViewController: UIViewController {
         }
         return text
     }
+    
     func createTripWithKids(desc: String, time: Date, loc: CLLocation?) {
         API.createTrip(eventDescription: desc, eventTime: time, eventLocation: loc) { result in
             switch result {
             case .success(let trip):
                 
                 print(trip)
+                
+                if self.reoccuringSwitch.isOn {
+                    API.mark(trip: trip, repeating: true)
+                }
+                
+                //add kids to the trip
                 
                 //                        if let child = self.child {
                 //                            do {
@@ -138,6 +147,16 @@ class CreateTripViewController: UIViewController {
                 //                                print("Create Trip Failed.")
                 //                            }
             //                        }
+                
+                //Add a way to accept 1 leg of the trip during submit
+                
+//                if self.pickUpSwitch.isOn {
+//                    API.claimPickUp(trip: trip, completion: { (error) in
+//                        print(error)
+//                    })
+//                }
+                
+                
             case .failure(let error):
                 print(error)
             }

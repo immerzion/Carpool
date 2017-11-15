@@ -64,7 +64,6 @@ class RootViewController: UITableViewController {
         }
     }
     
-    //not working after pod update
     func calTrips() {
         trips.removeAll()
         
@@ -84,11 +83,11 @@ class RootViewController: UITableViewController {
     func friendsTrips() {
         trips.removeAll()
         
-        API.observeTheTripsOfMyFriends(sender: self) { (result) in
+        API.observeTheTripCalendarOfMyFriends(sender: self) { (result) in
             switch result {
-                
             case .success(let trips):
-                self.trips = trips
+                self.tripCalendar = trips
+                self.trips = trips.trips
                 //print(trips)
                 self.tableView.reloadData()
             case .failure(let error):
@@ -121,10 +120,8 @@ class RootViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         switch eventListSegControl.selectedSegmentIndex {
-        case 0:
+        case 0, 1:
             return 7
-        case 1:
-            return 1
         case 2:
             return 1
         default:
@@ -135,15 +132,9 @@ class RootViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch eventListSegControl.selectedSegmentIndex {
-        case 0:
+        case 0, 1:
             guard let rowsInSection = tripCalendar?.dailySchedule(forWeekdayOffsetFromToday: section).trips.count else { return 0 }
-            //            if rowsInSection == 0 {
-            //                return 1
-            //            } else {
             return rowsInSection
-        //            }
-        case 1:
-            return trips.count
         case 2:
             return trips.count
         default:
@@ -153,17 +144,20 @@ class RootViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch eventListSegControl.selectedSegmentIndex {
-        case 0:
-            guard let title = tripCalendar?.dailySchedule(forWeekdayOffsetFromToday: section).prettyName else { return "" }
-            return title
-        case 1:
-            return "My Friends Trips"
+        case 0, 1:
+            
+            if self.tableView(tableView, numberOfRowsInSection: section) > 0 {
+                
+                guard let title = tripCalendar?.dailySchedule(forWeekdayOffsetFromToday: section).prettyName else { return "" }
+                return title
+            } else {
+                return nil
+            }
         case 2:
             return "Unscheduled Trips"
         default:
             return ""
         }
-        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -171,7 +165,7 @@ class RootViewController: UITableViewController {
         
         if trips.count > 0 {
             
-                let trip = trips[indexPath.row]
+            let trip = trips[indexPath.row]
             
             cell.dropOffTimeLabel.text = trip.event.time.prettyTime
             cell.pickUpTimeLabel.text = trip.event.endTime?.prettyTime
@@ -216,6 +210,21 @@ class RootViewController: UITableViewController {
         return cell
     }
     
+    //    func friendsTrips() {
+    //        trips.removeAll()
+    //
+    //        API.observeTheTripsOfMyFriends(sender: self) { (result) in
+    //            switch result {
+    //
+    //            case .success(let trips):
+    //                self.trips = trips
+    //                //print(trips)
+    //                self.tableView.reloadData()
+    //            case .failure(let error):
+    //                print(error)
+    //            }
+    //        }
+    //    }
     
     //    func allTrips() {
     //
