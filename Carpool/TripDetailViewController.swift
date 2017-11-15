@@ -23,6 +23,7 @@ class TripDetailViewController: UIViewController {
     @IBOutlet weak var dropOffButton: UIButton!
     @IBOutlet weak var cancelPickUpButton: UIButton!
     @IBOutlet weak var cancelDropOffButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
     
     var trip: Trip!
@@ -169,6 +170,10 @@ class TripDetailViewController: UIViewController {
     @IBAction func onCancelDropOffPressed(_ sender: UIButton) {
         cancelDropOff()
     }
+    @IBAction func onDeletePressed(_ sender: UIButton) {
+    }
+    
+    
     
     func confirmPickUp() {
         

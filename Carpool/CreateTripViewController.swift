@@ -22,6 +22,7 @@ class CreateTripViewController: UIViewController {
     @IBOutlet weak var pickUpTimeDisplay: UILabel!
     @IBOutlet weak var dropOffTimeDisplay: UILabel!
     @IBOutlet weak var eventDescriptLabel: UILabel!
+    @IBOutlet weak var reoccuringSwitch: UISwitch!
     
     //var clock: Timer?
     
