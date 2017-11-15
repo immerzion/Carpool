@@ -14,7 +14,6 @@ import MapKit
 class CreateTripViewController: UIViewController {
     
     @IBOutlet weak var onPodSegPressed: UISegmentedControl!
-    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
@@ -23,6 +22,8 @@ class CreateTripViewController: UIViewController {
     @IBOutlet weak var dropOffTimeDisplay: UILabel!
     @IBOutlet weak var eventDescriptLabel: UILabel!
     @IBOutlet weak var reoccuringSwitch: UISwitch!
+    @IBOutlet weak var kidsTable: UITableView!
+    
     
     //var clock: Timer?
     
@@ -42,6 +43,7 @@ class CreateTripViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //getMyKids()
         // clock = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: onTimerFired)
     }
     
@@ -55,10 +57,37 @@ class CreateTripViewController: UIViewController {
         dateSelected.setDate(currentTime, animated: true)
     }
     
+//    func getMyKids() {
+//        API.fetchCurrentUser { (result) in
+//            switch result {
+//
+//            case .success(let user):
+//
+//                self.kidsArray.removeAll()
+//                if user.children.count > 0 {
+//                    self.kidsArray = user.children
+//                    print("I got kids! ", self.kidsArray)
+//                    self.kidsTable.reloadData()
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "DestinationVC" {
+            
         let destinationVC = segue.destination as! DestinationViewController
         if let locationText = locationTextField.text {
             destinationVC.searchText = locationText
+        }
+            
+            if segue.identifier == "KidsTable" {
+                let KidsTableVC = segue.destination as! KidsTableViewController
+            }
         }
     }
     
@@ -67,6 +96,16 @@ class CreateTripViewController: UIViewController {
         clLocation = destinationVC.selectedPin
         //print(clLocation)
         locationTextField.text = clLocation?.name
+    }
+    
+    @IBAction func unwindFromKidsTableVC(seque: UIStoryboardSegue) {
+        let kidsTableVC = seque.source as! KidsTableViewController
+        kidsArray = kidsTableVC.selectedKidsArray
+        var kidsNames = ""
+        for kid in kidsArray {
+            kidsNames += "\(kid.name), "
+        }
+        nameTextField.text = kidsNames
     }
     
     @IBAction func onPickUpDropOffSeg(_ sender: UISegmentedControl) {
@@ -146,15 +185,15 @@ class CreateTripViewController: UIViewController {
                 //                            } catch {
                 //                                print("Create Trip Failed.")
                 //                            }
-            //                        }
+                //                        }
                 
                 //Add a way to accept 1 leg of the trip during submit
                 
-//                if self.pickUpSwitch.isOn {
-//                    API.claimPickUp(trip: trip, completion: { (error) in
-//                        print(error)
-//                    })
-//                }
+                //                if self.pickUpSwitch.isOn {
+                //                    API.claimPickUp(trip: trip, completion: { (error) in
+                //                        print(error)
+                //                    })
+                //                }
                 
                 
             case .failure(let error):
