@@ -26,11 +26,6 @@ class SettingsViewController: UITableViewController {
             // put profile information here... photo and username... possibly children too
         }
         if indexPath.section == 1, indexPath.row == 0 {
-            // put additional settings in newVC from here
-//            let vc = storyboard!.instantiateViewController(withIdentifier: "some random thing not created yet")
-//            present(vc, animated: true)
-        }
-        if indexPath.section == 2, indexPath.row == 0 {
             let vc = storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
             present(vc, animated: true)
         }
