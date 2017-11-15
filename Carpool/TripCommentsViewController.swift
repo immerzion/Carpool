@@ -15,17 +15,39 @@ import FirebaseCommunity
 
 class TripCommentsViewController: UITableViewController {
     
-    
+    var trip: Trip!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
+        API.observe(trip: trip, sender: self) { result in
+            switch result {
+            case .success(let newtrip):
+                self.trip = newtrip
+                self.tableView.reloadData()
+            case .failure(let error):
+                print(#function, error) //TODO
+            }
+        }
+    }
+    
+    @IBOutlet var commentTextField: UITextField!
+    
+    @IBAction func onSubmitPressed() {
         
     }
     
-    
-    
+    func addComments(comment: String, to: Trip) {
+        API.add(comment: comment, to: to)
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return trip.comments.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
+        cell.bodyCommentLabel.text = trip.comments[indexPath.row].body
+        return cell
+    }
 }
 
 
@@ -33,18 +55,4 @@ class CommentsCell: UITableViewCell {
     @IBOutlet weak var timeCommentLabel: UILabel!
     @IBOutlet weak var bodyCommentLabel: UILabel!
     @IBOutlet weak var userCommentLabel: UILabel!
-    
-    
 }
-
-class AddCommentsCell: UITableViewCell {
-    @IBOutlet weak var addCommentTextField: UITextField!
-    @IBAction func submitCommentButton(_ sender: UIButton) {
-    }
-    
-}
-
-
-
-
-
