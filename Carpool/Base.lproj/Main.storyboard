@@ -661,6 +661,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="wdI-hk-gvo">
+                            <rect key="frame" x="0.0" y="128" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a comment" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Kxd-1v-kJD">
+                                    <rect key="frame" x="7" y="7" width="305" height="30"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzD-FS-sQH">
+                                    <rect key="frame" x="319" y="7" width="49" height="30"/>
+                                    <state key="normal" title="Submit"/>
+                                    <connections>
+                                        <action selector="onSubmitPressed" destination="6kn-8z-Bmf" eventType="touchUpInside" id="fcf-9I-79K"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="Kxd-1v-kJD" firstAttribute="leading" secondItem="wdI-hk-gvo" secondAttribute="leading" constant="7" id="Ega-Af-CTv"/>
+                                <constraint firstItem="tzD-FS-sQH" firstAttribute="leading" secondItem="Kxd-1v-kJD" secondAttribute="trailing" constant="7" id="HgK-bu-rqC"/>
+                                <constraint firstItem="Kxd-1v-kJD" firstAttribute="top" secondItem="wdI-hk-gvo" secondAttribute="top" constant="7" id="Hpl-la-L89"/>
+                                <constraint firstAttribute="trailing" secondItem="tzD-FS-sQH" secondAttribute="trailing" constant="7" id="Lo5-Dp-biU"/>
+                                <constraint firstAttribute="bottom" secondItem="Kxd-1v-kJD" secondAttribute="bottom" constant="7" id="XCD-nV-osu"/>
+                                <constraint firstAttribute="bottom" secondItem="tzD-FS-sQH" secondAttribute="bottom" constant="7" id="Z7Z-vh-X1t"/>
+                                <constraint firstItem="tzD-FS-sQH" firstAttribute="top" secondItem="wdI-hk-gvo" secondAttribute="top" constant="7" id="sSc-MQ-3IC"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentsCell" id="5G8-aB-fpF" customClass="CommentsCell" customModule="Carpool" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
@@ -698,34 +727,6 @@
                                     <outlet property="userCommentLabel" destination="yAZ-Pn-VSP" id="N0Z-uq-a8f"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddCommentsCell" id="H3z-QL-a4n" customClass="AddCommentsCell" customModule="Carpool" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="128" width="375" height="100"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H3z-QL-a4n" id="ZHD-z6-IMt">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a comment" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Kxd-1v-kJD">
-                                            <rect key="frame" x="16" y="16" width="343" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzD-FS-sQH">
-                                            <rect key="frame" x="0.0" y="51" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Submit Comment"/>
-                                            <connections>
-                                                <action selector="submitCommentButton:" destination="H3z-QL-a4n" eventType="touchUpInside" id="dvv-4t-Ud9"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="addCommentTextField" destination="Kxd-1v-kJD" id="eML-g4-y6a"/>
-                                </connections>
-                            </tableViewCell>
                         </prototypes>
                         <sections/>
                         <connections>
@@ -733,6 +734,9 @@
                             <outlet property="delegate" destination="6kn-8z-Bmf" id="0Ta-Np-Vfc"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="commentTextField" destination="Kxd-1v-kJD" id="AJK-Ka-SrN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Qe-1I-pKm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

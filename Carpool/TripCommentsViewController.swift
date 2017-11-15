@@ -6,12 +6,12 @@
 //  Copyright © 2017 Immerzion Interactive. All rights reserved.
 //
 
-// identifiers comments: CommentsCell, add comment: AddCommentsCell
+
+// finish submit button and entering comment field, need to add counter 
 
 import UIKit
 import CarpoolKit
 import FirebaseCommunity
-
 
 class TripCommentsViewController: UITableViewController {
     
@@ -32,8 +32,8 @@ class TripCommentsViewController: UITableViewController {
     @IBOutlet var commentTextField: UITextField!
     
     @IBAction func onSubmitPressed() {
-        
     }
+    
     
     func addComments(comment: String, to: Trip) {
         API.add(comment: comment, to: to)
@@ -46,6 +46,8 @@ class TripCommentsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
         cell.bodyCommentLabel.text = trip.comments[indexPath.row].body
+        cell.userCommentLabel.text = trip.comments[indexPath.row].user.name
+        cell.timeCommentLabel.text = trip.comments[indexPath.row].time.prettyDate
         return cell
     }
 }
