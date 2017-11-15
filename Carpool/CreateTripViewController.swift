@@ -57,36 +57,36 @@ class CreateTripViewController: UIViewController {
         dateSelected.setDate(currentTime, animated: true)
     }
     
-//    func getMyKids() {
-//        API.fetchCurrentUser { (result) in
-//            switch result {
-//
-//            case .success(let user):
-//
-//                self.kidsArray.removeAll()
-//                if user.children.count > 0 {
-//                    self.kidsArray = user.children
-//                    print("I got kids! ", self.kidsArray)
-//                    self.kidsTable.reloadData()
-//                }
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-//    }
+    //    func getMyKids() {
+    //        API.fetchCurrentUser { (result) in
+    //            switch result {
+    //
+    //            case .success(let user):
+    //
+    //                self.kidsArray.removeAll()
+    //                if user.children.count > 0 {
+    //                    self.kidsArray = user.children
+    //                    print("I got kids! ", self.kidsArray)
+    //                    self.kidsTable.reloadData()
+    //                }
+    //            case .failure(let error):
+    //                print(error)
+    //            }
+    //        }
+    //    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "DestinationVC" {
             
-        let destinationVC = segue.destination as! DestinationViewController
-        if let locationText = locationTextField.text {
-            destinationVC.searchText = locationText
-        }
+            let destinationVC = segue.destination as! DestinationViewController
+            if let locationText = locationTextField.text {
+                destinationVC.searchText = locationText
+            }
             
             if segue.identifier == "KidsTable" {
-                let KidsTableVC = segue.destination as! KidsTableViewController
+                //let KidsTableVC = segue.destination as! KidsTableViewController
             }
         }
     }
@@ -103,7 +103,7 @@ class CreateTripViewController: UIViewController {
         kidsArray = kidsTableVC.selectedKidsArray
         var kidsNames = ""
         for kid in kidsArray {
-            kidsNames += "\(kid.name), "
+            kidsNames += "\(kid.name) "
         }
         nameTextField.text = kidsNames
     }
@@ -170,30 +170,30 @@ class CreateTripViewController: UIViewController {
             switch result {
             case .success(let trip):
                 
-                print(trip)
-                
+                //set reocurring event
                 if self.reoccuringSwitch.isOn {
                     API.mark(trip: trip, repeating: true)
                 }
                 
                 //add kids to the trip
+                if self.kidsArray.count > 0 {
+                    for kid in self.kidsArray {
+                        do {
+                            try API.add(child: kid, to: trip)
+                        } catch {
+                            print("Error adding child to trip")
+                        }
+                    }
+                }
                 
-                //                        if let child = self.child {
-                //                            do {
-                //                                try API.add(child: child, to: trip)
-                //                                self.performSegue(withIdentifier: "unwindCreateTrip", sender: self)
-                //                            } catch {
-                //                                print("Create Trip Failed.")
-                //                            }
-                //                        }
                 
-                //Add a way to accept 1 leg of the trip during submit
-                
-                //                if self.pickUpSwitch.isOn {
-                //                    API.claimPickUp(trip: trip, completion: { (error) in
-                //                        print(error)
-                //                    })
-                //                }
+                //                Add a way to accept 1 leg of the trip during submit
+                //
+                //                                if self.pickUpSwitch.isOn {
+                //                                    API.claimPickUp(trip: trip, completion: { (error) in
+                //                                        print(error)
+                //                                    })
+                //                                }
                 
                 
             case .failure(let error):
