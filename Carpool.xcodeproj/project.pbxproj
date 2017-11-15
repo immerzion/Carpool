@@ -26,6 +26,7 @@
 		D740BA1D1FB4FDB50074DA4F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D740BA1C1FB4FDB50074DA4F /* TabBarController.swift */; };
 		D740BA1F1FB5053D0074DA4F /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D740BA1E1FB5053D0074DA4F /* CalendarViewController.swift */; };
 		D740BA211FB5058B0074DA4F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D740BA201FB5058B0074DA4F /* LoginViewController.swift */; };
+		D7BDA68E1FBCCAA900494796 /* TripCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BDA68D1FBCCAA900494796 /* TripCommentsViewController.swift */; };
 		D7C7B7B11FB208110083DDD2 /* CreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C7B7B01FB208110083DDD2 /* CreateTripViewController.swift */; };
 		D7E13D9E1FBA009A00FC3A97 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E13D9D1FBA009A00FC3A97 /* FriendsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		D740BA1C1FB4FDB50074DA4F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D740BA1E1FB5053D0074DA4F /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		D740BA201FB5058B0074DA4F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D7BDA68D1FBCCAA900494796 /* TripCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCommentsViewController.swift; sourceTree = "<group>"; };
 		D7C7B7B01FB208110083DDD2 /* CreateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripViewController.swift; sourceTree = "<group>"; };
 		D7E13D9D1FBA009A00FC3A97 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +93,7 @@
 		040374CC1FB0E76300ECF674 /* Carpool */ = {
 			isa = PBXGroup;
 			children = (
+				D7BDA68D1FBCCAA900494796 /* TripCommentsViewController.swift */,
 				040374D61FB0E76300ECF674 /* LaunchScreen.storyboard */,
 				040374D11FB0E76300ECF674 /* Main.storyboard */,
 				D7E13D9D1FBA009A00FC3A97 /* FriendsViewController.swift */,
@@ -336,6 +339,7 @@
 				D740BA1F1FB5053D0074DA4F /* CalendarViewController.swift in Sources */,
 				D740BA1D1FB4FDB50074DA4F /* TabBarController.swift in Sources */,
 				04D45F9A1FB3754700D07EA2 /* KidsPopOverTableViewController.swift in Sources */,
+				D7BDA68E1FBCCAA900494796 /* TripCommentsViewController.swift in Sources */,
 				D7C7B7B11FB208110083DDD2 /* CreateTripViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -444,7 +444,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OhM-UA-5NY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4143" y="503"/>
+            <point key="canvasLocation" x="4073" y="504"/>
         </scene>
         <!--Trip Details-->
         <scene sceneID="PWD-q4-dCk">
@@ -462,16 +462,16 @@
                                 <rect key="frame" x="16" y="0.0" width="343" height="554"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5De-PQ-3Kh">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="50.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="69.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6n2-kt-OCE">
-                                                <rect key="frame" x="0.0" y="0.0" width="161.5" height="50.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="161.5" height="69.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1i-PT-PgH">
-                                                <rect key="frame" x="181.5" y="0.0" width="161.5" height="50.5"/>
+                                                <rect key="frame" x="181.5" y="0.0" width="161.5" height="69.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -479,55 +479,53 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kid's Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaM-bz-9Mw">
-                                        <rect key="frame" x="0.0" y="50.5" width="343" height="50"/>
+                                        <rect key="frame" x="0.0" y="69.5" width="343" height="69"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CN7-G5-hq0">
-                                        <rect key="frame" x="0.0" y="100.5" width="343" height="50.5"/>
+                                        <rect key="frame" x="0.0" y="138.5" width="343" height="69.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5Q-0x-eyM">
-                                        <rect key="frame" x="0.0" y="151" width="343" height="50.5"/>
+                                        <rect key="frame" x="0.0" y="208" width="343" height="69"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xfp-Zx-RqD">
-                                        <rect key="frame" x="0.0" y="201.5" width="343" height="50.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mXf-hE-elD">
-                                        <rect key="frame" x="0.0" y="252" width="343" height="50"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwZ-NS-9u3">
-                                        <rect key="frame" x="0.0" y="302" width="343" height="50.5"/>
-                                        <state key="normal" title="Submit Comment"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2G4-YH-fm8">
-                                        <rect key="frame" x="0.0" y="352.5" width="343" height="50.5"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="89S-Ph-k2W">
+                                        <rect key="frame" x="0.0" y="277" width="343" height="69.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments Count" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xfp-Zx-RqD">
+                                                <rect key="frame" x="0.0" y="24.5" width="171.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwZ-NS-9u3">
+                                                <rect key="frame" x="171.5" y="19.5" width="171.5" height="30"/>
+                                                <state key="normal" title="Add Comment"/>
+                                                <connections>
+                                                    <segue destination="6kn-8z-Bmf" kind="show" id="rR0-eL-DUz"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="R4d-1a-d2f">
-                                        <rect key="frame" x="0.0" y="403" width="343" height="50.5"/>
+                                        <rect key="frame" x="0.0" y="346.5" width="343" height="69"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4c-ak-Mc8">
-                                                <rect key="frame" x="0.0" y="10" width="166.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="19.5" width="166.5" height="30"/>
                                                 <state key="normal" title="Pick Up!"/>
                                                 <connections>
                                                     <action selector="onPickUpPressed:" destination="yec-ZK-3I9" eventType="touchUpInside" id="ZhJ-4h-8Q7"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bnt-nf-kt8">
-                                                <rect key="frame" x="176.5" y="10" width="166.5" height="30"/>
+                                                <rect key="frame" x="176.5" y="19.5" width="166.5" height="30"/>
                                                 <state key="normal" title="Cancel Pick Up"/>
                                                 <connections>
                                                     <action selector="onCancelPickUpPressed:" destination="yec-ZK-3I9" eventType="touchUpInside" id="mkk-uz-7cM"/>
@@ -536,17 +534,17 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zor-Ra-oiY">
-                                        <rect key="frame" x="0.0" y="453.5" width="343" height="50"/>
+                                        <rect key="frame" x="0.0" y="415.5" width="343" height="69.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCN-pk-Vab">
-                                                <rect key="frame" x="0.0" y="10" width="166.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="19.5" width="166.5" height="30"/>
                                                 <state key="normal" title="Drop Off!"/>
                                                 <connections>
                                                     <action selector="onDropOffPressed:" destination="yec-ZK-3I9" eventType="touchUpInside" id="7iD-PA-CPt"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3in-pw-JBH">
-                                                <rect key="frame" x="176.5" y="10" width="166.5" height="30"/>
+                                                <rect key="frame" x="176.5" y="19.5" width="166.5" height="30"/>
                                                 <state key="normal" title="Cancel Drop Off"/>
                                                 <connections>
                                                     <action selector="onCancelDropOffPressed:" destination="yec-ZK-3I9" eventType="touchUpInside" id="oOg-WJ-Ukh"/>
@@ -555,7 +553,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KfA-ME-eaE">
-                                        <rect key="frame" x="0.0" y="503.5" width="343" height="50.5"/>
+                                        <rect key="frame" x="0.0" y="485" width="343" height="69"/>
                                         <state key="normal" title="Delete This Trip"/>
                                         <connections>
                                             <action selector="onDeletePressed:" destination="yec-ZK-3I9" eventType="touchUpInside" id="Adl-IN-sCu"/>
@@ -575,6 +573,7 @@
                     <connections>
                         <outlet property="cancelDropOffButton" destination="3in-pw-JBH" id="C8F-VW-WmR"/>
                         <outlet property="cancelPickUpButton" destination="Bnt-nf-kt8" id="abj-2G-rt4"/>
+                        <outlet property="commentCountLabel" destination="Xfp-Zx-RqD" id="EAu-OL-PPM"/>
                         <outlet property="dateLabel" destination="6n2-kt-OCE" id="eyG-LF-AIH"/>
                         <outlet property="deleteButton" destination="KfA-ME-eaE" id="bmc-Xt-NGK"/>
                         <outlet property="dropOffButton" destination="cCN-pk-Vab" id="Kbj-ry-Pdl"/>
@@ -588,6 +587,91 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKu-oe-SCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2239" y="-238"/>
+        </scene>
+        <!--Trip Comments-->
+        <scene sceneID="v0Q-Hx-XUk">
+            <objects>
+                <tableViewController title="Trip Comments" id="6kn-8z-Bmf" customClass="TripCommentsViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jvj-Gu-7DL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentsCell" id="5G8-aB-fpF" customClass="CommentsCell" customModule="Carpool" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5G8-aB-fpF" id="PIf-dn-u5p">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e85-3D-Tev">
+                                            <rect key="frame" x="16" y="11" width="343" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comment Body" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ev-xC-VwS">
+                                            <rect key="frame" x="16" y="29" width="343" height="41"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAZ-Pn-VSP">
+                                            <rect key="frame" x="16" y="68" width="262" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bodyCommentLabel" destination="6Ev-xC-VwS" id="tjy-uX-oVW"/>
+                                    <outlet property="timeCommentLabel" destination="e85-3D-Tev" id="BGK-14-PhP"/>
+                                    <outlet property="userCommentLabel" destination="yAZ-Pn-VSP" id="N0Z-uq-a8f"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddCommentsCell" id="H3z-QL-a4n" customClass="AddCommentsCell" customModule="Carpool" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="128" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H3z-QL-a4n" id="ZHD-z6-IMt">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a comment" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Kxd-1v-kJD">
+                                            <rect key="frame" x="16" y="16" width="343" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzD-FS-sQH">
+                                            <rect key="frame" x="0.0" y="51" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Submit Comment"/>
+                                            <connections>
+                                                <action selector="submitCommentButton:" destination="H3z-QL-a4n" eventType="touchUpInside" id="dvv-4t-Ud9"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="addCommentTextField" destination="Kxd-1v-kJD" id="eML-g4-y6a"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="6kn-8z-Bmf" id="Qhb-qg-fvq"/>
+                            <outlet property="delegate" destination="6kn-8z-Bmf" id="0Ta-Np-Vfc"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Qe-1I-pKm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3176.8000000000002" y="-239.73013493253376"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="odO-ib-wbP">

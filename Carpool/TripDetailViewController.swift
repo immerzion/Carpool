@@ -24,6 +24,7 @@ class TripDetailViewController: UIViewController {
     @IBOutlet weak var cancelPickUpButton: UIButton!
     @IBOutlet weak var cancelDropOffButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var commentCountLabel: UILabel!
     
     
     var trip: Trip!
