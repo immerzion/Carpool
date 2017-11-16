@@ -64,7 +64,7 @@ class TripDetailViewController: UIViewController {
 //        }
         
         resetButtons()
-        
+       
         if trip.pickUp != nil {
             disablePickup()
         } else {
@@ -108,9 +108,18 @@ class TripDetailViewController: UIViewController {
         }
    }
     
+    func hideShowDeleteButton() {
+        if trip.event.owner.isMe {
+            deleteButton.isHidden = false
+        } else {
+            deleteButton.isHidden = true
+        }
+    }
+    
     func resetButtons() {
         resetPickup()
         resetDropoff()
+         hideShowDeleteButton()
     }
     
     func resetPickup() {
@@ -172,74 +181,53 @@ class TripDetailViewController: UIViewController {
         cancelDropOff()
     }
     @IBAction func onDeletePressed(_ sender: UIButton) {
+        deleteTrip()
     }
     
+    func deleteTrip() {
+            do {
+                try API.delete(trip: trip)
+            } catch {
+                print("There was an error deleting the trip.")
+            }
+        }
     
     
     func confirmPickUp() {
-        
-        let message = "Do you want to pickup \(childNames)?" //from location
-        // create the alert
-        let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        // add action buttons
-        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (alert) in
             API.claimPickUp(trip: self.trip, completion: { (error) in
                 self.disablePickup()
                 self.cancelPickUpButton.isHidden = false
             })
-        }))
-        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: nil))
-        
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-    
     }
     
-    
-    //remove alerts to confirm pick up and drop offs - user should not have to confirm twice per max and the user experience
-    
     func confirmDropOff() {
-        
-        let message = "Do you want to drop off \(childNames)?" //at location
-        // create the alert
-        let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        // add action buttons
-        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (alert) in
             API.claimDropOff(trip: self.trip, completion: { (error) in
                 self.disableDropoff()
                 self.cancelDropOffButton.isHidden = false
             })
-        }))
-        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: nil))
-        
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-        
     }
     
     func cancelPickUp() {
         
-//        let message = "Do you want to cancel picking up \(childNames)?" //from location
-//        // create the alert
-//        let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
-//
-//        // add action buttons
-//        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (alert) in
+        let message = "Do you want to cancel picking up \(childNames)?" //from location
+        // create the alert
+        let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
+
+        // add action buttons
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (alert) in
             API.unclaimPickUp(trip: self.trip, completion: { (error) in
                 
                 //send notification to the parent trip.owner
                 self.resetPickup()
             })
         }
-//    ))
-//        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
-//        
-//        // show the alert
-//        self.present(alert, animated: true, completion: nil)
-//        
-//    }
+    ))
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: nil))
+
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+
+    }
     
     func cancelDropOff() {
         
@@ -248,19 +236,61 @@ class TripDetailViewController: UIViewController {
         let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
         
         // add action buttons
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (alert) in
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (alert) in
             API.unclaimDropOff(trip: self.trip, completion: { (error) in
                 
                 //send notification to the parent trip.owner
                 self.resetDropoff()
             })
         }))
-        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: nil))
         
         // show the alert
         self.present(alert, animated: true, completion: nil)
         
     }
+
+//  removed alerts to confirm pick up and drop offs - user should not have to confirm twice per max and the user experience
+    
+//    func confirmPickUp() {
+//
+//        let message = "Do you want to pickup \(childNames)?" //from location
+//        // create the alert
+//        let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
+//
+//        // add action buttons
+//        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (alert) in
+//            API.claimPickUp(trip: self.trip, completion: { (error) in
+//                self.disablePickup()
+//                self.cancelPickUpButton.isHidden = false
+//            })
+//        }))
+//        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: nil))
+//
+//        // show the alert
+//        self.present(alert, animated: true, completion: nil)
+//
+//    }
+//
+//    func confirmDropOff() {
+//
+//        let message = "Do you want to drop off \(childNames)?" //at location
+//        // create the alert
+//        let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
+//
+//        // add action buttons
+//        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (alert) in
+//            API.claimDropOff(trip: self.trip, completion: { (error) in
+//                self.disableDropoff()
+//                self.cancelDropOffButton.isHidden = false
+//            })
+//        }))
+//        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: nil))
+//
+//        // show the alert
+//        self.present(alert, animated: true, completion: nil)
+//
+//    }
     
 }
 
