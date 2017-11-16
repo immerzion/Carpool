@@ -251,8 +251,10 @@ class TripDetailViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let commentVC = segue.destination as! TripCommentsViewController
-        commentVC.trip = trip
+        if let commentVC = segue.destination as? TripCommentsViewController {
+         commentVC.trip = trip
+        }
+        
     }
     
 
