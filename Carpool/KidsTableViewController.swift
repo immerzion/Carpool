@@ -28,7 +28,20 @@ class KidsTableViewController: UITableViewController {
     }
     
     @IBAction func addKidsButton(_ sender: UIButton) {
+        if kidsNameTextField.text != "" {
+            API.addChild(name: kidsNameTextField.text!, completion: { (result) in
+                switch result {
+                    
+                case .success(let kid):
+                    self.getMyKids()
+                    print(kid)
+                case .failure(let error):
+                    print("Error adding child to profile")
+                }
+            })
+        }
     }
+    
     func getMyKids() {
         API.fetchCurrentUser { (result) in
             switch result {

@@ -39,7 +39,7 @@ class SettingsViewController: UITableViewController {
         }
         
         //temporary add kids in code
-        confirmAddKids()
+        //confirmAddKids()
     }
     
     func loadAllKids() {
@@ -66,6 +66,7 @@ class SettingsViewController: UITableViewController {
         }
     }
     
+    //no longer needed
     func confirmAddKids() {
         
         let message = "Do you want to add some random kids to your profile?"

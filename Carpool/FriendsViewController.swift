@@ -34,6 +34,10 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
                 print(error)
             }
         }
+        
+        //friendsSearchBar.tintColor = UIColor.white
+        //friendsSearchBar.barTintColor = UIColor.white
+        //friendsSearchBar.backgroundColor = UIColor.white
     }
     
     
