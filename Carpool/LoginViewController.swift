@@ -40,7 +40,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onCancelPressed(_ sender: UIButton) {
-        //dismissLoginVC()
+        dismissLoginVC()
     }
     
     func initializeLogin() {
@@ -93,7 +93,7 @@ class LoginViewController: UIViewController {
         
         if passwordTextField.text == "" {
             validPassword1 = false
-            displayErrorMessage(title: "Carpooler", message: "Passwords cannot be blank.")
+            displayErrorMessage(title: "Carpooler", message: "Password cannot be blank.")
         } else {
             validPassword1 = true
         }
@@ -140,9 +140,7 @@ class LoginViewController: UIViewController {
     }
     
     func dismissLoginVC() {
-        if let loginVC = self.presentedViewController as? LoginViewController {
-            loginVC.dismiss(animated: true, completion: nil)
-        }
+        
     }
-    
+        
 }

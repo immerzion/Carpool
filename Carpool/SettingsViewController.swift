@@ -83,5 +83,8 @@ class SettingsViewController: UITableViewController {
         
     }
     
+    @IBAction func unwindFromLoginVC(segue: UIStoryboardSegue) {
+        let loginVC = segue.source as? LoginViewController
+    }
     
 }
