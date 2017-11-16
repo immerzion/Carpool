@@ -66,9 +66,9 @@ class RootViewController: UITableViewController {
     func calTrips() {
         API.observeMyTripCalendar(sender: self) { (result) in
             switch result {
-            case .success(let trips):
-                self.tripCalendar = trips
-                self.trips = trips.trips
+            case .success(let tripCalendar):
+                self.tripCalendar = tripCalendar
+                self.trips = tripCalendar.trips
                 self.tableView.reloadData()
             case .failure(let error):
                 print(#function, error)
@@ -107,9 +107,7 @@ class RootViewController: UITableViewController {
         })
     }
     
-    
-    
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         switch eventListSegControl.selectedSegmentIndex {
         case 0, 1:
@@ -201,76 +199,6 @@ class RootViewController: UITableViewController {
         return cell
     }
     
-    //    func friendsTrips() {
-    //        trips.removeAll()
-    //
-    //        API.observeTheTripsOfMyFriends(sender: self) { (result) in
-    //            switch result {
-    //
-    //            case .success(let trips):
-    //                self.trips = trips
-    //                //print(trips)
-    //                self.tableView.reloadData()
-    //            case .failure(let error):
-    //                print(error)
-    //            }
-    //        }
-    //    }
-    
-    //    func allTrips() {
-    //
-    //        trips.removeAll()
-    //
-    //        API.observeTrips(sender: self, completion: { (result) in
-    //            switch result {
-    //            case .success(let trips):
-    //                self.trips = trips
-    //                self.tableView.reloadData()
-    //            case .failure(let error):
-    //                //TODO
-    //                print(#function, error)
-    //            }
-    //        })
-    //    }
-    
-    
-    //    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    //        return trips.count
-    //    }
-    //
-    //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    //        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventCell
-    //
-    //        let trip = trips[indexPath.row]
-    //
-    //        cell.dropOffTimeLabel.text = trip.event.time.prettyTime
-    //        cell.pickUpTimeLabel.text = trip.event.endTime?.prettyTime
-    //
-    //        if trips[indexPath.row].dropOff == nil  {
-    //            cell.dropOffTimeLabel.textColor = red
-    //        } else {
-    //            cell.dropOffTimeLabel.textColor = black
-    //        }
-    //
-    //        if trips[indexPath.row].pickUp == nil {
-    //            cell.pickUpTimeLabel.textColor = red
-    //        } else {
-    //            cell.pickUpTimeLabel.textColor = black
-    //        }
-    //
-    //        cell.eventTitleLabel.text = trip.event.description
-    //
-    //        //we may not need this 3rd label.  Although, it could be used for location...
-    //        cell.descriptionLabel.text = ""
-    //
-    //        var childNames = ""
-    //        for child in trip.children {
-    //            childNames += child.name + " "
-    //        }
-    //        cell.kidsLabel.text = childNames
-    //
-    //        return cell
-    //    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -287,6 +215,7 @@ class RootViewController: UITableViewController {
         }
     }
     
+    
     @IBAction func unwindFromCreateTripVC(segue: UIStoryboardSegue) {
         let createTripVC = segue.source as! CreateTripViewController
         datasourceToLoad = 0
@@ -296,6 +225,7 @@ class RootViewController: UITableViewController {
         let tripDetailVC = segue.source as! TripDetailViewController
         datasourceToLoad = 0
     }
+    
 }
 
 
@@ -309,6 +239,42 @@ class EventCell: UITableViewCell {
     @IBOutlet weak var commentLabel: UILabel!
     
 }
+
+
+//    func friendsTrips() {
+//        trips.removeAll()
+//
+//        API.observeTheTripsOfMyFriends(sender: self) { (result) in
+//            switch result {
+//
+//            case .success(let trips):
+//                self.trips = trips
+//                //print(trips)
+//                self.tableView.reloadData()
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//    }
+
+//    func allTrips() {
+//
+//        trips.removeAll()
+//
+//        API.observeTrips(sender: self, completion: { (result) in
+//            switch result {
+//            case .success(let trips):
+//                self.trips = trips
+//                self.tableView.reloadData()
+//            case .failure(let error):
+//                //TODO
+//                print(#function, error)
+//            }
+//        })
+//    }
+
+
+
 
 
 

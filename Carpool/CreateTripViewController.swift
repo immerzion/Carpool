@@ -156,7 +156,9 @@ class CreateTripViewController: UIViewController {
                 //set end time for event
                 //the other option is to create a separate event, currently commented out
                 if self.podSegmentControl.titleForSegment(at: 1) != self.endMsg {
-                    API.set(endTime: self.endTime, for: trip.event)
+                    API.set(endTime: self.endTime, for: trip.event, completion: { (error) in
+                        print(error!)
+                    })
                 }
                 
                 //set reocurring event
