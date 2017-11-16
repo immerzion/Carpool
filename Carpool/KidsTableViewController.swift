@@ -13,6 +13,8 @@ import CarpoolKit
 
 class KidsTableViewController: UITableViewController {
     
+    @IBOutlet weak var kidsNameTextField: UITextField!
+    
     var kidsArray: [Child] = []
     var selectedKidsArray: [Child] = []
     
@@ -25,6 +27,8 @@ class KidsTableViewController: UITableViewController {
         //tableView.reloadData()
     }
     
+    @IBAction func addKidsButton(_ sender: UIButton) {
+    }
     func getMyKids() {
         API.fetchCurrentUser { (result) in
             switch result {
