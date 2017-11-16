@@ -24,59 +24,33 @@ class CreateTripViewController: UIViewController {
     @IBOutlet weak var reoccuringSwitch: UISwitch!
     @IBOutlet weak var kidsTable: UITableView!
     
-    
-    //var clock: Timer?
-    
     var pickUpTime = Date()
     var dropOffTime = Date()
     var currentTime = Date()
     
     var pickUpMsg = ""
     var dropOffMsg = ""
+    let startMsg = "Start Time"
+    let endMsg = "End Time"
     
     var kidsArray: [Child] = []
     
     var clLocation: MKPlacemark? = nil
-    
     let savannah = CLLocation(latitude: 32.076176, longitude: -81.088371)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //getMyKids()
-        // clock = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: onTimerFired)
-        podSegmentControl.setTitle("Drop Off Time", forSegmentAt: 0)
-        podSegmentControl.setTitle("Pick Up Time", forSegmentAt: 1)
+
+        podSegmentControl.setTitle(startMsg, forSegmentAt: 0)
+        podSegmentControl.setTitle(endMsg, forSegmentAt: 1)
     }
     
-    //fires on clock tick
-    //    func onTimerFired(timer:Timer) {
-    //        nameTextField.text = Date().prettyTime
-    //    }
     
     override func viewDidAppear(_ animated: Bool) {
         dateSelected.minimumDate = Date()
         dateSelected.setDate(currentTime, animated: true)
     }
-    
-    //    func getMyKids() {
-    //        API.fetchCurrentUser { (result) in
-    //            switch result {
-    //
-    //            case .success(let user):
-    //
-    //                self.kidsArray.removeAll()
-    //                if user.children.count > 0 {
-    //                    self.kidsArray = user.children
-    //                    print("I got kids! ", self.kidsArray)
-    //                    self.kidsTable.reloadData()
-    //                }
-    //            case .failure(let error):
-    //                print(error)
-    //            }
-    //        }
-    //    }
-    
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -110,12 +84,9 @@ class CreateTripViewController: UIViewController {
     }
     
     func dismissVC() {
-//        if let createTripVC = self.presentedViewController as? CreateTripViewController {
-//            createTripVC.dismiss(animated: true, completion: nil)
-        
         let rootVC = storyboard?.instantiateViewController(withIdentifier: "RootVC") as! RootViewController
         self.navigationController?.pushViewController(rootVC, animated: true)
-
+        rootVC.datasourceToLoad = 0
     }
     
     @IBAction func onPickUpDropOffSeg(_ sender: UISegmentedControl) {
@@ -243,13 +214,14 @@ class CreateTripViewController: UIViewController {
         
         if desc == "" {
             print("you need to enter more data")
-        } else {
+        }
+        else {
             
-            if pickUpTimeDisplay.text != "" {
-                createTripWithKids(desc: desc, time: pickUpTime, loc: savannah)
-            }
-            if dropOffTimeDisplay.text != "" {
+            if podSegmentControl.titleForSegment(at: 0) != startMsg {
                 createTripWithKids(desc: desc, time: dropOffTime, loc: savannah)
+            }
+            if podSegmentControl.titleForSegment(at: 1) != endMsg  {
+                createTripWithKids(desc: desc, time: pickUpTime, loc: savannah)
             }
             
             dismissVC()

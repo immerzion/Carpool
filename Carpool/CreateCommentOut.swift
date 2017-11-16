@@ -7,6 +7,22 @@
 ////
 //
 //import Foundation
+
+
+//Realtime clock code
+//Global Variable
+//var clock: Timer?
+
+//place in viewDidLoad()
+// clock = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: onTimerFired)
+
+//fires on clock tick
+//    func onTimerFired(timer:Timer) {
+//        nameTextField.text = Date().prettyTime
+//    }
+
+
+
 //
 //func validateText() {
 //    let event = ""
