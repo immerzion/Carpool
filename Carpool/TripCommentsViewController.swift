@@ -32,6 +32,8 @@ class TripCommentsViewController: UITableViewController {
     @IBOutlet var commentTextField: UITextField!
     
     @IBAction func onSubmitPressed() {
+        API.add(comment: commentTextField.text!, to: trip)
+        commentTextField.text = ""
     }
     
     
@@ -47,7 +49,7 @@ class TripCommentsViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath) as! CommentsCell
         cell.bodyCommentLabel.text = trip.comments[indexPath.row].body
         cell.userCommentLabel.text = trip.comments[indexPath.row].user.name
-        cell.timeCommentLabel.text = trip.comments[indexPath.row].time.prettyDate
+        cell.timeCommentLabel.text = trip.comments[indexPath.row].time.prettyDate + " " + trip.comments[indexPath.row].time.prettyTime
         return cell
     }
 }
