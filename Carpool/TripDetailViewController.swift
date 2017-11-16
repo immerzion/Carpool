@@ -184,6 +184,12 @@ class TripDetailViewController: UIViewController {
         deleteTrip()
     }
     
+    @IBAction func commentsButton(_ sender: UIButton) {
+        
+    }
+    
+    
+    
     func deleteTrip() {
             do {
                 try API.delete(trip: trip)
@@ -250,6 +256,11 @@ class TripDetailViewController: UIViewController {
         
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let commentVC = segue.destination as! TripCommentsViewController
+        commentVC.trip = trip
+    }
+    
 //  removed alerts to confirm pick up and drop offs - user should not have to confirm twice per max and the user experience
     
 //    func confirmPickUp() {

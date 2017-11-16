@@ -583,7 +583,6 @@
                                                 <rect key="frame" x="171.5" y="19.5" width="171.5" height="30"/>
                                                 <state key="normal" title="Comments"/>
                                                 <connections>
-                                                    <action selector="comments:" destination="yec-ZK-3I9" eventType="touchUpInside" id="Qqe-pB-hrm"/>
                                                     <segue destination="6kn-8z-Bmf" kind="show" id="rR0-eL-DUz"/>
                                                 </connections>
                                             </button>
@@ -648,7 +647,6 @@
                     <connections>
                         <outlet property="cancelDropOffButton" destination="3in-pw-JBH" id="C8F-VW-WmR"/>
                         <outlet property="cancelPickUpButton" destination="Bnt-nf-kt8" id="abj-2G-rt4"/>
-                        <outlet property="commentCount" destination="Xfp-Zx-RqD" id="n6c-oN-l9C"/>
                         <outlet property="commentCountLabel" destination="Xfp-Zx-RqD" id="EAu-OL-PPM"/>
                         <outlet property="dateLabel" destination="6n2-kt-OCE" id="eyG-LF-AIH"/>
                         <outlet property="deleteButton" destination="KfA-ME-eaE" id="bmc-Xt-NGK"/>
