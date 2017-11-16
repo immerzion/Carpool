@@ -56,8 +56,8 @@ class RootViewController: UITableViewController {
             calTrips()
         case 1:
             friendsTrips()
-        case 2:
-            filteredTrips()
+//        case 2:
+//            filteredTrips()
         default:
             break
         }
@@ -89,52 +89,34 @@ class RootViewController: UITableViewController {
         }
     }
     
-    func filteredTrips() {
-        API.observeTrips(sender: self, completion: { (result) in
-            switch result {
-            case .success(let trips):
-                
-                for trip in trips {
-                    //if trip is fully scheduled...
-                    if trip.pickUp == nil || trip.dropOff == nil {
-                        self.trips.append(trip)
-                        self.tableView.reloadData()
-                    }
-                }
-            case .failure(let error):
-                print(#function, error)
-            }
-        })
-    }
-    
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        switch eventListSegControl.selectedSegmentIndex {
-        case 0, 1:
-            return 7
-        case 2:
-            return 1
-        default:
-            return 1
-        }
+//        switch eventListSegControl.selectedSegmentIndex {
+//        case 0, 1:
+//            return 7
+//        case 2:
+//            return 1
+//        default:
+//            return 1
+//        }
+        return 7
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch eventListSegControl.selectedSegmentIndex {
-        case 0, 1:
+//        switch eventListSegControl.selectedSegmentIndex {
+//        case 0, 1:
             guard let rowsInSection = tripCalendar?.dailySchedule(forWeekdayOffsetFromToday: section).trips.count else { return 0 }
             return rowsInSection
-        case 2:
-            return trips.count
-        default:
-            return 1
-        }
+//        case 2:
+//            return trips.count
+//        default:
+//            return 1
+//        }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch eventListSegControl.selectedSegmentIndex {
-        case 0, 1:
-            
+//        switch eventListSegControl.selectedSegmentIndex {
+//        case 0, 1:
+        
             if self.tableView(tableView, numberOfRowsInSection: section) > 0 {
                 
                 guard let title = tripCalendar?.dailySchedule(forWeekdayOffsetFromToday: section).prettyName else { return "" }
@@ -142,19 +124,21 @@ class RootViewController: UITableViewController {
             } else {
                 return nil
             }
-        case 2:
-            return "Unscheduled Trips"
-        default:
-            return ""
-        }
+//        case 2:
+//            return "Unscheduled Trips"
+//        default:
+//            return ""
+//        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventCell
+//
+//        if trips.count > 0 {
+//
+            //let trip = trips[indexPath.row]
         
-        if trips.count > 0 {
-            
-            let trip = trips[indexPath.row]
+        if let trip = tripCalendar?.dailySchedule(forWeekdayOffsetFromToday: indexPath.section).trips[indexPath.row] {
             
             cell.dropOffTimeLabel.text = trip.event.time.prettyTime
             cell.pickUpTimeLabel.text = trip.event.endTime?.prettyTime
@@ -181,21 +165,21 @@ class RootViewController: UITableViewController {
                 childNames += child.name + " "
             }
             cell.kidsLabel.text = childNames
+//        }
+//        else {
+//            cell.dropOffTimeLabel.text = ""
+//            //cell.dropOffTimeLabel.isHidden = true
+//            cell.dropOffTimeLabel.textColor = black
+//
+//            cell.pickUpTimeLabel.text = ""
+//            //cell.pickUpTimeLabel.isHidden = true
+//            cell.pickUpTimeLabel.textColor = black
+//
+//            cell.eventTitleLabel.text = "No trips scheduled!"
+//            cell.kidsLabel.text =  "Relax or have some fun!"
+//            cell.commentLabel.text = ""
         }
-        else {
-            cell.dropOffTimeLabel.text = ""
-            //cell.dropOffTimeLabel.isHidden = true
-            cell.dropOffTimeLabel.textColor = black
-            
-            cell.pickUpTimeLabel.text = ""
-            //cell.pickUpTimeLabel.isHidden = true
-            cell.pickUpTimeLabel.textColor = black
-            
-            cell.eventTitleLabel.text = "No trips scheduled!"
-            cell.kidsLabel.text =  "Relax or have some fun!"
-            cell.commentLabel.text = ""
-        }
-        
+    
         return cell
     }
     
@@ -273,6 +257,23 @@ class EventCell: UITableViewCell {
 //        })
 //    }
 
+//    func filteredTrips() {
+//        API.observeTrips(sender: self, completion: { (result) in
+//            switch result {
+//            case .success(let trips):
+//
+//                for trip in trips {
+//                    //if trip is fully scheduled...
+//                    if trip.pickUp == nil || trip.dropOff == nil {
+//                        self.trips.append(trip)
+//                        self.tableView.reloadData()
+//                    }
+//                }
+//            case .failure(let error):
+//                print(#function, error)
+//            }
+//        })
+//    }
 
 
 

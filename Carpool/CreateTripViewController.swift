@@ -20,11 +20,9 @@ class CreateTripViewController: UIViewController {
     @IBOutlet weak var dateSelected: UIDatePicker!
     @IBOutlet weak var eventDescriptLabel: UILabel!
     @IBOutlet weak var reoccuringSwitch: UISwitch!
+    @IBOutlet weak var dropOffSwitch: UISwitch!
+    @IBOutlet weak var pickUpSwitch: UISwitch!
     
-    //need to remove soon
-    @IBOutlet weak var pickUpTimeDisplay: UILabel!
-    @IBOutlet weak var dropOffTimeDisplay: UILabel!
-
     var startTime = Date()
     var endTime = Date()
     var currentTime = Date()
@@ -41,7 +39,7 @@ class CreateTripViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         podSegmentControl.setTitle(startMsg, forSegmentAt: 0)
         podSegmentControl.setTitle(endMsg, forSegmentAt: 1)
     }
@@ -51,7 +49,7 @@ class CreateTripViewController: UIViewController {
         dateSelected.minimumDate = Date()
         dateSelected.setDate(currentTime, animated: true)
     }
-
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -100,13 +98,11 @@ class CreateTripViewController: UIViewController {
         case 0:
             startTime = self.dateSelected.date
             let startText = startTime.prettyDate + " " + startTime.prettyTime
-            dropOffTimeDisplay.text = startText
             podSegmentControl.setTitle(startText, forSegmentAt: 0)
             
         case 1:
             endTime = self.dateSelected.date
             let endText = endTime.prettyDate + " " + endTime.prettyTime
-            pickUpTimeDisplay.text = endText
             podSegmentControl.setTitle(endText, forSegmentAt: 1)
         default:
             print(self.dateSelected.date)
@@ -126,9 +122,10 @@ class CreateTripViewController: UIViewController {
         
         switch podSegmentControl.selectedSegmentIndex {
         case 0:
-            dropOffMsg = "\(startTime.prettyDay) - \(startTime.prettyTime) - Drop off \(name) for  \(tripDescript(text: descriptionTextField.text!)) from \(location)."
+            dropOffMsg = "\(startTime.prettyDay) - \(startTime.prettyTime) - Drop off \(name) to \(location)."
+        //tripDescript(text: descriptionTextField.text!
         case 1:
-            pickUpMsg = "\(endTime.prettyDay) - \(endTime.prettyTime) - Pick up \(name) for \(tripDescript(text: descriptionTextField.text!)) from \(location)."
+            pickUpMsg = "\(endTime.prettyDay) - \(endTime.prettyTime) - Pick up \(name) from \(location)."
         default:
             print("msg")
         }
@@ -157,7 +154,7 @@ class CreateTripViewController: UIViewController {
                 //the other option is to create a separate event, currently commented out
                 if self.podSegmentControl.titleForSegment(at: 1) != self.endMsg {
                     API.set(endTime: self.endTime, for: trip.event, completion: { (error) in
-                        print(error!)
+                        print("Error adding end time to event")
                     })
                 }
                 
@@ -176,17 +173,27 @@ class CreateTripViewController: UIViewController {
                         }
                     }
                 }
+        
+                //pick up a leg of a trip while scheduling
+                if self.pickUpSwitch.isOn {
+                    API.claimPickUp(trip: trip, completion: { (error) in
+                        print("Error claiming pick up leg of this trip.")
+                    })
+                } else {
+                    API.unclaimPickUp(trip: trip, completion: { (error) in
+                        print("Error unclaiming pick up leg of this trip.")
+                    })
+                }
                 
-                print(trip.event)
-                
-                
-                //                Add a way to accept 1 leg of the trip during submit
-                //
-                //                                if self.pickUpSwitch.isOn {
-                //                                    API.claimPickUp(trip: trip, completion: { (error) in
-                //                                        print(error)
-                //                                    })
-                //                                }
+                if self.dropOffSwitch.isOn {
+                    API.claimDropOff(trip: trip, completion: { (error) in
+                        print("Error claiming drop off leg of this trip.")
+                    })
+                } else {
+                    API.unclaimDropOff(trip: trip, completion: { (error) in
+                        print("Error unclaiming drop off leg of this trip.")
+                    })
+                }
                 
                 
             case .failure(let error):
@@ -222,7 +229,7 @@ class CreateTripViewController: UIViewController {
         }
         
         if desc == "" {
-            print("you need to enter more data")
+            print("You need to enter more data")
         }
         else {
             
@@ -231,14 +238,14 @@ class CreateTripViewController: UIViewController {
             }
             
             //this creates a separate event, now we are setting end time for original event
-//            if podSegmentControl.titleForSegment(at: 1) != endMsg  {
-//                createTripWithKids(desc: desc, time: pickUpTime, loc: savannah)
-//            }
+            //            if podSegmentControl.titleForSegment(at: 1) != endMsg  {
+            //                createTripWithKids(desc: desc, time: pickUpTime, loc: savannah)
+            //            }
             
             dismissVC()
         }
     }
-
+    
     
 }
 
