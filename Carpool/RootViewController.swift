@@ -144,21 +144,26 @@ class RootViewController: UITableViewController {
             cell.pickUpTimeLabel.text = trip.event.endTime?.prettyTime
             
             if trips[indexPath.row].dropOff == nil  {
-                cell.dropOffTimeLabel.textColor = red
+                cell.dropOffTimeLabel.textColor = orange
             } else {
                 cell.dropOffTimeLabel.textColor = black
             }
             
             if trips[indexPath.row].pickUp == nil {
-                cell.pickUpTimeLabel.textColor = red
+                cell.pickUpTimeLabel.textColor = orange
             } else {
                 cell.pickUpTimeLabel.textColor = black
             }
             
             cell.eventTitleLabel.text = trip.event.description
             
-            //we may not need this 3rd label.  Although, it could be used for location...
-            cell.commentLabel.text = ""
+            if trip.comments.count == 0 {
+                cell.commentLabel.text = ""
+            } else {
+                cell.commentLabel.text = "Comments: \(trip.comments.count)"
+                cell.commentLabel.textColor = red
+            }
+            
             
             var childNames = ""
             for child in trip.children {
@@ -201,12 +206,12 @@ class RootViewController: UITableViewController {
     
     
     @IBAction func unwindFromCreateTripVC(segue: UIStoryboardSegue) {
-        let createTripVC = segue.source as! CreateTripViewController
+        let createTripVC = segue.source as? CreateTripViewController
         datasourceToLoad = 0
     }
     
     @IBAction func unwindFromTripDetailVC(segue: UIStoryboardSegue) {
-        let tripDetailVC = segue.source as! TripDetailViewController
+        let tripDetailVC = segue.source as? TripDetailViewController
         datasourceToLoad = 0
     }
     

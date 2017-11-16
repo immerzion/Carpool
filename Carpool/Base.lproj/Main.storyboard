@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Trips-->
+        <!--Current Trips-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <tableViewController storyboardIdentifier="RootVC" id="BYZ-38-t0r" customClass="RootViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RootVC" title="Current Trips" id="BYZ-38-t0r" customClass="RootViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="boo-mO-KI7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -54,7 +54,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="H01-Co-NsW">
                                             <rect key="frame" x="16" y="0.0" width="325" height="99.5"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7WM-8Q-J56">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7WM-8Q-J56">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="99.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:59 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9m4-lz-x0x">
@@ -68,7 +68,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:59 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLa-Fw-GBd">
-                                                            <rect key="frame" x="0.0" y="5.5" width="80" height="94"/>
+                                                            <rect key="frame" x="0.0" y="25.5" width="80" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="UKv-xG-3EJ"/>
                                                                 <constraint firstAttribute="height" constant="21" id="dpb-0E-GVd"/>
@@ -77,9 +77,18 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" image="syncronize" translatesAutoresizingMaskIntoConstraints="NO" id="zI1-rG-2BG">
+                                                            <rect key="frame" x="0.0" y="67" width="80" height="32.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="21" id="UJV-ui-7t8"/>
+                                                                <constraint firstAttribute="height" constant="21" id="dOg-mN-hy9"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstItem="zI1-rG-2BG" firstAttribute="centerX" secondItem="7WM-8Q-J56" secondAttribute="centerX" id="NS7-BF-qyt"/>
                                                         <constraint firstAttribute="width" constant="80" id="cVn-CL-Luw"/>
+                                                        <constraint firstAttribute="bottom" secondItem="zI1-rG-2BG" secondAttribute="bottom" constant="10" id="v0x-dj-rHM"/>
                                                     </constraints>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8wL-jA-zTI">
@@ -105,7 +114,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Comments" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgT-Uf-t83">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Comments" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgT-Uf-t83">
                                                             <rect key="frame" x="0.0" y="36.5" width="229" height="63"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="gJV-YR-YiC"/>
@@ -118,6 +127,9 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="7WM-8Q-J56" secondAttribute="bottom" constant="20" id="4UL-Vk-ioZ"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -1220,5 +1232,6 @@
         <image name="people" width="30" height="30"/>
         <image name="search" width="30" height="30"/>
         <image name="settings" width="30" height="30"/>
+        <image name="syncronize" width="90" height="90"/>
     </resources>
 </document>
