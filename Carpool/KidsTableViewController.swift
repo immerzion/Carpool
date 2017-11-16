@@ -12,15 +12,15 @@ import CarpoolKit
 
 
 class KidsTableViewController: UITableViewController {
-
+    
     var kidsArray: [Child] = []
     var selectedKidsArray: [Child] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getMyKids()
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         //tableView.reloadData()
     }
@@ -41,17 +41,13 @@ class KidsTableViewController: UITableViewController {
             }
         }
     }
-    
-    func test() {
-        var array = ["one", "two", "three"]
-        array.removeObject("two")
-    }
-    
+        
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         let selectedKid = kidsArray[indexPath.row]
-            
+        
+        if cell?.accessoryType == .checkmark {
             var index = 0
             for kid in selectedKidsArray {
                 if kid.name == selectedKid.name {
@@ -60,26 +56,27 @@ class KidsTableViewController: UITableViewController {
                 }
                 index += 1
             }
-        
+        } else {
             selectedKidsArray.append(kidsArray[indexPath.row])
             cell?.accessoryType = .checkmark
         }
+    }
     
     
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return kidsArray.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "KidCell", for: indexPath)
         cell.textLabel?.text = kidsArray[indexPath.row].name
         return cell
     }
-
+    
 }
 

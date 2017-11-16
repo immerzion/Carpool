@@ -110,9 +110,12 @@ class CreateTripViewController: UIViewController {
     }
     
     func dismissVC() {
-        if let createTripVC = self.presentedViewController as? CreateTripViewController {
-            createTripVC.dismiss(animated: true, completion: nil)
-        }
+//        if let createTripVC = self.presentedViewController as? CreateTripViewController {
+//            createTripVC.dismiss(animated: true, completion: nil)
+        
+        let rootVC = storyboard?.instantiateViewController(withIdentifier: "RootVC") as! RootViewController
+        self.navigationController?.pushViewController(rootVC, animated: true)
+
     }
     
     @IBAction func onPickUpDropOffSeg(_ sender: UISegmentedControl) {
@@ -252,6 +255,7 @@ class CreateTripViewController: UIViewController {
             dismissVC()
         }
     }
+
     
 }
 
