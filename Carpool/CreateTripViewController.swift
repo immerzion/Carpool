@@ -18,14 +18,15 @@ class CreateTripViewController: UIViewController {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var dateSelected: UIDatePicker!
-    @IBOutlet weak var pickUpTimeDisplay: UILabel!
-    @IBOutlet weak var dropOffTimeDisplay: UILabel!
     @IBOutlet weak var eventDescriptLabel: UILabel!
     @IBOutlet weak var reoccuringSwitch: UISwitch!
-    @IBOutlet weak var kidsTable: UITableView!
     
-    var pickUpTime = Date()
-    var dropOffTime = Date()
+    //need to remove soon
+    @IBOutlet weak var pickUpTimeDisplay: UILabel!
+    @IBOutlet weak var dropOffTimeDisplay: UILabel!
+
+    var startTime = Date()
+    var endTime = Date()
     var currentTime = Date()
     
     var pickUpMsg = ""
@@ -99,16 +100,16 @@ class CreateTripViewController: UIViewController {
     @IBAction func timeSelected(_ sender: UIDatePicker) {
         switch podSegmentControl.selectedSegmentIndex {
         case 0:
-            dropOffTime = self.dateSelected.date
-            let dropOffText = dropOffTime.prettyDate + " " + dropOffTime.prettyTime
-            dropOffTimeDisplay.text = dropOffText
-            podSegmentControl.setTitle(dropOffText, forSegmentAt: 0)
+            startTime = self.dateSelected.date
+            let startText = startTime.prettyDate + " " + startTime.prettyTime
+            dropOffTimeDisplay.text = startText
+            podSegmentControl.setTitle(startText, forSegmentAt: 0)
             
         case 1:
-            pickUpTime = self.dateSelected.date
-            let pickUpText = dropOffTime.prettyDate + " " + dropOffTime.prettyTime
-            pickUpTimeDisplay.text = pickUpText
-            podSegmentControl.setTitle(pickUpText, forSegmentAt: 1)
+            endTime = self.dateSelected.date
+            let endText = endTime.prettyDate + " " + endTime.prettyTime
+            pickUpTimeDisplay.text = endText
+            podSegmentControl.setTitle(endText, forSegmentAt: 1)
         default:
             print(self.dateSelected.date)
         }
@@ -127,9 +128,9 @@ class CreateTripViewController: UIViewController {
         
         switch podSegmentControl.selectedSegmentIndex {
         case 0:
-            dropOffMsg = "\(dropOffTime.prettyDay) - \(dropOffTime.prettyTime) - Drop off \(name) for  \(tripDescript(text: descriptionTextField.text!)) from \(location)."
+            dropOffMsg = "\(startTime.prettyDay) - \(startTime.prettyTime) - Drop off \(name) for  \(tripDescript(text: descriptionTextField.text!)) from \(location)."
         case 1:
-            pickUpMsg = "\(pickUpTime.prettyDay) - \(pickUpTime.prettyTime) - Pick up \(name) for \(tripDescript(text: descriptionTextField.text!)) from \(location)."
+            pickUpMsg = "\(endTime.prettyDay) - \(endTime.prettyTime) - Pick up \(name) for \(tripDescript(text: descriptionTextField.text!)) from \(location)."
         default:
             print("msg")
         }
@@ -153,6 +154,12 @@ class CreateTripViewController: UIViewController {
         API.createTrip(eventDescription: desc, eventTime: time, eventLocation: loc) { result in
             switch result {
             case .success(let trip):
+                
+                //set end time for event
+                //the other option is to create a separate event, currently commented out
+                if self.podSegmentControl.titleForSegment(at: 1) != self.endMsg {
+                    API.set(endTime: self.endTime, for: trip.event)
+                }
                 
                 //set reocurring event
                 if self.reoccuringSwitch.isOn {
@@ -218,11 +225,13 @@ class CreateTripViewController: UIViewController {
         else {
             
             if podSegmentControl.titleForSegment(at: 0) != startMsg {
-                createTripWithKids(desc: desc, time: dropOffTime, loc: savannah)
+                createTripWithKids(desc: desc, time: startTime, loc: savannah)
             }
-            if podSegmentControl.titleForSegment(at: 1) != endMsg  {
-                createTripWithKids(desc: desc, time: pickUpTime, loc: savannah)
-            }
+            
+            //this creates a separate event, now we are setting end time for original event
+//            if podSegmentControl.titleForSegment(at: 1) != endMsg  {
+//                createTripWithKids(desc: desc, time: pickUpTime, loc: savannah)
+//            }
             
             dismissVC()
         }
