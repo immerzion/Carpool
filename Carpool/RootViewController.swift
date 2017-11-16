@@ -279,7 +279,7 @@ class RootViewController: UITableViewController {
         }
         
         if segue.identifier == "CreateTrip" {
-            let createTripVC = segue.destination as! CreateTripViewController
+            //let createTripVC = segue.destination as! CreateTripViewController
             //guard let indexPath = tableView.indexPathForSelectedRow else { return }
             //createTripVC.trip = trips[indexPath.row]
         }

@@ -44,11 +44,15 @@ extension Date {
     }
 }
 
-
-//extension UILabel {
-//    var alignTop
-//}
-
+extension Array where Element: Equatable {
+    
+    // Remove first collection element that is equal to the given `object`:
+    mutating func removeObject(_ object: Element) {
+        if let index = index(of: object) {
+            remove(at: index)
+        }
+    }
+}
 
 extension MKMapItem: MKAnnotation {
     public var coordinate: CLLocationCoordinate2D {
@@ -100,9 +104,9 @@ extension CLLocation: MKAnnotation {
 }
 
 
-extension MKPlacemark: MKAnnotation {
-    var subtitle: String? {
-        return name
-    }
-}
+//extension MKPlacemark: MKAnnotation {
+//    var subtitle: String? {
+//        return name
+//    }
+//}
 

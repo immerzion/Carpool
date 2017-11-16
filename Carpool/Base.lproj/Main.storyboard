@@ -877,17 +877,12 @@
                             <constraint firstItem="Kec-Ly-cZO" firstAttribute="centerX" secondItem="KQF-wU-yex" secondAttribute="centerX" id="Bgm-jr-ee5"/>
                             <constraint firstItem="I1J-7a-lQC" firstAttribute="leading" secondItem="KQF-wU-yex" secondAttribute="leadingMargin" id="Bth-Fi-4Oq"/>
                             <constraint firstItem="Kec-Ly-cZO" firstAttribute="top" secondItem="SfB-T6-JsL" secondAttribute="bottom" constant="60" id="CVz-B0-T3u"/>
-                            <constraint firstItem="I1J-7a-lQC" firstAttribute="centerX" secondItem="KQF-wU-yex" secondAttribute="centerX" id="INI-cs-cuT"/>
                             <constraint firstItem="Qj5-se-xXz" firstAttribute="centerX" secondItem="KQF-wU-yex" secondAttribute="centerX" id="IRI-fU-ZgP"/>
-                            <constraint firstItem="SfB-T6-JsL" firstAttribute="centerX" secondItem="KQF-wU-yex" secondAttribute="centerX" id="Jip-ld-Lcv"/>
-                            <constraint firstItem="pZJ-my-zzB" firstAttribute="centerX" secondItem="KQF-wU-yex" secondAttribute="centerX" id="K5K-0Z-dZ1"/>
-                            <constraint firstItem="wu0-Fb-tgm" firstAttribute="centerX" secondItem="KQF-wU-yex" secondAttribute="centerX" id="Kfc-Yr-urI"/>
                             <constraint firstItem="wu0-Fb-tgm" firstAttribute="leading" secondItem="KQF-wU-yex" secondAttribute="leadingMargin" id="Kwp-1x-Xhb"/>
                             <constraint firstItem="I1J-7a-lQC" firstAttribute="top" secondItem="pZJ-my-zzB" secondAttribute="bottom" constant="60" id="PFE-eO-y7O"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SfB-T6-JsL" secondAttribute="trailing" id="UeT-CX-hi0"/>
                             <constraint firstItem="SfB-T6-JsL" firstAttribute="leading" secondItem="KQF-wU-yex" secondAttribute="leadingMargin" id="Zin-Ff-qed"/>
                             <constraint firstItem="HKi-5E-gq9" firstAttribute="top" secondItem="I1J-7a-lQC" secondAttribute="bottom" constant="20" id="bYt-h3-kdY"/>
-                            <constraint firstItem="HKi-5E-gq9" firstAttribute="centerX" secondItem="KQF-wU-yex" secondAttribute="centerX" id="cfA-sD-uOi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HKi-5E-gq9" secondAttribute="trailing" id="fu2-Ye-OTf"/>
                             <constraint firstItem="HKi-5E-gq9" firstAttribute="leading" secondItem="KQF-wU-yex" secondAttribute="leadingMargin" id="lJM-F5-S5j"/>
                             <constraint firstItem="pZJ-my-zzB" firstAttribute="leading" secondItem="KQF-wU-yex" secondAttribute="leadingMargin" id="mBL-8B-3hG"/>

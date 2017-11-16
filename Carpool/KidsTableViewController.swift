@@ -42,13 +42,29 @@ class KidsTableViewController: UITableViewController {
         }
     }
     
+    func test() {
+        var array = ["one", "two", "three"]
+        array.removeObject("two")
+    }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        selectedKidsArray.append(kidsArray[indexPath.row])
-        cell?.accessoryType = .checkmark
-    }
+        let selectedKid = kidsArray[indexPath.row]
+            
+            var index = 0
+            for kid in selectedKidsArray {
+                if kid.name == selectedKid.name {
+                    selectedKidsArray.remove(at: index)
+                    cell?.accessoryType = .none
+                }
+                index += 1
+            }
+        
+            selectedKidsArray.append(kidsArray[indexPath.row])
+            cell?.accessoryType = .checkmark
+        }
+    
     
 
     override func numberOfSections(in tableView: UITableView) -> Int {
