@@ -13,7 +13,7 @@ import MapKit
 
 class CreateTripViewController: UIViewController {
     
-    @IBOutlet weak var onPodSegPressed: UISegmentedControl!
+    @IBOutlet weak var podSegmentControl: UISegmentedControl!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
@@ -45,6 +45,8 @@ class CreateTripViewController: UIViewController {
         
         //getMyKids()
         // clock = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: onTimerFired)
+        podSegmentControl.setTitle("Drop Off Time", forSegmentAt: 0)
+        podSegmentControl.setTitle("Pick Up Time", forSegmentAt: 1)
     }
     
     //fires on clock tick
@@ -84,7 +86,6 @@ class CreateTripViewController: UIViewController {
             if let locationText = locationTextField.text {
                 destinationVC.searchText = locationText
             }
-            
             if segue.identifier == "KidsTable" {
                 //let KidsTableVC = segue.destination as! KidsTableViewController
             }
@@ -108,6 +109,12 @@ class CreateTripViewController: UIViewController {
         nameTextField.text = kidsNames
     }
     
+    func dismissVC() {
+        if let createTripVC = self.presentedViewController as? CreateTripViewController {
+            createTripVC.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func onPickUpDropOffSeg(_ sender: UISegmentedControl) {
         //        switch sender.selectedSegmentIndex == 0 {
         //        case true:
@@ -116,13 +123,18 @@ class CreateTripViewController: UIViewController {
     }
     
     @IBAction func timeSelected(_ sender: UIDatePicker) {
-        switch onPodSegPressed.selectedSegmentIndex {
+        switch podSegmentControl.selectedSegmentIndex {
         case 0:
-            pickUpTime = self.dateSelected.date
-            pickUpTimeDisplay.text = pickUpTime.prettyDate + " " + pickUpTime.prettyTime
-        case 1:
             dropOffTime = self.dateSelected.date
-            dropOffTimeDisplay.text = dropOffTime.prettyDate + " " + dropOffTime.prettyTime
+            let dropOffText = dropOffTime.prettyDate + " " + dropOffTime.prettyTime
+            dropOffTimeDisplay.text = dropOffText
+            podSegmentControl.setTitle(dropOffText, forSegmentAt: 0)
+            
+        case 1:
+            pickUpTime = self.dateSelected.date
+            let pickUpText = dropOffTime.prettyDate + " " + dropOffTime.prettyTime
+            pickUpTimeDisplay.text = pickUpText
+            podSegmentControl.setTitle(pickUpText, forSegmentAt: 1)
         default:
             print(self.dateSelected.date)
         }
@@ -139,28 +151,26 @@ class CreateTripViewController: UIViewController {
         let name = nameTextField.text!
         let location = locationTextField.text!
         
-        switch onPodSegPressed.selectedSegmentIndex {
+        switch podSegmentControl.selectedSegmentIndex {
         case 0:
-            pickUpMsg = "On \(pickUpTime.prettyDay), \(name) needs to be picked up for \(tripDescript(text: descriptionTextField.text!)) from \(location) at \(pickUpTime.prettyTime)"
-            
+            dropOffMsg = "\(dropOffTime.prettyDay) - \(dropOffTime.prettyTime) - Drop off \(name) for  \(tripDescript(text: descriptionTextField.text!)) from \(location)."
         case 1:
-            dropOffMsg = "On \(pickUpTime.prettyDay), \(name) needs to be dropped off at \(location) at \(pickUpTime.prettyTime)"
-            
+            pickUpMsg = "\(pickUpTime.prettyDay) - \(pickUpTime.prettyTime) - Pick up \(name) for \(tripDescript(text: descriptionTextField.text!)) from \(location)."
         default:
             print("msg")
         }
         
         eventDescriptLabel.text = """
-        \(pickUpMsg)
-        
         \(dropOffMsg)
+        
+        \(pickUpMsg)
         """
     }
     
     
     func tripDescript(text: String) -> String {
         if text == "" {
-            return  "Annonymous Event"
+            return  "Unnamed Event"
         }
         return text
     }
@@ -235,15 +245,14 @@ class CreateTripViewController: UIViewController {
             if pickUpTimeDisplay.text != "" {
                 createTripWithKids(desc: desc, time: pickUpTime, loc: savannah)
             }
-            
             if dropOffTimeDisplay.text != "" {
                 createTripWithKids(desc: desc, time: dropOffTime, loc: savannah)
             }
             
+            dismissVC()
         }
-        
-        
     }
+    
 }
 
 

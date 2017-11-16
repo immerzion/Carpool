@@ -19,40 +19,39 @@ class RootViewController: UITableViewController {
     var trips: [Trip] = []
     var tripCalendar: API.TripCalendar?
     
+    //segue variable
+    var datasourceToLoad = 0
+    //0 = My Trips
+    //1 = Friends Trips
+    //2 = Unscheduled Trips
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = 80
         tableView.estimatedRowHeight = 80
         
-        //filteredTrips()
-        
-        calTrips()
+        loadDataSource(datasourceToLoad)
     }
     
     //VC needs title.
-    //Realtime clock would be nice
-    
-    //        trip.pickUp?.driver
-    //        trip.dropOff?.driver
-    //
-    //        trip.event.owner.name
-    //        trip.event.owner.isMe
-    //        trip.event.description
-    //        trip.event.time
-    //        trip.event.endTime
-    //        trip.event.clLocation
-    
     // add feature so that update pickup etc is shown when returning to rootVC
     // make seg control friends/user list isHidden when refreshing
+    
+    
     @IBAction func onRefreshPulled(_ sender: UIRefreshControl) {
         tableView.reloadData()
         tableRefresh.endRefreshing()
     }
     
     @IBAction func onFilterPressed(_ sender: UISegmentedControl) {
+        loadDataSource(sender.selectedSegmentIndex)
+    }
+    
+    func loadDataSource(_ data: Int) {
         API.unobserveAllTrips()
-        switch sender.selectedSegmentIndex {
+        trips.removeAll()
+        switch data {
         case 0:
             calTrips()
         case 1:
@@ -65,40 +64,32 @@ class RootViewController: UITableViewController {
     }
     
     func calTrips() {
-        trips.removeAll()
-        
         API.observeMyTripCalendar(sender: self) { (result) in
             switch result {
             case .success(let trips):
                 self.tripCalendar = trips
                 self.trips = trips.trips
-                //print(trips)
                 self.tableView.reloadData()
             case .failure(let error):
-                print(error)
+                print(#function, error)
             }
         }
     }
     
     func friendsTrips() {
-        trips.removeAll()
-        
         API.observeTheTripCalendarOfMyFriends(sender: self) { (result) in
             switch result {
             case .success(let trips):
                 self.tripCalendar = trips
                 self.trips = trips.trips
-                //print(trips)
                 self.tableView.reloadData()
             case .failure(let error):
-                print(error)
+                print(#function, error)
             }
         }
     }
     
     func filteredTrips() {
-        trips.removeAll()
-        
         API.observeTrips(sender: self, completion: { (result) in
             switch result {
             case .success(let trips):
@@ -111,7 +102,6 @@ class RootViewController: UITableViewController {
                     }
                 }
             case .failure(let error):
-                //TODO
                 print(#function, error)
             }
         })
@@ -127,7 +117,6 @@ class RootViewController: UITableViewController {
         default:
             return 1
         }
-        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -291,7 +280,6 @@ class RootViewController: UITableViewController {
         
         if segue.identifier == "CreateTrip" {
             let createTripVC = segue.destination as! CreateTripViewController
-            print(createTripVC)
             //guard let indexPath = tableView.indexPathForSelectedRow else { return }
             //createTripVC.trip = trips[indexPath.row]
         }
