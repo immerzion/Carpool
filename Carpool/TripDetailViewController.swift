@@ -35,33 +35,27 @@ class TripDetailViewController: UIViewController {
     
     let savannah = CLLocation(latitude: 32.076176, longitude: -81.088371)
     
+    let commentCount: [Trip] = []
 
-    //Add ability to cancel a confirmation, popup window for reason why cancellation is needed.
-    //Send notification to affected parents and update the database.
+    //TODO Add ability to cancel a confirmation, popup window for reason why cancellation is needed.
+    //TODO Send notification to affected parents and update the database.
     
-    //child mode - lets kids know who is picking them up - stretch goal security feature.
-    
-    //        trip.pickUp?.driver
-    //        trip.dropOff?.driver
-    //
-    //        trip.event.owner.name
-    //        trip.event.owner.isMe
-    //        trip.event.description
-    //        trip.event.time
-    //        trip.event.endTime
-    //        trip.event.clLocation
+    //TODO child mode - lets kids know who is picking them up - stretch goal security feature.
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        API.fetchCurrentUser { (result) in
-//            switch result {
-//            case .success(let user):
-//                self.me = user
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
+        API.observe(trip: trip, sender: self) { [unowned self] result in
+            switch result {
+            case .success(let trip):
+                self.commentCountLabel.text = "Comments: " + String(trip.comments.count)
+                // ^^ please save for jess - creating a string into an int String(trip.comments.count)
+                
+            case .failure(let error):
+                print(#function, error)
+            }
+        }
         
         resetButtons()
        
@@ -79,6 +73,7 @@ class TripDetailViewController: UIViewController {
         
         let tripDate = trip.event.time.prettyDate
         let tripTime = trip.event.time.prettyTime
+        
         
         for child in trip.children {
             childNames += child.name + " "
@@ -119,7 +114,7 @@ class TripDetailViewController: UIViewController {
     func resetButtons() {
         resetPickup()
         resetDropoff()
-         hideShowDeleteButton()
+        hideShowDeleteButton()
     }
     
     func resetPickup() {
