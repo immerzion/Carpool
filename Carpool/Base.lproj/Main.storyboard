@@ -55,7 +55,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="H01-Co-NsW">
                                             <rect key="frame" x="16" y="0.0" width="325" height="99.5"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7WM-8Q-J56">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7WM-8Q-J56">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="99.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:59 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9m4-lz-x0x">
@@ -69,9 +69,10 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:59 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLa-Fw-GBd">
-                                                            <rect key="frame" x="0.0" y="0.5" width="80" height="99"/>
+                                                            <rect key="frame" x="0.0" y="5.5" width="80" height="94"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="UKv-xG-3EJ"/>
+                                                                <constraint firstAttribute="height" constant="21" id="dpb-0E-GVd"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -355,9 +356,11 @@
                         <outlet property="pickUpTimeDisplay" destination="s5i-Ug-UZx" id="jyH-w6-MFM"/>
                         <outlet property="podSegmentControl" destination="6XT-jw-Zjv" id="naz-7E-vFi"/>
                         <outlet property="reoccuringSwitch" destination="9HA-7w-dG3" id="7TC-pN-NfC"/>
+                        <segue destination="V65-vw-Fia" kind="unwind" identifier="RootVC" unwindAction="unwindFromCreateTripVCWithSegue:" id="sKz-N8-fzq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehE-L8-6z8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="V65-vw-Fia" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2238" y="505"/>
         </scene>
@@ -656,9 +659,11 @@
                         <outlet property="nameLabel" destination="aaM-bz-9Mw" id="udO-1D-YeI"/>
                         <outlet property="pickUpButton" destination="f4c-ak-Mc8" id="9os-N0-Kne"/>
                         <outlet property="timeLabel" destination="g1i-PT-PgH" id="Tl1-nk-bJo"/>
+                        <segue destination="4XT-PW-VVT" kind="unwind" identifier="DeleteTrip" unwindAction="unwindFromTripDetailVCWithSegue:" id="P3C-kS-EP4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKu-oe-SCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4XT-PW-VVT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2239" y="-238"/>
         </scene>

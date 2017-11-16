@@ -108,6 +108,8 @@ class RootViewController: UITableViewController {
     }
     
     
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         switch eventListSegControl.selectedSegmentIndex {
         case 0, 1:
@@ -283,6 +285,16 @@ class RootViewController: UITableViewController {
             //guard let indexPath = tableView.indexPathForSelectedRow else { return }
             //createTripVC.trip = trips[indexPath.row]
         }
+    }
+    
+    @IBAction func unwindFromCreateTripVC(segue: UIStoryboardSegue) {
+        let createTripVC = segue.source as! CreateTripViewController
+        datasourceToLoad = 0
+    }
+    
+    @IBAction func unwindFromTripDetailVC(segue: UIStoryboardSegue) {
+        let tripDetailVC = segue.source as! TripDetailViewController
+        datasourceToLoad = 0
     }
 }
 

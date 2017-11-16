@@ -85,9 +85,7 @@ class CreateTripViewController: UIViewController {
     }
     
     func dismissVC() {
-        let rootVC = storyboard?.instantiateViewController(withIdentifier: "RootVC") as! RootViewController
-        self.navigationController?.pushViewController(rootVC, animated: true)
-        rootVC.datasourceToLoad = 0
+        performSegue(withIdentifier: "RootVC", sender: nil)
     }
     
     @IBAction func onPickUpDropOffSeg(_ sender: UISegmentedControl) {
@@ -176,6 +174,8 @@ class CreateTripViewController: UIViewController {
                         }
                     }
                 }
+                
+                print(trip.event)
                 
                 
                 //                Add a way to accept 1 leg of the trip during submit
