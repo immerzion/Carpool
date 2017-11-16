@@ -72,9 +72,7 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
             return cell
         default:
             self.displayErrorMessage(title: "No Friends are showing", message: "Please check your cellular connection")
-            // ASK WHAT TO PUT HERE!!!!
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ExistingFriends", for: indexPath)
-            return cell
+            fatalError()
         }
     }
     

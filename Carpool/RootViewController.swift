@@ -174,7 +174,7 @@ class RootViewController: UITableViewController {
             cell.eventTitleLabel.text = trip.event.description
             
             //we may not need this 3rd label.  Although, it could be used for location...
-            cell.descriptionLabel.text = ""
+            cell.commentLabel.text = ""
             
             var childNames = ""
             for child in trip.children {
@@ -193,7 +193,7 @@ class RootViewController: UITableViewController {
             
             cell.eventTitleLabel.text = "No trips scheduled!"
             cell.kidsLabel.text =  "Relax or have some fun!"
-            cell.descriptionLabel.text = ""
+            cell.commentLabel.text = ""
         }
         
         return cell
@@ -294,7 +294,7 @@ class EventCell: UITableViewCell {
     
     @IBOutlet weak var eventTitleLabel: UILabel!
     @IBOutlet weak var kidsLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
     
 }
 

@@ -105,7 +105,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgT-Uf-t83">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Comments" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgT-Uf-t83">
                                                             <rect key="frame" x="0.0" y="36.5" width="229" height="63"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="gJV-YR-YiC"/>
@@ -129,7 +129,7 @@
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="0.0" green="0.67843137249999996" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <outlet property="descriptionLabel" destination="AgT-Uf-t83" id="v1z-o6-EEa"/>
+                                    <outlet property="commentLabel" destination="AgT-Uf-t83" id="v1z-o6-EEa"/>
                                     <outlet property="dropOffTimeLabel" destination="9m4-lz-x0x" id="fKe-Nk-nq7"/>
                                     <outlet property="eventTitleLabel" destination="VZp-ly-pNG" id="MS4-go-CLK"/>
                                     <outlet property="kidsLabel" destination="0Qv-xA-4qx" id="rJo-ev-YiP"/>
@@ -581,8 +581,9 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwZ-NS-9u3">
                                                 <rect key="frame" x="171.5" y="19.5" width="171.5" height="30"/>
-                                                <state key="normal" title="Add Comment"/>
+                                                <state key="normal" title="Comments"/>
                                                 <connections>
+                                                    <action selector="comments:" destination="yec-ZK-3I9" eventType="touchUpInside" id="Qqe-pB-hrm"/>
                                                     <segue destination="6kn-8z-Bmf" kind="show" id="rR0-eL-DUz"/>
                                                 </connections>
                                             </button>
@@ -647,6 +648,7 @@
                     <connections>
                         <outlet property="cancelDropOffButton" destination="3in-pw-JBH" id="C8F-VW-WmR"/>
                         <outlet property="cancelPickUpButton" destination="Bnt-nf-kt8" id="abj-2G-rt4"/>
+                        <outlet property="commentCount" destination="Xfp-Zx-RqD" id="n6c-oN-l9C"/>
                         <outlet property="commentCountLabel" destination="Xfp-Zx-RqD" id="EAu-OL-PPM"/>
                         <outlet property="dateLabel" destination="6n2-kt-OCE" id="eyG-LF-AIH"/>
                         <outlet property="deleteButton" destination="KfA-ME-eaE" id="bmc-Xt-NGK"/>
@@ -665,7 +667,7 @@
         <!--Trip Comments-->
         <scene sceneID="v0Q-Hx-XUk">
             <objects>
-                <tableViewController title="Trip Comments" id="6kn-8z-Bmf" customClass="TripCommentsViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TripCommentsVC" title="Trip Comments" id="6kn-8z-Bmf" customClass="TripCommentsViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jvj-Gu-7DL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
