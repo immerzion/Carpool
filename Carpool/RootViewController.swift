@@ -196,7 +196,7 @@ class RootViewController: UITableViewController {
         if segue.identifier == "TripDetail" {
             let tripDetailVC = segue.destination as! TripDetailViewController
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            tripDetailVC.trip = tripCalendar?.trips[indexPath.row]
+            tripDetailVC.trip = tripCalendar?.dailySchedule(forWeekdayOffsetFromToday: indexPath.section).trips[indexPath.row]
         }
         
         if segue.identifier == "CreateTrip" {
