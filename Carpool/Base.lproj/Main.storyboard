@@ -316,7 +316,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9HA-7w-dG3">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9HA-7w-dG3">
                                                 <rect key="frame" x="294" y="0.0" width="51" height="30"/>
                                                 <color key="onTintColor" red="0.95686274510000002" green="0.54901960780000003" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                                             </switch>
@@ -1420,7 +1420,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="a5a-3w-xP1"/>
-        <segue reference="rl3-TW-Zje"/>
+        <segue reference="LoM-e2-giI"/>
         <segue reference="19J-vt-nUC"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.29686956019999999" green="0.72544288199999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
