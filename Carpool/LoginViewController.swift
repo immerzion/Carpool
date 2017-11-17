@@ -49,6 +49,9 @@ class LoginViewController: UIViewController {
     
     func dismissLoginVC() {
         //need segue code here.  its gone for some reason
+        dismiss(animated: true) {
+            print("You are dismissed.")
+        }
         
     }
     
