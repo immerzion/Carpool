@@ -75,7 +75,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:59 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLa-Fw-GBd">
-                                                            <rect key="frame" x="0.0" y="22.5" width="80" height="38.5"/>
+                                                            <rect key="frame" x="0.0" y="22.5" width="80" height="23.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="UKv-xG-3EJ"/>
                                                             </constraints>
@@ -83,10 +83,10 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zI1-rG-2BG">
-                                                            <rect key="frame" x="0.0" y="79.5" width="80" height="40"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" insetsLayoutMarginsFromSafeArea="NO" image="user_group_man_woman" translatesAutoresizingMaskIntoConstraints="NO" id="zI1-rG-2BG">
+                                                            <rect key="frame" x="0.0" y="64.5" width="80" height="55"/>
+                                                            <color key="tintColor" red="0.29686956019999999" green="0.72544288199999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="40" id="GtS-r1-15u"/>
                                                                 <constraint firstAttribute="width" constant="80" id="Qaf-0s-OjR"/>
                                                             </constraints>
                                                         </imageView>
@@ -179,7 +179,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dB-Lk-w81" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="643" y="109"/>
+            <point key="canvasLocation" x="642.39999999999998" y="108.39580209895054"/>
         </scene>
         <!--New Trip-->
         <scene sceneID="EPd-rs-Gom">
@@ -1068,7 +1068,7 @@
             </objects>
             <point key="canvasLocation" x="-1947" y="109"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--My Profile-->
         <scene sceneID="avY-Yg-0Wg">
             <objects>
                 <tableViewController id="4my-UB-YfA" customClass="SettingsViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
@@ -1246,7 +1246,7 @@
                             <outlet property="delegate" destination="4my-UB-YfA" id="DG1-Tb-3gM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="8jf-sM-Yvc"/>
+                    <navigationItem key="navigationItem" title="My Profile" id="8jf-sM-Yvc"/>
                     <connections>
                         <outlet property="emailLabel" destination="GKu-20-oWr" id="Iga-69-FYT"/>
                         <outlet property="friendsCell" destination="OSn-px-mwD" id="OmN-rz-WRd"/>
@@ -1380,7 +1380,8 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.29803921570000003" green="0.72549019609999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.29803921570000003" green="0.72549019609999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.29686956019999999" green="0.72544288199999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -1402,10 +1403,11 @@
         <image name="people" width="30" height="30"/>
         <image name="search" width="30" height="30"/>
         <image name="steve jobs" width="86" height="86"/>
+        <image name="user_group_man_woman" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8bT-iG-mzd"/>
-        <segue reference="LoM-e2-giI"/>
+        <segue reference="a5a-3w-xP1"/>
+        <segue reference="rl3-TW-Zje"/>
         <segue reference="19J-vt-nUC"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.29686956019999999" green="0.72544288199999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
