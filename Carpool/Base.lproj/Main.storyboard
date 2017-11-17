@@ -423,13 +423,14 @@
                             </mapView>
                             <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFa-Oc-d52">
                                 <rect key="frame" x="113" y="484" width="150" height="30"/>
-                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.95686274510000002" green="0.54901960780000003" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="38m-2M-E1U"/>
                                     <constraint firstAttribute="width" constant="150" id="lZc-lJ-jko"/>
                                 </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Confirm Location">
-                                    <color key="titleColor" red="0.0" green="0.67843137254901964" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -474,31 +475,49 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add New Kid" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lvj-wm-cqY">
-                                    <rect key="frame" x="8" y="8" width="306" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <nil key="textColor"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVt-lq-dZE">
-                                    <rect key="frame" x="333" y="12" width="22" height="22"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <connections>
-                                        <action selector="addKidsButton:" destination="1Jn-TK-z0e" eventType="touchUpInside" id="88Z-n1-XzO"/>
-                                    </connections>
-                                </button>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4QL-d1-zqy">
+                                    <rect key="frame" x="8" y="8" width="359" height="28"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add New Kid" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lvj-wm-cqY">
+                                            <rect key="frame" x="0.0" y="0.0" width="319" height="28"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVt-lq-dZE">
+                                            <rect key="frame" x="329" y="0.0" width="30" height="28"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="qh7-Ex-O4K"/>
+                                            </constraints>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="addKidsButton:" destination="1Jn-TK-z0e" eventType="touchUpInside" id="88Z-n1-XzO"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" red="0.29686956019999999" green="0.72544288199999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="4QL-d1-zqy" firstAttribute="leading" secondItem="psa-iD-t6y" secondAttribute="leadingMargin" id="QJl-LX-7KU"/>
+                                <constraint firstAttribute="bottomMargin" secondItem="4QL-d1-zqy" secondAttribute="bottom" id="Vv4-Ad-ZCP"/>
+                                <constraint firstItem="4QL-d1-zqy" firstAttribute="top" secondItem="psa-iD-t6y" secondAttribute="topMargin" id="dkS-4Q-5lq"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="4QL-d1-zqy" secondAttribute="trailing" id="s6K-w1-7uK"/>
+                            </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="V9n-qd-ySt">
                             <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mss-bd-Xxz">
-                                    <rect key="frame" x="159.5" y="7" width="55" height="30"/>
-                                    <state key="normal" title="Confirm"/>
+                                    <rect key="frame" x="152" y="7" width="70" height="30"/>
+                                    <color key="backgroundColor" red="0.95686274510000002" green="0.54901960780000003" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="70" id="KI6-cr-4pN"/>
+                                    </constraints>
+                                    <state key="normal" title="Confirm">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
                                     <connections>
                                         <segue destination="s5K-Ls-35e" kind="unwind" identifier="KidsTable" unwindAction="unwindFromKidsTableVCWithSeque:" id="Nhf-5I-f2S"/>
                                     </connections>
@@ -1166,10 +1185,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search for Friends" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AwZ-PL-LKG">
+                                <searchBar contentMode="redraw" placeholder="Search for Friends" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AwZ-PL-LKG">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="barTintColor" red="0.29803921570000003" green="0.72549019609999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                                     <connections>
                                         <outlet property="delegate" destination="46W-8j-oBg" id="Cui-KH-eLz"/>

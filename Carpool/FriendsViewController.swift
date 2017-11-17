@@ -13,7 +13,6 @@ import FirebaseCommunity
 
 // use cancel button to hide search results once a friend is selected
 
-
 class FriendsViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var friendsSearchBar: UISearchBar!
@@ -34,10 +33,7 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
                 print(error)
             }
         }
-        
-        //friendsSearchBar.tintColor = UIColor.white
-        //friendsSearchBar.barTintColor = UIColor.white
-        //friendsSearchBar.backgroundColor = UIColor.white
+
     }
     
     

@@ -44,7 +44,7 @@ class DestinationViewController: UIViewController {
         
         let searchBar = resultSearchController!.searchBar
         searchBar.sizeToFit()
-        searchBar.placeholder = "Search for places"
+        searchBar.placeholder = "Search for location"
         navigationItem.titleView = resultSearchController?.searchBar
         
         resultSearchController?.hidesNavigationBarDuringPresentation = false
