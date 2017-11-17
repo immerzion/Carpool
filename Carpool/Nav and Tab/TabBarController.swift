@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseCommunity
+import CarpoolKit
 
 class TabBarController: UITabBarController {
     
@@ -16,9 +17,12 @@ class TabBarController: UITabBarController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if Auth.auth().currentUser == nil {
-            let vc = storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
-            present(vc, animated: animated)
+        
+        super.viewDidLoad()
+        
+        if API.isCurrentUserAnonymous {
+            let loginVC = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
+            self.present(loginVC, animated: animated)
         }
     }
 }

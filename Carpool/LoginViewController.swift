@@ -62,23 +62,25 @@ class LoginViewController: UIViewController {
     func signIn(email: String, password: String) {
         API.signIn(email: email, password: password) { (user) in
             switch user {
-            case .success(_):
+            case .success:
                 self.dismissLoginVC()
-            case .failure(_):
+            case .failure(let error):
                 self.displayErrorMessage(title: "Error Logging In", message: "Please check your internet connection and try again.")
+                print(#function, error)
             }
         }
     }
     
     func signUp(email: String, password: String, fullName: String) {
-        API.signUp(email: email, password: password, fullName: fullName) { (user) in
-            switch user {
-            case .success(_):
+        API.signUp(email: email, password: password, fullName: fullName) { result in
+            switch result {
+            case .success:
                 if self.phoneNumberTextField.text != "" {
                     API.set(phoneNumber: self.phoneNumberTextField.text!)
                 }
                 self.dismissLoginVC()
-            case .failure(_):
+            case .failure(let error):
+                print(#function, error)
                 self.displayErrorMessage(title: "Sign Up Error", message: "Please check your internet connection and try again.")
             }
         }
@@ -105,7 +107,7 @@ class LoginViewController: UIViewController {
             validPassword1 = true
         }
         
-        if confirmPassTextField.text == "" {
+        if confirmPassTextField.text == "", logSignSegment.selectedSegmentIndex == 1 {
             validPassword2 = false
             displayErrorMessage(title: "Carpooler", message: "Confirm password and try again.")
         } else {
