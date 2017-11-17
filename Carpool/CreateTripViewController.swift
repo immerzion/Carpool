@@ -126,7 +126,7 @@ class CreateTripViewController: UIViewController {
         
         switch podSegmentControl.selectedSegmentIndex {
         case 0:
-            dropOffMsg = "\(startTime.prettyDay) - \(startTime.prettyTime) - Drop off \(name) to \(location)."
+            dropOffMsg = "\(startTime.prettyDay) - \(startTime.prettyTime) - Drop off \(name) at \(location)."
         //tripDescript(text: descriptionTextField.text!
         case 1:
             pickUpMsg = "\(endTime.prettyDay) - \(endTime.prettyTime) - Pick up \(name) from \(location)."

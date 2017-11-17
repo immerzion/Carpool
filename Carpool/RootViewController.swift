@@ -163,7 +163,7 @@ class RootViewController: UITableViewController {
                 cell.commentLabel.text = ""
             } else {
                 cell.commentLabel.text = "Comments: \(trip.comments.count)"
-                cell.commentLabel.textColor = red
+                //cell.commentLabel.textColor = red
             }
             
             
