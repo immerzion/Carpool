@@ -16,6 +16,8 @@
 		040374E31FB2034400ECF674 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 040374E21FB2034400ECF674 /* GoogleService-Info.plist */; };
 		0471613E1FBCE3C00051FE34 /* KidsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471613D1FBCE3C00051FE34 /* KidsTableViewController.swift */; };
 		047BC4D61FB2558F008D64BA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BC4D51FB2558F008D64BA /* Extensions.swift */; };
+		048E95B51FBF7753008DFB19 /* SplashVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E95B41FBF7753008DFB19 /* SplashVideoViewController.swift */; };
+		048E95B71FBF7B6F008DFB19 /* splash-video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 048E95B61FBF7B6E008DFB19 /* splash-video.mp4 */; };
 		04D45F9C1FB38D1300D07EA2 /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D45F9B1FB38D1300D07EA2 /* DestinationViewController.swift */; };
 		04D45F9E1FB39C9200D07EA2 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D45F9D1FB39C9200D07EA2 /* LocationSearchTable.swift */; };
 		04D45FA01FB3AFCD00D07EA2 /* Savannah.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 04D45F9F1FB3AFCD00D07EA2 /* Savannah.gpx */; };
@@ -43,6 +45,8 @@
 		040374E21FB2034400ECF674 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0471613D1FBCE3C00051FE34 /* KidsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsTableViewController.swift; sourceTree = "<group>"; };
 		047BC4D51FB2558F008D64BA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		048E95B41FBF7753008DFB19 /* SplashVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVideoViewController.swift; sourceTree = "<group>"; };
+		048E95B61FBF7B6E008DFB19 /* splash-video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "splash-video.mp4"; sourceTree = "<group>"; };
 		04D45F9B1FB38D1300D07EA2 /* DestinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
 		04D45F9D1FB39C9200D07EA2 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		04D45F9F1FB3AFCD00D07EA2 /* Savannah.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Savannah.gpx; sourceTree = "<group>"; };
@@ -93,9 +97,11 @@
 		040374CC1FB0E76300ECF674 /* Carpool */ = {
 			isa = PBXGroup;
 			children = (
+				048E95B61FBF7B6E008DFB19 /* splash-video.mp4 */,
 				D7BDA68D1FBCCAA900494796 /* TripCommentsViewController.swift */,
 				040374D61FB0E76300ECF674 /* LaunchScreen.storyboard */,
 				040374D11FB0E76300ECF674 /* Main.storyboard */,
+				048E95B41FBF7753008DFB19 /* SplashVideoViewController.swift */,
 				D7E13D9D1FBA009A00FC3A97 /* FriendsViewController.swift */,
 				040374CF1FB0E76300ECF674 /* RootViewController.swift */,
 				D730EF4F1FB0F015000DC3CB /* TripDetailViewController.swift */,
@@ -246,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				048E95B71FBF7B6F008DFB19 /* splash-video.mp4 in Resources */,
 				040374D81FB0E76300ECF674 /* LaunchScreen.storyboard in Resources */,
 				040374E31FB2034400ECF674 /* GoogleService-Info.plist in Resources */,
 				040374D51FB0E76300ECF674 /* Assets.xcassets in Resources */,
@@ -333,6 +340,7 @@
 				047BC4D61FB2558F008D64BA /* Extensions.swift in Sources */,
 				040374D01FB0E76300ECF674 /* RootViewController.swift in Sources */,
 				04D45F9E1FB39C9200D07EA2 /* LocationSearchTable.swift in Sources */,
+				048E95B51FBF7753008DFB19 /* SplashVideoViewController.swift in Sources */,
 				04D45F9C1FB38D1300D07EA2 /* DestinationViewController.swift in Sources */,
 				040374E01FB1FAA900ECF674 /* CoreLocationCode.swift in Sources */,
 				040374CE1FB0E76300ECF674 /* AppDelegate.swift in Sources */,
@@ -479,13 +487,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CSCV5MXHRZ;
+				DEVELOPMENT_TEAM = 2UGUG4XHJY;
 				INFOPLIST_FILE = Carpool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.immerzion.Carpool;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.immerzion.Carpooler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -496,13 +503,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CSCV5MXHRZ;
+				DEVELOPMENT_TEAM = 2UGUG4XHJY;
 				INFOPLIST_FILE = Carpool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.immerzion.Carpool;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.immerzion.Carpooler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
