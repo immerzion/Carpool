@@ -19,6 +19,7 @@ class RootViewController: UITableViewController {
     var trips: [Trip] = []
     var tripCalendar: API.TripCalendar?
     
+    
     //segue variable
     var datasourceToLoad = 0
     //0 = My Trips
@@ -30,6 +31,7 @@ class RootViewController: UITableViewController {
         
         tableView.rowHeight = 80
         tableView.estimatedRowHeight = 80
+        self.eventListSegControl.layer.cornerRadius = 5
         
         loadDataSource(datasourceToLoad)
     }
