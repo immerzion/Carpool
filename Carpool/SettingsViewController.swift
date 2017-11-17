@@ -14,16 +14,37 @@ import CarpoolKit
 
 class SettingsViewController: UITableViewController {
     
-    @IBOutlet weak var loginSignOut: UITableViewCell!
+    @IBOutlet weak var kidsCell: UITableViewCell!
+    @IBOutlet weak var myKidsLabel: UILabel!
+    
+    @IBOutlet weak var scheduleCell: UITableViewCell!
+    @IBOutlet weak var myTripsLabel: UILabel!
+    
+    @IBOutlet weak var friendsCell: UITableViewCell!
+    @IBOutlet weak var myFriendsLabel: UILabel!
+    
+    @IBOutlet weak var logOutCell: UITableViewCell!
+    @IBOutlet weak var logOutLabel: UILabel!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var phoneNumberLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    
+    
     
     var name = ""
     var kidsArray: [Child] = []
     
-    let kidsNames = ["Curly", "Larry", "Moe", "Shemp", "Sue"]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadUserData()
+    }
+    
+    func loadUserData() {
         API.fetchCurrentUser { (result) in
             switch result {
                 
@@ -32,60 +53,77 @@ class SettingsViewController: UITableViewController {
                 
                 if user.children.count > 0 {
                     self.kidsArray = user.children
+                    
+                    var kidNames = ""
+                    for kid in self.kidsArray {
+                        kidNames += kid.name + " "
+                    }
+                    
+                    self.myKidsLabel.text = "\(self.kidsArray.count) kids: \(kidNames)"
+                } else {
+                    self.myKidsLabel.text = "My Kids"
                 }
+                
+                self.nameLabel.text = user.name
+                self.phoneNumberLabel.text = user.phoneNumber
+                
             case .failure(let error):
                 print(error)
             }
         }
-        
-        //temporary add kids in code
-        //confirmAddKids()
     }
     
-    func loadAllKids() {
-        for kid in kidsNames {
-            API.addChild(name: kid, completion: { (result) in
-                switch result {
-                    
-                case .success(let kid):
-                    print(kid)
-                case .failure(let error):
-                    print(error)
-                }
-            })
-    }
+    
+    @IBAction func unwindFromLoginVC(segue: UIStoryboardSegue) {
+        let loginVC = segue.source as? LoginViewController
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0, indexPath.row == 0 {
             // put profile information here... photo and username... possibly children too
         }
-        if indexPath.section == 1, indexPath.row == 0 {
+        if indexPath.section == 5, indexPath.row == 0 {
             let vc = storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
             present(vc, animated: true)
         }
     }
-    
-    //no longer needed
-    func confirmAddKids() {
-        
-        let message = "Do you want to add some random kids to your profile?"
-        // create the alert
-        let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        // add action buttons
-        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (alert) in
-            self.loadAllKids()
-        }))
-        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: nil))
-        
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-        
-    }
-    
-    @IBAction func unwindFromLoginVC(segue: UIStoryboardSegue) {
-        let loginVC = segue.source as? LoginViewController
-    }
-    
+
 }
+
+//    //temporary add kids in code
+//    //confirmAddKids()
+//
+//
+//    func loadAllKids() {
+//        let kidsNames = ["Curly", "Larry", "Moe", "Shemp", "Sue"]
+//        for kid in kidsNames {
+//            API.addChild(name: kid, completion: { (result) in
+//                switch result {
+//                case .success(let kid):
+//                    print(kid)
+//                case .failure(let error):
+//                    print(error)
+//                }
+//            })
+//        }
+//    }
+//
+//    //no longer needed
+//    func confirmAddKids() {
+//
+//        let message = "Do you want to add some random kids to your profile?"
+//        // create the alert
+//        let alert = UIAlertController(title: "Carpooler", message: message, preferredStyle: UIAlertControllerStyle.alert)
+//
+//        // add action buttons
+//        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (alert) in
+//            self.loadAllKids()
+//        }))
+//        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: nil))
+//
+//        // show the alert
+//        self.present(alert, animated: true, completion: nil)
+//
+//    }
+
+
