@@ -156,7 +156,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Trips" image="car" selectedImage="car" id="QBv-NK-DNi"/>
-                    <navigationItem key="navigationItem" id="Sol-F9-H0U">
+                    <navigationItem key="navigationItem" title="Current Trips" id="Sol-F9-H0U">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="iUS-iu-LYi">
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -980,6 +980,7 @@
                         <outlet property="fullNameTextField" destination="I1J-7a-lQC" id="YT1-tS-Ojk"/>
                         <outlet property="logSignSegment" destination="pZJ-my-zzB" id="0l7-bL-S1Q"/>
                         <outlet property="passwordTextField" destination="wu0-Fb-tgm" id="Zt3-8K-qtW"/>
+                        <outlet property="phoneNumberTextField" destination="FLJ-23-tH2" id="Bxz-Lq-MY8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZl-X9-Xbw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1257,7 +1258,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="selectedImageTintColor" red="0.29803921568627451" green="0.72549019607843135" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.29686956019999999" green="0.72544288199999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="1" green="0.99969967790000003" blue="0.97881385409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="7mI-Ul-AzI" kind="relationship" relationship="viewControllers" id="UfY-bV-9Lh"/>
