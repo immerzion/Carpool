@@ -166,6 +166,11 @@ class RootViewController: UITableViewController {
                 //cell.commentLabel.textColor = red
             }
             
+            if trip.repeats {
+                cell.reoccuringImage.isHidden = false
+            } else {
+                cell.reoccuringImage.isHidden = true
+            }
             
             var childNames = ""
             for child in trip.children {
@@ -229,6 +234,7 @@ class EventCell: UITableViewCell {
     @IBOutlet weak var kidsLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
     
+    @IBOutlet weak var reoccuringImage: UIImageView!
 }
 
 

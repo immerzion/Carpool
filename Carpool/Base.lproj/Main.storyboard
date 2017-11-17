@@ -147,6 +147,7 @@
                                     <outlet property="eventTitleLabel" destination="VZp-ly-pNG" id="MS4-go-CLK"/>
                                     <outlet property="kidsLabel" destination="0Qv-xA-4qx" id="rJo-ev-YiP"/>
                                     <outlet property="pickUpTimeLabel" destination="fLa-Fw-GBd" id="T3W-yy-8hU"/>
+                                    <outlet property="reoccuringImage" destination="zI1-rG-2BG" id="1lo-7m-G5h"/>
                                     <segue destination="yec-ZK-3I9" kind="show" identifier="TripDetail" id="Dfm-Hc-kKB"/>
                                 </connections>
                             </tableViewCell>
