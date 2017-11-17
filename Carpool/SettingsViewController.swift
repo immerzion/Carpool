@@ -64,7 +64,11 @@ class SettingsViewController: UITableViewController {
                     self.myKidsLabel.text = "My Kids"
                 }
                 
-                self.nameLabel.text = user.name
+                if let name = user.name {
+                self.nameLabel.text = name
+                self.emailLabel.text = name.replacingOccurrences(of: " ", with: "") + "@codebasesav.com"
+                }
+                
                 self.phoneNumberLabel.text = user.phoneNumber
                 
             case .failure(let error):
@@ -82,7 +86,7 @@ class SettingsViewController: UITableViewController {
         if indexPath.section == 0, indexPath.row == 0 {
             // put profile information here... photo and username... possibly children too
         }
-        if indexPath.section == 5, indexPath.row == 0 {
+        if indexPath.section == 4, indexPath.row == 0 {
             let vc = storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
             present(vc, animated: true)
         }

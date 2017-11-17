@@ -20,6 +20,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var fullNameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     
+    //need outloet for loginbutton
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.logSignSegment.layer.cornerRadius = 5
@@ -46,7 +48,7 @@ class LoginViewController: UIViewController {
     }
     
     func dismissLoginVC() {
-        
+        //need segue code here.  its gone for some reason
     }
     
     func initializeLogin() {
@@ -84,7 +86,7 @@ class LoginViewController: UIViewController {
                 }
                 self.dismissLoginVC()
             case .failure(let error):
-                self.displayErrorMessage(title: "Sign Up Error", message: "Please check your internet connection and try again.")
+                self.displayErrorMessage(title: "Sign Up Error", message: "Account does not exist.")
                 print(#function, error)
             }
         }
