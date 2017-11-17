@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wno-uP-Yok">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Kuz-aC-Pla">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1067,7 +1067,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZl-X9-Xbw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Of7-jo-36M" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1947" y="109"/>
+            <point key="canvasLocation" x="-2065" y="1170"/>
         </scene>
         <!--My Profile-->
         <scene sceneID="avY-Yg-0Wg">
@@ -1370,6 +1370,18 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZN-DM-LIK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1113" y="109"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="uyf-ch-W73">
+            <objects>
+                <avPlayerViewController showsPlaybackControls="NO" videoGravity="AVLayerVideoGravityResizeAspectFill" id="Kuz-aC-Pla" customClass="SplashVideoViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="wno-uP-Yok" kind="presentation" identifier="Tab" id="vrn-jT-3ic"/>
+                    </connections>
+                </avPlayerViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jNL-9G-5ea" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2126" y="107"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Lfz-gZ-xUG">
