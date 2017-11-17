@@ -44,6 +44,8 @@ class CreateTripViewController: UIViewController {
         podSegmentControl.setTitle(endMsg, forSegmentAt: 1)
         self.podSegmentControl.layer.cornerRadius = 5
         dateSelected.setValue(UIColor.white, forKey: "textColor")
+        //dateSelected.setValue(yellow, forKey: "highlightColor")
+        dateSelected.tintColor = yellow
     }
     
     

@@ -22,6 +22,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.logSignSegment.layer.cornerRadius = 5
+        initializeLogin()
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
@@ -44,14 +46,16 @@ class LoginViewController: UIViewController {
     }
     
     func initializeLogin() {
-        confirmPassTextField.isHidden = true
-        fullNameTextField.isHidden = true
+        fullNameTextField.alpha = 0
+        phoneNumberTextField.alpha = 0
+        confirmPassTextField.alpha = 0
         self.title = "Login to Carpool"
     }
     
     func initializeSignup() {
-        confirmPassTextField.isHidden = false
-        fullNameTextField.isHidden = false
+        fullNameTextField.alpha = 1
+        phoneNumberTextField.alpha = 1
+        confirmPassTextField.alpha = 1
         self.title = "Create Carpool Account"
     }
     
@@ -70,6 +74,9 @@ class LoginViewController: UIViewController {
         API.signUp(email: email, password: password, fullName: fullName) { (user) in
             switch user {
             case .success(_):
+                if self.phoneNumberTextField.text != "" {
+                    API.set(phoneNumber: self.phoneNumberTextField.text!)
+                }
                 self.dismissLoginVC()
             case .failure(_):
                 self.displayErrorMessage(title: "Sign Up Error", message: "Please check your internet connection and try again.")
