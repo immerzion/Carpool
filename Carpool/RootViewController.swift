@@ -16,7 +16,7 @@ class RootViewController: UITableViewController {
     @IBOutlet weak var tableRefresh: UIRefreshControl!
     @IBOutlet weak var eventListSegControl: UISegmentedControl!
     
-    var trips: [Trip] = []
+    //var trips: [Trip] = []
     var tripCalendar: API.TripCalendar?
     
     
@@ -52,7 +52,7 @@ class RootViewController: UITableViewController {
     
     func loadDataSource(_ data: Int) {
         API.unobserveAllTrips()
-        trips.removeAll()
+        //trips.removeAll()
         switch data {
         case 0:
             calTrips()
@@ -70,7 +70,7 @@ class RootViewController: UITableViewController {
             switch result {
             case .success(let tripCalendar):
                 self.tripCalendar = tripCalendar
-                self.trips = tripCalendar.trips
+                //self.trips = tripCalendar.trips
                 self.tableView.reloadData()
             case .failure(let error):
                 print(#function, error)
@@ -83,7 +83,7 @@ class RootViewController: UITableViewController {
             switch result {
             case .success(let trips):
                 self.tripCalendar = trips
-                self.trips = trips.trips
+                //self.trips = trips.trips
                 self.tableView.reloadData()
             case .failure(let error):
                 print(#function, error)
@@ -145,13 +145,13 @@ class RootViewController: UITableViewController {
             cell.dropOffTimeLabel.text = trip.event.time.prettyTime
             cell.pickUpTimeLabel.text = trip.event.endTime?.prettyTime
             
-            if trips[indexPath.row].dropOff == nil  {
+            if trip.dropOff == nil  {
                 cell.dropOffTimeLabel.textColor = orange
             } else {
                 cell.dropOffTimeLabel.textColor = black
             }
             
-            if trips[indexPath.row].pickUp == nil {
+            if trip.pickUp == nil {
                 cell.pickUpTimeLabel.textColor = orange
             } else {
                 cell.pickUpTimeLabel.textColor = black
@@ -196,7 +196,7 @@ class RootViewController: UITableViewController {
         if segue.identifier == "TripDetail" {
             let tripDetailVC = segue.destination as! TripDetailViewController
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            tripDetailVC.trip = trips[indexPath.row]
+            tripDetailVC.trip = tripCalendar?.trips[indexPath.row]
         }
         
         if segue.identifier == "CreateTrip" {
