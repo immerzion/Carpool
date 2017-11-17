@@ -29,8 +29,8 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 80
-        tableView.estimatedRowHeight = 80
+        tableView.rowHeight = 100
+        tableView.estimatedRowHeight = 120
         self.eventListSegControl.layer.cornerRadius = 5
         
         loadDataSource(datasourceToLoad)
