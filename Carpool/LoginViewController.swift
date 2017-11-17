@@ -45,6 +45,10 @@ class LoginViewController: UIViewController {
         dismissLoginVC()
     }
     
+    func dismissLoginVC() {
+        
+    }
+    
     func initializeLogin() {
         fullNameTextField.alpha = 0
         phoneNumberTextField.alpha = 0
@@ -80,8 +84,8 @@ class LoginViewController: UIViewController {
                 }
                 self.dismissLoginVC()
             case .failure(let error):
-                print(#function, error)
                 self.displayErrorMessage(title: "Sign Up Error", message: "Please check your internet connection and try again.")
+                print(#function, error)
             }
         }
     }
@@ -89,9 +93,17 @@ class LoginViewController: UIViewController {
     func validateTextFields() {
         //activityIndicator.isHidden = false
         
+        var validName = false
         var validEmail = false
         var validPassword1 = false
         var validPassword2 = false
+        
+        if fullNameTextField.text == "", logSignSegment.selectedSegmentIndex == 1 {
+            validName = false
+            displayErrorMessage(title: "Carpooler", message: "Name cannot be blank.")
+        } else {
+            validName = true
+        }
         
         if emailTextField.text == "" {
             validEmail = false
@@ -114,18 +126,12 @@ class LoginViewController: UIViewController {
             validPassword2 = true
         }
         
-        if fullNameTextField.text == "" {
-            validPassword1 = false
-            displayErrorMessage(title: "Carpooler", message: "Name cannot be blank.")
-        } else {
-            validPassword1 = true
-        }
         
         if logSignSegment.selectedSegmentIndex == 0, validEmail, validPassword1 {
             signIn(email: emailTextField.text!, password: passwordTextField.text!)
         }
         
-        if logSignSegment.selectedSegmentIndex == 1, validEmail, validPassword1, validPassword2 {
+        if logSignSegment.selectedSegmentIndex == 1, validName, validEmail, validPassword1, validPassword2 {
             if passwordTextField.text == confirmPassTextField.text {
                 signUp(email: emailTextField.text!, password: passwordTextField.text!, fullName: fullNameTextField.text!)
             }
@@ -148,8 +154,4 @@ class LoginViewController: UIViewController {
         //activityIndicator.isHidden = true
     }
     
-    func dismissLoginVC() {
-        
-    }
-        
 }
