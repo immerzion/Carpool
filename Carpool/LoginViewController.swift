@@ -11,7 +11,7 @@ import FirebaseCommunity
 import CarpoolKit
 
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var logSignSegment: UISegmentedControl!
     @IBOutlet weak var emailTextField: UITextField!
@@ -24,8 +24,22 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         self.logSignSegment.layer.cornerRadius = 5
         initializeLogin()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.3) {
+            self.view.frame = CGRect(x:self.view.frame.origin.x, y:self.view.frame.origin.y - 200, width:self.view.frame.size.width, height:self.view.frame.size.height)
+        }
+        
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.3) {
+            self.view.frame = CGRect(x:self.view.frame.origin.x, y:self.view.frame.origin.y + 200, width:self.view.frame.size.width, height:self.view.frame.size.height)
+        }
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {

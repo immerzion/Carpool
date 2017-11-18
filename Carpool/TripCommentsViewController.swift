@@ -13,7 +13,9 @@ import UIKit
 import CarpoolKit
 import FirebaseCommunity
 
-class TripCommentsViewController: UITableViewController {
+class TripCommentsViewController: UITableViewController, UITextFieldDelegate {
+    
+    @IBOutlet var commentTextField: UITextField!
     
     var trip: Trip!
     
@@ -27,10 +29,23 @@ class TripCommentsViewController: UITableViewController {
                 print(#function, error) //TODO
             }
         }
+        self.hideKeyboardWhenTappedAround()
     }
     
-    @IBOutlet var commentTextField: UITextField!
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        UIView.animate(withDuration: 0.3) {
+//            self.view.frame = CGRect(x:self.view.frame.origin.x, y:self.view.frame.origin.y - 200, width:self.view.frame.size.width, height:self.view.frame.size.height)
+//        }
+//
+//    }
+//
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        UIView.animate(withDuration: 0.3) {
+//            self.view.frame = CGRect(x:self.view.frame.origin.x, y:self.view.frame.origin.y + 200, width:self.view.frame.size.width, height:self.view.frame.size.height)
+//        }
+//    }
     
+   
     @IBAction func onSubmitPressed() {
         API.add(comment: commentTextField.text!, to: trip)
         commentTextField.text = ""

@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,6 +13,7 @@
             <string>Avenir-Black</string>
             <string>Avenir-Book</string>
             <string>Avenir-Heavy</string>
+            <string>Avenir-Roman</string>
         </array>
     </customFonts>
     <scenes>
@@ -31,7 +31,7 @@
                             <subviews>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lbj-X4-AdB">
                                     <rect key="frame" x="8" y="8" width="359" height="29"/>
-                                    <color key="backgroundColor" red="1" green="0.99969967790000003" blue="0.97881385409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <segments>
                                         <segment title="My Trips"/>
                                         <segment title="Friends Trips"/>
@@ -437,7 +437,7 @@
                                     <outlet property="delegate" destination="ABB-D0-L7N" id="gEy-CQ-oEK"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFa-Oc-d52">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFa-Oc-d52">
                                 <rect key="frame" x="113" y="548" width="150" height="30"/>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.54901960780000003" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -576,6 +576,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="confirmButton" destination="mss-bd-Xxz" id="VB1-eO-z41"/>
                         <outlet property="kidsNameTextField" destination="lvj-wm-cqY" id="ow8-Sr-2lA"/>
                     </connections>
                 </tableViewController>
@@ -834,6 +835,9 @@
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="6kn-8z-Bmf" id="QjC-3q-PgA"/>
+                                    </connections>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzD-FS-sQH">
                                     <rect key="frame" x="295" y="7" width="73" height="30"/>
@@ -958,11 +962,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Carpooler JB" translatesAutoresizingMaskIntoConstraints="NO" id="5ox-mO-22f">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iYc-Z7-LGY">
-                                <rect key="frame" x="16" y="160" width="343" height="228"/>
+                                <rect key="frame" x="16" y="132" width="343" height="228"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pZJ-my-zzB">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
@@ -981,35 +982,50 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="continue" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="MnS-Ug-0DJ" id="kyD-Qb-0nK"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FLJ-23-tH2">
                                         <rect key="frame" x="0.0" y="78" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="MnS-Ug-0DJ" id="aw3-ex-dpu"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HKi-5E-gq9">
                                         <rect key="frame" x="0.0" y="118" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="continue" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="MnS-Ug-0DJ" id="zai-dL-h8z"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wu0-Fb-tgm">
                                         <rect key="frame" x="0.0" y="158" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="continue" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="MnS-Ug-0DJ" id="ul3-bR-IUY"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SfB-T6-JsL">
                                         <rect key="frame" x="0.0" y="198" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="continue" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="MnS-Ug-0DJ" id="Dzu-3a-EJ9"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qj5-se-xXz">
-                                <rect key="frame" x="148" y="557" width="80" height="30"/>
+                                <rect key="frame" x="148" y="430" width="80" height="30"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="wQG-fd-kDD"/>
@@ -1028,7 +1044,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kec-Ly-cZO">
-                                <rect key="frame" x="147.5" y="428" width="80" height="30"/>
+                                <rect key="frame" x="148" y="380" width="80" height="30"/>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.54901960780000003" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="AaA-JP-FNd"/>
@@ -1046,20 +1062,24 @@
                                     <action selector="loginButtonTapped:" destination="MnS-Ug-0DJ" eventType="touchUpInside" id="Fhc-NR-ZcQ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carpooler" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="55" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WuT-UD-YAq">
+                                <rect key="frame" x="52" y="30" width="271.5" height="82"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.29803921570000003" green="0.72549019609999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="yxG-Mt-fDM" firstAttribute="top" secondItem="Qj5-se-xXz" secondAttribute="bottom" constant="80" id="3He-OO-8gH"/>
+                            <constraint firstItem="iYc-Z7-LGY" firstAttribute="top" secondItem="WuT-UD-YAq" secondAttribute="bottom" constant="20" id="3B6-NB-GDK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iYc-Z7-LGY" secondAttribute="trailing" id="7LC-AS-AvZ"/>
-                            <constraint firstItem="iYc-Z7-LGY" firstAttribute="top" secondItem="OH8-hu-hNS" secondAttribute="bottom" constant="140" id="83H-YG-Go4"/>
                             <constraint firstItem="Kec-Ly-cZO" firstAttribute="centerX" secondItem="KQF-wU-yex" secondAttribute="centerX" id="Bgm-jr-ee5"/>
-                            <constraint firstItem="5ox-mO-22f" firstAttribute="top" secondItem="KQF-wU-yex" secondAttribute="top" id="EmL-zu-VKc"/>
+                            <constraint firstItem="WuT-UD-YAq" firstAttribute="centerX" secondItem="KQF-wU-yex" secondAttribute="centerX" id="Dqs-qL-slN"/>
                             <constraint firstItem="iYc-Z7-LGY" firstAttribute="leading" secondItem="KQF-wU-yex" secondAttribute="leadingMargin" id="HtS-p5-3vb"/>
                             <constraint firstItem="Qj5-se-xXz" firstAttribute="centerX" secondItem="KQF-wU-yex" secondAttribute="centerX" id="IRI-fU-ZgP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5ox-mO-22f" secondAttribute="trailing" constant="-16" id="VGm-cw-3HA"/>
-                            <constraint firstItem="5ox-mO-22f" firstAttribute="bottom" secondItem="yxG-Mt-fDM" secondAttribute="top" id="b2h-Ak-LL5"/>
-                            <constraint firstItem="Kec-Ly-cZO" firstAttribute="top" secondItem="iYc-Z7-LGY" secondAttribute="bottom" constant="40" id="vmT-tD-Svr"/>
-                            <constraint firstItem="5ox-mO-22f" firstAttribute="leading" secondItem="KQF-wU-yex" secondAttribute="leadingMargin" constant="-16" id="xmY-vR-IsV"/>
+                            <constraint firstItem="WuT-UD-YAq" firstAttribute="top" secondItem="OH8-hu-hNS" secondAttribute="bottom" constant="10" id="aWC-PP-VZG"/>
+                            <constraint firstItem="Qj5-se-xXz" firstAttribute="top" secondItem="Kec-Ly-cZO" secondAttribute="bottom" constant="20" id="mqm-Dr-9nC"/>
+                            <constraint firstItem="Kec-Ly-cZO" firstAttribute="top" secondItem="iYc-Z7-LGY" secondAttribute="bottom" constant="20" id="vmT-tD-Svr"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1074,7 +1094,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZl-X9-Xbw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Of7-jo-36M" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-2065" y="1170"/>
+            <point key="canvasLocation" x="-2066.4000000000001" y="1169.865067466267"/>
         </scene>
         <!--My Profile-->
         <scene sceneID="avY-Yg-0Wg">
@@ -1417,7 +1437,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Carpooler JB" width="621" height="1104"/>
         <image name="car" width="30" height="30"/>
         <image name="happy" width="30" height="30"/>
         <image name="people" width="30" height="30"/>

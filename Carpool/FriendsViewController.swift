@@ -33,14 +33,13 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
                 print(error)
             }
         }
-
+        self.hideKeyboardWhenTappedAround()
     }
     
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
@@ -76,8 +75,6 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
         }
     }
     
-    
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
@@ -94,8 +91,7 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
         
 
     }
-    
-    
+
 //    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 ////
 ////        let user = friends[indexPath.row]

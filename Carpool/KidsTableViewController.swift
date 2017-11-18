@@ -14,13 +14,17 @@ import CarpoolKit
 class KidsTableViewController: UITableViewController {
     
     @IBOutlet weak var kidsNameTextField: UITextField!
+    @IBOutlet weak var confirmButton: UIButton!
     
     var kidsArray: [Child] = []
     var selectedKidsArray: [Child] = []
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getMyKids()
+        self.hideKeyboardWhenTappedAround()
+        confirmButton.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,16 +74,20 @@ class KidsTableViewController: UITableViewController {
                 if kid.name == selectedKid.name {
                     selectedKidsArray.remove(at: index)
                     cell?.accessoryType = .none
+                    
+                    if selectedKidsArray.count == 0 {
+                        confirmButton.isHidden = true
+                    }
+                    
                 }
                 index += 1
             }
         } else {
             selectedKidsArray.append(kidsArray[indexPath.row])
             cell?.accessoryType = .checkmark
+            confirmButton.isHidden = false
         }
     }
-    
-    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

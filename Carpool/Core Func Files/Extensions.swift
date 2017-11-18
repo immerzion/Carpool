@@ -54,6 +54,18 @@ extension Array where Element: Equatable {
     }
 }
 
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
 extension MKMapItem: MKAnnotation {
     public var coordinate: CLLocationCoordinate2D {
         return placemark.coordinate
