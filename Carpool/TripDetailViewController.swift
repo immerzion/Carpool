@@ -26,12 +26,16 @@ class TripDetailViewController: UIViewController {
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var commentCountLabel: UILabel!
     
+    @IBOutlet weak var mapView: MKMapView!
+
     
     var trip: Trip!
     var me: User!
     var podLeg: Leg!
     var childNames = ""
+    
     var location = CLLocation()
+    let locationManager = CLLocationManager()
     
     let savannah = CLLocation(latitude: 32.076176, longitude: -81.088371)
     
@@ -58,7 +62,7 @@ class TripDetailViewController: UIViewController {
         }
         
         resetButtons()
-       
+        
         if trip.pickUp != nil {
             disablePickup()
         } else {
@@ -86,14 +90,45 @@ class TripDetailViewController: UIViewController {
         //locationLabel.text = trip.event.clLocation?.mkName
         
         let geocoder = CLGeocoder()
-
+        
         if let tripLocation = trip.event.clLocation {
             geocoder.reverseGeocodeLocation(tripLocation, completionHandler: onReverseGeocodeCompleted)
         } else {
             locationLabel.text = ""
         }
-
+        
     }
+        
+        override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+
+            
+            if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+                mapView.showsUserLocation = true
+            } else {
+                locationManager.requestWhenInUseAuthorization()
+            }
+        }
+        
+        func search(for query: String) {
+            let searchRequest = MKLocalSearchRequest()
+            searchRequest.naturalLanguageQuery = query
+            
+            let search = MKLocalSearch(request: searchRequest)
+            search.start { (response, error) in
+                if let response = response {
+                    //print(response.mapItems)
+                    
+                    self.mapView.addAnnotations(response.mapItems)
+                    
+                    //                for mapItem in response.mapItems {
+                    //                    print(mapItem.placemark.title, mapItem.placemark.subtitle)
+                    //                    self.mapView.addAnnotation(mapItem.placemark)
+                    //                }
+                }
+            }
+        }
+    
 
     func onReverseGeocodeCompleted(placemarks: [CLPlacemark]?, error: Error?) {
         if let locationName = placemarks?.first?.name {
@@ -258,5 +293,30 @@ class TripDetailViewController: UIViewController {
     }
     
 
+}
+
+
+extension TripDetailViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        //guard let userCoordinate = userLocation.location?.coordinate else { return }
+        //zoom level
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
+        mapView.setRegion(coordinateRegion, animated: true)
+        
+        if let locationName = location.mkName {
+            search(for: locationName)
+        }
+    }
+}
+
+extension TripDetailViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        guard status == .authorizedWhenInUse else { return }
+        mapView.showsUserLocation = true
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
 }
 

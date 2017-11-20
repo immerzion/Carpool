@@ -238,7 +238,11 @@ class CreateTripViewController: UIViewController {
         else {
             
             if podSegmentControl.titleForSegment(at: 0) != startMsg {
+                if clLocation?.coordinate == nil {
                 createTripWithKids(desc: desc, time: startTime, loc: savannah)
+                } else{
+                createTripWithKids(desc: desc, time: startTime, loc: clLocation?.location)
+                }
             }
             
             //this creates a separate event, now we are setting end time for original event
